@@ -1,0 +1,83 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$mat-neon-green: (
+  50: #e7f7e3,
+  100: #c2ebb9,
+  200: #99de8a,
+  300: #70d05b,
+  400: #52c638,
+  500: #33bc15,
+  600: #2eb612,
+  700: #27ad0f,
+  800: #20a50c,
+  900: #149706,
+  A100: #c7ffc3,
+  A200: #97ff90,
+  A400: #67ff5d,
+  A700: #4fff43,
+  contrast: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$mat-neon-grey: (
+  50: #e0e0e0,
+  100: #d0d0d0,
+  200: #b0b0b0,
+  300: #909090,
+  400: #707070,
+  500: #505050,
+  600: #303030,
+  700: #101010,
+  800: #141414,
+  900: #070707,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+)
+);
+
+$theNJK-primary: mat-palette($mat-neon-green, 600, 400, 800);
+$theNJK-accent: mat-palette($mat-neon-grey, 500, 400, 600);
+$theNJK-warn: mat-palette($mat-red);
+
+$theNJK-theme: mat-light-theme((
+  color: (
+    primary: $theNJK-primary,
+    accent: $theNJK-accent,
+    warn: $theNJK-warn,
+  )
+));
+
+@include angular-material-theme($theNJK-theme);
