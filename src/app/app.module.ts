@@ -9,11 +9,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NavBarComponent } from './global-components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { DevelopmentPageComponent } from './pages/development-page/development-page.component';
+import { DesignPageComponent } from './pages/design-page/design-page.component';
+import { PortfolioHeaderComponent } from './page-components/portfolio-header/portfolio-header.component';
+import { DevelopmentEntryComponent } from './page-components/development-entry/development-entry.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'development', component: HomePageComponent },
-  { path: 'design', component: HomePageComponent },
+  { path: 'development', component: DevelopmentPageComponent },
+  { path: 'design', component: DesignPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -21,7 +25,11 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomePageComponent
+    HomePageComponent,
+    DevelopmentPageComponent,
+    DesignPageComponent,
+    PortfolioHeaderComponent,
+    DevelopmentEntryComponent
   ],
   imports: [
     MaterialModule,

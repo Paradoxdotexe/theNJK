@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio-header',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio-header.component.scss']
 })
 export class PortfolioHeaderComponent implements OnInit {
+  @Input() title: string;
+  @Input() caption: string;
 
   constructor() { }
 
