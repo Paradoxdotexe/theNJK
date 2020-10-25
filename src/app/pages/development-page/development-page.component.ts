@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DevelopmentEntries } from '../../development';
 
 @Component({
   selector: 'app-development-page',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./development-page.component.scss']
 })
 export class DevelopmentPageComponent implements OnInit {
+ entries = DevelopmentEntries;
 
   constructor() { }
 
