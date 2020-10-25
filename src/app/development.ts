@@ -1,8 +1,10 @@
 export const DevelopmentEntries = [
   {
+    date: 'COMPLETED 05/2020',
     title: 'B&W Hospital App',
     subtitle: 'Showing how hospitals can better respond to service requests in a simple web app.',
     color: '#2a3cff',
+    contentKey: 'bwha',
     client: 'Brigham & Women\'s Hospital',
     role: 'Lead Software Engineer',
     technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask', 'Material Design Lite', 'MongoDB', 'PushAPI'],

@@ -6,6 +6,7 @@ import { MaterialModule } from './material.module';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CommonModule } from '@angular/common';
 
 import { NavBarComponent } from './global-components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -36,7 +37,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    FlexLayoutModule
+    FlexLayoutModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

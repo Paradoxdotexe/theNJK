@@ -2,5 +2,8 @@
 
 body {
   margin: 0;
-  // background-color: mat-color($mat-neon-grey, 900);
+}
+
+.flex-padding {
+  padding: 0 calc(((100vw - min(1400px, 100vw)) / 2) + 50px);
 }

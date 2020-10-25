@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 interface Entry {
+  date: string;
   title: string;
   subtitle: string;
   color: string;
+  contentKey: string;
   client: string;
   role: string;
   technologies: Array<string>;
@@ -18,10 +20,14 @@ interface Entry {
 })
 export class DevelopmentEntryComponent implements OnInit {
   @Input() entry: Entry;
+  @Input() index: number;
+  even: boolean; // controls background color
+  contentIndex = 1;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.even = this.index % 2 === 0;
   }
 
 }

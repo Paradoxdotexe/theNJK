@@ -4,4 +4,4 @@
   It is a field that requires me to think critically, solve problems logically, and step out-of-the-box to create new, innovative systems.
   Ever since I began learning about it, I have been exploring its many facets and striving to make it my career."
 ></app-portfolio-header>
-<app-development-entry *ngFor="let entry of entries" [entry]="entry"></app-development-entry>
+<app-development-entry *ngFor="let entry of entries; let i = index" [entry]="entry" [index]="i"></app-development-entry>

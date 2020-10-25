@@ -1,0 +1,84 @@
+@import '../../../theme';
+
+#div-entry {
+  width: 100%;
+  min-height: 1000px;
+}
+
+// heading: date, title, subtitle
+
+#div-heading {
+  color: mat-color($mat-neon-grey, 900);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#div-date {
+  text-indent: 3px;
+  font-family: Consolas, sans-serif;
+  font-size: 21px;
+  line-height: 21px;
+  padding-bottom: 5px;
+}
+
+#div-title-subtitle {
+  font-size: 63px;
+  line-height: 73px;
+}
+
+#div-title-subtitle span {
+  font-weight: 700;
+}
+
+#div-title-subtitle.odd {
+  background-color: mat-color($mat-neon-grey, 100);
+}
+
+#div-title-subtitle.even {
+  background-color: mat-color($mat-neon-grey, 50);
+}
+
+// content
+
+#div-content {
+  box-shadow: 0 0 4px mat-color($mat-neon-grey, 400);
+}
+
+#img-content {
+  width: 1100px;
+}
+
+// info: client, role, technologies, platform, work
+
+#div-info {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: mat-color($mat-neon-grey, 900);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.div-info-small {
+  width: 310px;
+}
+
+.div-info-large {
+  width: 620px;
+}
+
+.div-info-title {
+  color: mat-color($mat-neon-grey, 300);
+  font-family: Consolas, sans-serif;
+  padding-bottom: 12px;
+  line-height: 18px;
+}
+
+.div-info-title.spacer {
+  padding-top: 24px;
+}
+
+.div-info-list {
+  border-left: 1px solid mat-color($mat-neon-grey, 200);
+  padding-left: 6px;
+  margin-left: 6px;
+}

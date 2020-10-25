@@ -1,1 +1,29 @@
-<p>development-entry works!</p>
+<div id="div-entry" [ngClass]="{ 'even': even, 'odd': !even }" fxLayout="column">
+  <div id="div-heading" class="flex-padding" fxLayout="column">
+    <div id="div-date">{{ entry.date }}</div>
+    <div id="div-title-subtitle">
+      <span [ngStyle]="{ 'color': entry.color }">{{ entry.title }}</span> &mdash; {{ entry.subtitle }}
+    </div>
+  </div>
+  <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" fxLayoutAlign="center">
+    <img id="img-content" [src]="'assets/content/development/' + entry.contentKey + '/' + contentIndex + '.png'" alt="">
+  </div>
+  <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">
+    <div class="div-info-small">
+      <div class="div-info-title">CLIENT</div>
+      <div>{{ entry.client }}</div>
+      <div class="div-info-title spacer">ROLE</div>
+      <div>{{ entry.role }}</div>
+    </div>
+    <div class="div-info-small">
+      <div class="div-info-title">TECHNOLOGIES</div>
+      <div *ngFor="let tech of entry.technologies" class="div-info-list">{{ tech }}</div>
+    </div>
+    <div class="div-info-large">
+      <div class="div-info-title">PLATFORM</div>
+      <div>{{ entry.platform }}</div>
+      <div class="div-info-title spacer">WORK</div>
+      <div>{{ entry.work }}</div>
+    </div>
+  </div>
+</div>
