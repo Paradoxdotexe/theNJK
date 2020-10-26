@@ -35,6 +35,7 @@ $width-small: 300px; // small mock width
   position: relative;
   width: $width-carousel;
   height: 740px;
+  pointer-events: none;
 }
 
 #div-mobile-carousel img {
@@ -80,6 +81,7 @@ $width: 1060px; // regular mock width
   overflow: hidden;
   width: $width;
   height: 602px;
+  pointer-events: none;
 }
 
 #div-web-carousel img {

@@ -50,8 +50,23 @@ export class DevelopmentCarouselComponent implements OnInit {
     }
   }
 
+  // automatically rotate to a chosen index, called by index indicator circles
   callRotateTo(index: number): void {
-
+    if (this.contentIndex !== index) {
+      let forwardIndex = this.contentIndex;
+      let backwardIndex = this.contentIndex;
+      let rotations = 0;
+      // calculate if it's faster to go forwards or backwards and how many rotations it will take
+      while (forwardIndex !== index && backwardIndex !== index) {
+        forwardIndex = this.increase(forwardIndex);
+        backwardIndex = this.decrease(backwardIndex);
+        rotations++;
+      }
+      // call needed number of rotations appropriately
+      // if (forwardIndex === index) going forward was faster
+      this.rotateQueue = Array(rotations - 1).fill(forwardIndex === index);
+      this.callRotate(forwardIndex === index);
+    }
   }
 
   // rotate carousel forwards and backwards
