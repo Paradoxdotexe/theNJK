@@ -62,10 +62,14 @@ export class DevelopmentCarouselComponent implements OnInit {
         backwardIndex = this.decrease(backwardIndex);
         rotations++;
       }
-      // call needed number of rotations appropriately
-      // if (forwardIndex === index) going forward was faster
-      this.rotateQueue = Array(rotations - 1).fill(forwardIndex === index);
-      this.callRotate(forwardIndex === index);
+      // choose fastest direction or direction that doesn't wrap if they're the same
+      let direction = forwardIndex === index;
+      if (forwardIndex === backwardIndex) {
+        direction = index - this.contentIndex > 0;
+      }
+      // call needed number of rotations
+      this.rotateQueue = Array(rotations - 1).fill(direction);
+      this.callRotate(direction);
     }
   }
 
