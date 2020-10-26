@@ -6,7 +6,11 @@
     </div>
   </div>
   <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" [ngClass]="{ 'even': even, 'odd': !even }" fxLayoutAlign="center">
-    <app-development-carousel [contentKey]="entry.contentKey" [contentCount]="entry.contentCount"></app-development-carousel>
+    <app-development-carousel
+      [contentKey]="entry.contentKey"
+      [contentCount]="entry.contentCount"
+      [contentType]="entry.contentType">
+    </app-development-carousel>
   </div>
   <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">
     <div class="div-info-small">

@@ -7,6 +7,7 @@ interface Entry {
   color: string;
   contentKey: string;
   contentCount: number;
+  contentType: string;
   client: string;
   role: string;
   technologies: Array<string>;

@@ -24,48 +24,83 @@
   width: 30px;
 }
 
-// content carousel
+// content carousel (mobile)
 
 $width-carousel: 1000px; // all mocks width
 $width-large: 350px; // large mock width
 $width-medium: 325px; // medium mock width
 $width-small: 300px; // small mock width
 
-#div-carousel {
+#div-mobile-carousel {
   position: relative;
   width: $width-carousel;
   height: 740px;
 }
 
-img {
+#div-mobile-carousel img {
   position: absolute;
   transition: all 0.5s;
 }
 
-.img-front {
+#div-mobile-carousel .img-front {
   z-index: 10;
   left: calc((#{$width-carousel} - #{$width-large}) / 2);
   width: $width-large;
 }
 
-.img-back {
+#div-mobile-carousel .img-back {
   z-index: 0;
   left: calc((#{$width-carousel} - #{$width-small}) / 2);
   width: $width-small;
   opacity: 0.25;
 }
 
-.img-side {
+#div-mobile-carousel .img-side {
   z-index: 5;
   width: $width-medium;
 }
 
-.img-left {
+#div-mobile-carousel .img-left {
   left: 0;
 }
 
-.img-right {
+#div-mobile-carousel .img-right {
   left: calc(#{$width-carousel} - #{$width-medium});
+}
+
+// content carousel (web)
+
+$width: 1060px; // regular mock width
+
+#div-web-carousel {
+  border-radius: 8px;
+  box-shadow: 0 0 10px #404040;
+  margin: 50px 20px;
+  position: relative;
+  overflow: hidden;
+  width: $width;
+  height: 602px;
+}
+
+#div-web-carousel img {
+  width: $width;
+  position: absolute;
+  transition: all 0.5s;
+}
+
+#div-web-carousel .img-front {
+  z-index: 10;
+  left: 0;
+}
+
+#div-web-carousel .img-left {
+  z-index: 0;
+  left: -$width;
+}
+
+#div-web-carousel .img-right {
+  z-index: 0;
+  left: $width;
 }
 
 // index indicator circles
@@ -76,6 +111,7 @@ img {
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.45);
   margin: -25px 3px 25px 3px;
+  cursor: pointer;
 }
 
 .div-circle.active {

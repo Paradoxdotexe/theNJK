@@ -7,24 +7,29 @@ import { Component, Input, OnInit, ViewChildren } from '@angular/core';
 })
 export class DevelopmentCarouselComponent implements OnInit {
   @ViewChildren('img') images;
-  @Input() contentKey: string;
-  @Input() contentCount: number;
+  @Input() contentKey: string; // used to get image paths
+  @Input() contentCount: number; // number of images
+  @Input() contentType: string; // 'mobile' or 'web'
 
+  // stay the same between content types
   contentPath: string; // path to entry content based on contentKey
-  contentLeft: number; // next image index going backwards
-  contentRight = 3; // next image index going forwards
-  contentIndex = 1; // front image index
+  contentIndex = 1; // primary image index
   contentIndices; // [1, 2, 3, ...contentCount], used to generate index circle indicators
-
   rotating = false; // if carousel is actively rotating as determined by callRotate
   rotateQueue = []; // queue of quickly made calls to rotate carousel
+
+  // change between content types
+  contentLeft: number; // next image index going backwards
+  contentRight: number; // next image index going forwards
 
   constructor() { }
 
   ngOnInit(): void {
     this.contentPath = 'assets/content/development/' + this.contentKey + '/';
-    this.contentLeft = this.contentCount - 1;
     this.contentIndices = Array(this.contentCount).fill(0).map((x, i) => i + 1);
+
+    this.contentLeft = this.contentType === 'mobile' ? this.contentCount - 1 : this.contentCount;
+    this.contentRight = this.contentType === 'mobile' ? 3 : 2;
   }
 
   // regulate speed of carousel rotation using a delayed queue
@@ -45,24 +50,44 @@ export class DevelopmentCarouselComponent implements OnInit {
     }
   }
 
+  callRotateTo(index: number): void {
+
+  }
+
   // rotate carousel forwards and backwards
   rotate(forwards: boolean): void {
     // rotate image classes
     for (const image of this.images) {
       const classList = image.nativeElement.classList;
-      if (classList.contains('img-left')) {
-        classList.replace('img-left', forwards ? 'img-back' : 'img-front');
-        classList.remove('img-side');
-      } else if (classList.contains('img-front')) {
-        classList.replace('img-front', forwards ? 'img-left' : 'img-right');
-        classList.add('img-side');
-      } else if (classList.contains('img-right')) {
-        classList.replace('img-right', forwards ? 'img-front' : 'img-back');
-        classList.remove('img-side');
-      } else { // img-back
-        classList.replace('img-back', forwards ? 'img-right' : 'img-left');
-        classList.add('img-side');
-        image.nativeElement.src = this.contentPath + (forwards ? this.contentRight : this.contentLeft) + '.png';
+      if (this.contentType === 'mobile') {
+        if (classList.contains('img-left')) {
+          classList.replace('img-left', forwards ? 'img-back' : 'img-front');
+          classList.remove('img-side');
+        } else if (classList.contains('img-front')) {
+          classList.replace('img-front', forwards ? 'img-left' : 'img-right');
+          classList.add('img-side');
+        } else if (classList.contains('img-right')) {
+          classList.replace('img-right', forwards ? 'img-front' : 'img-back');
+          classList.remove('img-side');
+        } else { // img-back
+          image.nativeElement.src = this.contentPath + (forwards ? this.contentRight : this.contentLeft) + '.png';
+          classList.replace('img-back', forwards ? 'img-right' : 'img-left');
+          classList.add('img-side');
+        }
+      } else { // web content type
+        if (classList.contains('img-left')) {
+          if (!forwards) {
+            image.nativeElement.src = this.contentPath + this.contentLeft + '.png';
+          }
+          classList.replace('img-left', forwards ? 'img-right' : 'img-front');
+        } else if (classList.contains('img-front')) {
+          classList.replace('img-front', forwards ? 'img-left' : 'img-right');
+        } else { // img-right
+          if (forwards) {
+            image.nativeElement.src = this.contentPath + this.contentRight + '.png';
+          }
+          classList.replace('img-right', forwards ? 'img-front' : 'img-left');
+        }
       }
     }
     // update content indices
