@@ -6,6 +6,7 @@ interface Entry {
   subtitle: string;
   color: string;
   contentKey: string;
+  contentCount: number;
   client: string;
   role: string;
   technologies: Array<string>;
@@ -22,7 +23,6 @@ export class DevelopmentEntryComponent implements OnInit {
   @Input() entry: Entry;
   @Input() index: number;
   even: boolean; // controls background color
-  contentIndex = 1;
 
   constructor() { }
 

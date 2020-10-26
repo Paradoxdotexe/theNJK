@@ -1,12 +1,11 @@
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
-
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CommonModule } from '@angular/common';
 
 import { NavBarComponent } from './global-components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -14,6 +13,7 @@ import { DevelopmentPageComponent } from './pages/development-page/development-p
 import { DesignPageComponent } from './pages/design-page/design-page.component';
 import { PortfolioHeaderComponent } from './page-components/portfolio-header/portfolio-header.component';
 import { DevelopmentEntryComponent } from './page-components/development-entry/development-entry.component';
+import { DevelopmentCarouselComponent } from './page-components/development-carousel/development-carousel.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -30,7 +30,8 @@ const routes: Routes = [
     DevelopmentPageComponent,
     DesignPageComponent,
     PortfolioHeaderComponent,
-    DevelopmentEntryComponent
+    DevelopmentEntryComponent,
+    DevelopmentCarouselComponent
   ],
   imports: [
     MaterialModule,

@@ -6,7 +6,7 @@
     </div>
   </div>
   <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" fxLayoutAlign="center">
-    <img id="img-content" [src]="'assets/content/development/' + entry.contentKey + '/' + contentIndex + '.png'" alt="">
+    <app-development-carousel [contentKey]="entry.contentKey" [contentCount]="entry.contentCount"></app-development-carousel>
   </div>
   <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">
     <div class="div-info-small">

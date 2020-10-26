@@ -1,0 +1,13 @@
+<div fxLayoutAlign="center center">
+  <button class="button-rotate" mat-flat-button (click)="callRotate(false)"><mat-icon>keyboard_arrow_left</mat-icon></button>
+  <div id="div-carousel">
+    <img #img class="img-left img-side" [src]="contentPath + contentCount + '.png'" alt="">
+    <img #img class="img-front" [src]="contentPath + '1.png'" alt="">
+    <img #img class="img-right img-side" [src]="contentPath + '2.png'" alt="">
+    <img #img class="img-back" src="" alt="">
+  </div>
+  <button class="button-rotate" mat-flat-button (click)="callRotate(true)"><mat-icon>keyboard_arrow_right</mat-icon></button>
+</div>
+<div fxLayoutAlign="center">
+  <div *ngFor="let i of contentIndices" class="div-circle" [ngClass]="{ 'active': contentIndex === i }"></div>
+</div>
