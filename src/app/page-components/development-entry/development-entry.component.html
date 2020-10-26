@@ -5,7 +5,7 @@
       <span [ngStyle]="{ 'color': entry.color }">{{ entry.title }}</span> &mdash; {{ entry.subtitle }}
     </div>
   </div>
-  <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" fxLayoutAlign="center">
+  <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" [ngClass]="{ 'even': even, 'odd': !even }" fxLayoutAlign="center">
     <app-development-carousel [contentKey]="entry.contentKey" [contentCount]="entry.contentCount"></app-development-carousel>
   </div>
   <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">

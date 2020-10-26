@@ -5,6 +5,14 @@
   min-height: 1000px;
 }
 
+#div-entry.even {
+  background-color: mat-color($mat-neon-grey, 50);
+}
+
+#div-entry.odd {
+  background-color: mat-color($mat-neon-grey, 100);
+}
+
 // heading: date, title, subtitle
 
 #div-heading {
@@ -30,18 +38,14 @@
   font-weight: 700;
 }
 
-#div-title-subtitle.odd {
-  background-color: mat-color($mat-neon-grey, 100);
-}
-
-#div-title-subtitle.even {
-  background-color: mat-color($mat-neon-grey, 50);
-}
-
 // content
 
-#div-content {
-  box-shadow: 0 0 4px mat-color($mat-neon-grey, 400);
+#div-content.even {
+  box-shadow: 0 1px 10px 2px #e0e0e0;
+}
+
+#div-content.odd {
+  box-shadow: 0 1px 10px 2px #b0b0b0;
 }
 
 // info: client, role, technologies, platform, work

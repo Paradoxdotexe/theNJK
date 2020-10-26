@@ -1,19 +1,21 @@
 @import '../../../theme';
 
+// rotation buttons
+
 .button-rotate {
   min-width: 0;
   min-height: 0;
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.45);
   padding: 0;
-  color: mat-color($mat-neon-grey, 100);
-  margin: 0 10px;
+  color: mat-color($mat-neon-grey, 50);
+  margin: 0 15px;
 }
 
 .button-rotate:hover {
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .button-rotate .mat-icon {
@@ -22,10 +24,17 @@
   width: 30px;
 }
 
+// content carousel
+
+$width-carousel: 1000px; // all mocks width
+$width-large: 350px; // large mock width
+$width-medium: 325px; // medium mock width
+$width-small: 300px; // small mock width
+
 #div-carousel {
   position: relative;
-  width: 1100px;
-  height: 750px;
+  width: $width-carousel;
+  height: 740px;
 }
 
 img {
@@ -35,20 +44,20 @@ img {
 
 .img-front {
   z-index: 10;
-  left: calc((1100px - 375px) / 2);
-  width: 375px;
+  left: calc((#{$width-carousel} - #{$width-large}) / 2);
+  width: $width-large;
 }
 
 .img-back {
   z-index: 0;
-  left: calc((1100px - 325px) / 2);
-  width: 325px;
+  left: calc((#{$width-carousel} - #{$width-small}) / 2);
+  width: $width-small;
   opacity: 0.25;
 }
 
 .img-side {
   z-index: 5;
-  width: 350px;
+  width: $width-medium;
 }
 
 .img-left {
@@ -56,17 +65,19 @@ img {
 }
 
 .img-right {
-  left: calc(1100px - 350px);
+  left: calc(#{$width-carousel} - #{$width-medium});
 }
+
+// index indicator circles
 
 .div-circle {
   width: 12px;
   height: 12px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.45);
-  margin: -10px 3px 25px 3px;
+  margin: -25px 3px 25px 3px;
 }
 
 .div-circle.active {
-  background-color: mat-color($mat-neon-grey, 100);
+  background-color: mat-color($mat-neon-grey, 50);
 }

@@ -1,5 +1,18 @@
 export const DevelopmentEntries = [
   {
+    date: 'ONGOING 04/2020',
+    title: 'Beecology Web App',
+    subtitle: 'Enabling citizen scientists to help study bumblebee populations.',
+    color: '#ffc107',
+    contentKey: 'bwa',
+    contentCount: 3,
+    client: 'Beecology Project',
+    role: 'Angular Web Developer',
+    technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'Material Design', 'GitLab', 'PouchDB'],
+    platform: 'The Beecology Web App gives everyday people the ability to record bumblebee sightings, save them to their device, and upload them to our database. This process helps Beecology study trends in bumblebee populations to better understand how we can help protect them.',
+    work: 'Joining the Beecology team, my first task was to improve and build upon the existing web app platform. I extensively overhauled the existing design to refine user experience, enhance given functionality, and offer more dynamic features.'
+  },
+  {
     date: 'COMPLETED 05/2020',
     title: 'B&W Hospital App',
     subtitle: 'Showing how hospitals can better respond to service requests in a simple web app.',
