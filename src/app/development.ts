@@ -40,5 +40,19 @@ export const DevelopmentEntries = [
     technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask', 'MongoDB', 'PUBG API'],
     platform: 'The website PUBG Power produces a live leaderboard of player stats ranked by their “power score.” This score is calculated by my own algorithm and serves to be a more accurate representation of player skill than the game provides itself. The website also allows users to search for players by their in-game name to view more in-depth statistics.',
     work: 'I developed PUBG Power as a personal side project to flesh out my web development skills. I used Python Flask to easily host the website and interact with both the PUBG API (to fetch player statistics) and a remote MongoDB database (to store peristent player and leaderboard data). For the front-end, I used basic HTML, CSS, and Javascript.'
+  },
+  {
+    date: 'COMPLETED 05/2020',
+    title: 'B&W Hospital Food App and API',
+    subtitle: 'Showing how hospital kiosks can better facilitate hospital food orders.',
+    color: '#303030',
+    contentKey: 'bwhfaa',
+    contentCount: 4,
+    contentType: 'web',
+    client: 'Brigham and Women\'s Hospital',
+    role: 'Lead Software Engineer',
+    technologies: ['Java', 'FXML', 'CSS', 'JavaFX', 'JFoenix', 'Material Design', 'Gradle', 'GitHub', 'Apache Derby'],
+    platform: 'This prototype app was built to allow hospital kiosks to carry out on-site food requests and be easily implemented in any JavaFX application via an API. Using Brigham and Women’s Faulkner Hospital as a model, the app allows for orders to the on-site cafeteria and Starbucks. There is also built-in functionality for employees to assign, deny, and complete orders.',
+    work: 'As Lead Software Engineer of a 9-person Scrum team, I lead the design and development of this app and API for a prototype, Java application. During a single week-long sprint, I built the app in Java using JavaFX and connected a local Apache Derby database. I also created an API such that any other JavaFX app could easily integrate it.'
   }
 ];
