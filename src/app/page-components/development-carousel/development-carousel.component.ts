@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChildren } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewChildren, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-development-carousel',
@@ -7,6 +7,7 @@ import { Component, Input, OnInit, ViewChildren } from '@angular/core';
 })
 export class DevelopmentCarouselComponent implements OnInit {
   @ViewChildren('img') images;
+  @ViewChild('imgFront') imageFront;
   @Input() contentKey: string; // used to get image paths
   @Input() contentCount: number; // number of images
   @Input() contentType: string; // 'mobile' or 'web'
@@ -21,6 +22,15 @@ export class DevelopmentCarouselComponent implements OnInit {
   // change between content types
   contentLeft: number; // next image index going backwards
   contentRight: number; // next image index going forwards
+
+  draggable = false; // if web mock is mouse draggable
+  dragging = false; // if web mock is being dragged
+  dragY; // initial Y-position of mouse for drag event
+  dragImage; // image element being dragged
+  dragImageTop; // initial top position of image for drag event
+  time;
+  mouseY;
+  mouseVelocity;
 
   constructor() { }
 
@@ -76,9 +86,9 @@ export class DevelopmentCarouselComponent implements OnInit {
   // rotate carousel forwards and backwards
   rotate(forwards: boolean): void {
     // rotate image classes
-    for (const image of this.images) {
-      const classList = image.nativeElement.classList;
-      if (this.contentType === 'mobile') {
+    if (this.contentType === 'mobile') {
+      for (const image of this.images) {
+        const classList = image.nativeElement.classList;
         if (classList.contains('img-left')) {
           classList.replace('img-left', forwards ? 'img-back' : 'img-front');
           classList.remove('img-side');
@@ -93,10 +103,16 @@ export class DevelopmentCarouselComponent implements OnInit {
           classList.replace('img-back', forwards ? 'img-right' : 'img-left');
           classList.add('img-side');
         }
-      } else { // web content type
+      }
+    } else { // web content type
+      for (const image of this.images) {
+        image.nativeElement.style.top = '0';
+        const classList = image.nativeElement.classList;
         if (classList.contains('img-left')) {
           if (!forwards) {
             image.nativeElement.src = this.contentPath + this.contentLeft + '.png';
+            this.draggable = image.nativeElement.height > 602;
+            this.dragImage = this.draggable ? image.nativeElement : null;
           }
           classList.replace('img-left', forwards ? 'img-right' : 'img-front');
         } else if (classList.contains('img-front')) {
@@ -104,6 +120,8 @@ export class DevelopmentCarouselComponent implements OnInit {
         } else { // img-right
           if (forwards) {
             image.nativeElement.src = this.contentPath + this.contentRight + '.png';
+            this.draggable = image.nativeElement.height > 700;
+            this.dragImage = this.draggable ? image.nativeElement : null;
           }
           classList.replace('img-right', forwards ? 'img-front' : 'img-left');
         }
@@ -128,6 +146,60 @@ export class DevelopmentCarouselComponent implements OnInit {
   // asynchronous time delay
   async delay(ms: number): Promise<null> {
     return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  @HostListener('mousedown', ['$event'])
+  onMouseDown(event: MouseEvent): boolean {
+    if (this.draggable && (event.target as HTMLElement).id === 'div-web-carousel') {
+      this.dragging = true;
+      this.dragY = event.clientY;
+      this.dragImageTop = this.dragImage.style.top;
+      return false;
+    }
+    return true;
+  }
+
+  @HostListener('document:mouseup', ['$event'])
+  onMouseUp(): void {
+    if (this.dragging) {
+      this.dragging = false;
+      console.log(this.mouseVelocity);
+      if (Math.abs(this.mouseVelocity) > 0) {
+        const clampMin = -(this.dragImage.height - 602);
+        this.dragImage.style.top = this.clamp(clampMin, 0,  this.parseCSS(this.dragImage.style.top) + (this.mouseVelocity / 8)) + 'px';
+      }
+    }
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    if (this.dragging) {
+      const now = Date.now();
+      const currentY = event.clientY;
+      if (this.time) {
+        const dt = now - this.time;
+        const distance = currentY - this.mouseY;
+        this.mouseVelocity = Math.round(distance / dt * 1000);
+      }
+      const offset = event.clientY - this.dragY;
+      const clampMin = -(this.dragImage.height - 602);
+      this.dragImage.style.top = this.clamp(clampMin, 0, this.parseCSS(this.dragImageTop) + offset) + 'px';
+
+      this.mouseY = currentY;
+      this.time = now;
+    }
+  }
+
+  clamp(min, max, value): number {
+    return value < min ? min : value > max ? max : value;
+  }
+
+  parseCSS(s: string): number {
+    let sliced = '0';
+    if (s.length > 2) {
+      sliced = s.slice(0, -2);
+    }
+    return parseInt(sliced, 10);
   }
 
 }

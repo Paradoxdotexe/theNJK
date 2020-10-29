@@ -35,7 +35,6 @@ $width-small: 300px; // small mock width
   position: relative;
   width: $width-carousel;
   height: 740px;
-  pointer-events: none;
 }
 
 #div-mobile-carousel img {
@@ -81,13 +80,26 @@ $width: 1060px; // regular mock width
   overflow: hidden;
   width: $width;
   height: 602px;
-  pointer-events: none;
+}
+
+#div-web-carousel.draggable {
+  cursor: grab;
+}
+
+#div-web-carousel.draggable:active {
+  cursor: grabbing;
 }
 
 #div-web-carousel img {
   width: $width;
   position: absolute;
-  transition: all 0.5s;
+  top: 0;
+  transition: all 0.5s, top 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+
+#div-web-carousel.draggable:active img {
+  transition: all 0.5s, top 0s !important;
 }
 
 #div-web-carousel .img-front {

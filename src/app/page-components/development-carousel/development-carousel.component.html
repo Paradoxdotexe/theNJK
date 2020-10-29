@@ -6,7 +6,7 @@
     <img #img class="img-right img-side" [src]="contentPath + '2.png'" alt="">
     <img #img class="img-back" src="" alt="">
   </div>
-  <div *ngIf="contentType === 'web'" id="div-web-carousel" fxLayout="column" fxLayoutAlign="center">
+  <div *ngIf="contentType === 'web'" id="div-web-carousel" fxLayout="column" fxLayoutAlign="center"  [ngClass]="{ 'draggable': draggable }">
     <img #img class="img-left" [src]="contentPath + contentCount + '.png'" alt="">
     <img #img class="img-front" [src]="contentPath + '1.png'" alt="">
     <img #img class="img-right" [src]="contentPath + '2.png'" alt="">

@@ -54,5 +54,19 @@ export const DevelopmentEntries = [
     technologies: ['Java', 'FXML', 'CSS', 'JavaFX', 'JFoenix', 'Material Design', 'Gradle', 'GitHub', 'Apache Derby'],
     platform: 'This prototype app was built to allow hospital kiosks to carry out on-site food requests and be easily implemented in any JavaFX application via an API. Using Brigham and Women’s Faulkner Hospital as a model, the app allows for orders to the on-site cafeteria and Starbucks. There is also built-in functionality for employees to assign, deny, and complete orders.',
     work: 'As Lead Software Engineer of a 9-person Scrum team, I lead the design and development of this app and API for a prototype, Java application. During a single week-long sprint, I built the app in Java using JavaFX and connected a local Apache Derby database. I also created an API such that any other JavaFX app could easily integrate it.'
+  },
+  {
+    date: 'ONGOING 10/2020',
+    title: 'Beecology Data Analysis',
+    subtitle: 'Giving people access to Beecology data and the tools to analyze it.',
+    color: '#ffc107',
+    contentKey: 'bda',
+    contentCount: 5,
+    contentType: 'web',
+    client: 'Beecology Project',
+    role: 'Angular Web Developer',
+    technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'Material Design', 'GitLab', 'PouchDB', 'Photoshop'],
+    platform: 'Beecology’s Data Analysis platform provides access to the Beecology database of recorded bumblebee sightings for anyone interested in our research. It also provides a variety of tools for filtering, visualizing, and analyzing the data.directly on the site.',
+    work: 'As part of the Beecology team, I spent time improving the existing UI of the data filtering page and developing the structure of the analysis tools page. This included creating a modular array of tool cards, a data set selection panel, and the first analysis tool.'
   }
 ];
