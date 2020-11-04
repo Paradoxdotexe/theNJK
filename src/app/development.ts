@@ -36,7 +36,7 @@ export const DevelopmentEntries = [
     contentCount: 3,
     contentType: 'web',
     client: 'Myself',
-    role: 'Web Developer',
+    role: ['Web Developer', 'Web Designer'],
     technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask', 'MongoDB', 'PUBG API'],
     platform: 'The website PUBG Power produces a live leaderboard of player stats ranked by their “power score.” This score is calculated by my own algorithm and serves to be a more accurate representation of player skill than the game provides itself. The website also allows users to search for players by their in-game name to view more in-depth statistics.',
     work: 'I developed PUBG Power as a personal side project to flesh out my web development skills. I used Python Flask to easily host the website and interact with both the PUBG API (to fetch player statistics) and a remote MongoDB database (to store peristent player and leaderboard data). For the front-end, I used basic HTML, CSS, and Javascript.'
@@ -64,9 +64,24 @@ export const DevelopmentEntries = [
     contentCount: 5,
     contentType: 'web',
     client: 'Beecology Project',
-    role: 'Angular Web Developer',
+    role: ['Angular Web Developer', 'Web Designer'],
     technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'Material Design', 'GitLab', 'PouchDB', 'Photoshop'],
-    platform: 'Beecology’s Data Analysis platform provides access to the Beecology database of recorded bumblebee sightings for anyone interested in our research. It also provides a variety of tools for filtering, visualizing, and analyzing the data.directly on the site.',
+    platform: 'Beecology’s Data Analysis platform provides access to the Beecology database of recorded bumblebee sightings for anyone interested in our research. It also provides a variety of tools for filtering, visualizing, and analyzing the data directly on the site.',
     work: 'As part of the Beecology team, I spent time improving the existing UI of the data filtering page and developing the structure of the analysis tools page. This included creating a modular array of tool cards, a data set selection panel, and the first analysis tool.'
+  },
+  {
+    date: 'ONGOING 09/2020',
+    title: 'Bio-CS Bridge Curriculum',
+    subtitle: 'Bridging biology and computer science in education through digital ecology.',
+    color: '#00918f',
+    gradient: ['#10af59', '#1a7bbe'],
+    contentKey: 'bsbc',
+    contentCount: 3,
+    contentType: 'web',
+    client: 'Bio-CS Bridge Project',
+    role: ['Angular Web Developer', 'Web Designer'],
+    technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'Material Design', 'GitLab', 'Photoshop'],
+    platform: 'The Bio-CS Bridge curriculum uses the study of ecological systems to teach both biology and computer science in a collection of interdisciplinary lesson plans. The Bio-CS Bridge Project provides a way for high school teachers to easily search through these lesson plans and view/download their materials.',
+    work: 'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this platform. I used Photoshop to mock up my designs and continuously applied feedback that I received. After we reached a design everyone was happy with, I developed the platform framework in Angular.'
   }
 ];

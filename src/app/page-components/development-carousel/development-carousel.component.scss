@@ -3,6 +3,7 @@
 // rotation buttons
 
 .button-rotate {
+  z-index: 15;
   min-width: 0;
   min-height: 0;
   width: 50px;
@@ -31,41 +32,56 @@ $width-large: 350px; // large mock width
 $width-medium: 325px; // medium mock width
 $width-small: 300px; // small mock width
 
-#div-mobile-carousel {
+.div-mobile-carousel {
   position: relative;
   width: $width-carousel;
   height: 740px;
+  overflow: hidden;
 }
 
-#div-mobile-carousel img {
+.div-mobile-carousel img {
   position: absolute;
   transition: all 0.5s;
 }
 
-#div-mobile-carousel .img-front {
+.div-mobile-carousel .img-front {
   z-index: 10;
   left: calc((#{$width-carousel} - #{$width-large}) / 2);
   width: $width-large;
 }
 
-#div-mobile-carousel .img-back {
+.div-mobile-carousel .img-back {
   z-index: 0;
   left: calc((#{$width-carousel} - #{$width-small}) / 2);
   width: $width-small;
   opacity: 0.25;
 }
 
-#div-mobile-carousel .img-side {
+.div-mobile-carousel .img-side {
   z-index: 5;
   width: $width-medium;
 }
 
-#div-mobile-carousel .img-left {
+.div-mobile-carousel .img-left {
   left: 0;
 }
 
-#div-mobile-carousel .img-right {
+.div-mobile-carousel .img-right {
   left: calc(#{$width-carousel} - #{$width-medium});
+}
+
+.div-mobile-carousel .img-far {
+  z-index: 0;
+  width: $width-small;
+  opacity: 0;
+}
+
+.div-mobile-carousel .img-far-left {
+  left: -$width-small
+}
+
+.div-mobile-carousel .img-far-right {
+  left: $width-carousel;
 }
 
 // content carousel (web)
@@ -120,6 +136,7 @@ $width: 1060px; // regular mock width
 // index indicator circles
 
 .div-circle {
+  z-index: 15;
   width: 12px;
   height: 12px;
   border-radius: 12px;

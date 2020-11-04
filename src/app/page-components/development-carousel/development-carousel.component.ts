@@ -104,6 +104,29 @@ export class DevelopmentCarouselComponent implements OnInit {
           classList.add('img-side');
         }
       }
+    } else if (this.contentType === 'mobile2') {
+      for (const image of this.images) {
+        const classList = image.nativeElement.classList;
+        if (classList.contains('img-far-left')) {
+          image.nativeElement.src = this.contentPath + (forwards ? this.contentRight : this.contentLeft) + '.png';
+          classList.replace('img-far-left', forwards ? 'img-far-right' : 'img-left');
+          classList.replace('img-far', forwards ? 'img-far' : 'img-side');
+        }
+        else if (classList.contains('img-left')) {
+          classList.replace('img-left', forwards ? 'img-far-left' : 'img-front');
+          classList.replace('img-side', forwards ? 'img-far' : null);
+        } else if (classList.contains('img-front')) {
+          classList.replace('img-front', forwards ? 'img-left' : 'img-right');
+          classList.add('img-side');
+        } else if (classList.contains('img-right')) {
+          classList.replace('img-right', forwards ? 'img-front' : 'img-far-right');
+          classList.replace('img-side', forwards ? null : 'img-far');
+        } else { // img-far-right
+          image.nativeElement.src = this.contentPath + (forwards ? this.contentRight : this.contentLeft) + '.png';
+          classList.replace('img-far-right', forwards ? 'img-right' : 'img-far-left');
+          classList.replace('img-far', forwards ? 'img-side' : 'img-far');
+        }
+      }
     } else { // web content type
       for (const image of this.images) {
         image.nativeElement.style.top = '0';

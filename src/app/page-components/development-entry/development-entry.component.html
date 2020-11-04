@@ -5,7 +5,7 @@
       <span [ngStyle]="{ 'color': entry.color }">{{ entry.title }}</span> &mdash; {{ entry.subtitle }}
     </div>
   </div>
-  <div id="div-content" [ngStyle]="{ 'background-color': entry.color }" [ngClass]="{ 'even': even, 'odd': !even }" fxLayoutAlign="center">
+  <div id="div-content" [ngClass]="{ 'even': even, 'odd': !even }" [style]="backgroundStyle" fxLayoutAlign="center">
     <app-development-carousel
       [contentKey]="entry.contentKey"
       [contentCount]="entry.contentCount"
@@ -17,7 +17,10 @@
       <div class="div-info-title">CLIENT</div>
       <div>{{ entry.client }}</div>
       <div class="div-info-title spacer">ROLE</div>
-      <div>{{ entry.role }}</div>
+      <div *ngIf="isString(entry.role); else roleList">{{ entry.role }}</div>
+      <ng-template #roleList>
+        <div *ngFor="let role of entry.role" class="div-info-list">{{ role }}</div>
+      </ng-template>
     </div>
     <div class="div-info-small">
       <div class="div-info-title">TECHNOLOGIES</div>

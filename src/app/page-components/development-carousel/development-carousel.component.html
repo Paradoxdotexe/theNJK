@@ -1,10 +1,17 @@
 <div fxLayoutAlign="center center">
   <button class="button-rotate" mat-flat-button (click)="callRotate(false)"><mat-icon>keyboard_arrow_left</mat-icon></button>
-  <div *ngIf="contentType === 'mobile'" id="div-mobile-carousel" fxLayout="column" fxLayoutAlign="center">
+  <div *ngIf="contentType === 'mobile'" class="div-mobile-carousel" fxLayout="column" fxLayoutAlign="center">
     <img #img class="img-left img-side" [src]="contentPath + contentCount + '.png'" alt="">
     <img #img class="img-front" [src]="contentPath + '1.png'" alt="">
     <img #img class="img-right img-side" [src]="contentPath + '2.png'" alt="">
     <img #img class="img-back" src="" alt="">
+  </div>
+  <div *ngIf="contentType === 'mobile2'" class="div-mobile-carousel" fxLayout="column" fxLayoutAlign="center">
+    <img #img class="img-far-left img-far" src="" alt="">
+    <img #img class="img-left img-side" [src]="contentPath + contentCount + '.png'" alt="">
+    <img #img class="img-front" [src]="contentPath + '1.png'" alt="">
+    <img #img class="img-right img-side" [src]="contentPath + '2.png'" alt="">
+    <img #img class="img-far-right img-far" src="" alt="">
   </div>
   <div *ngIf="contentType === 'web'" id="div-web-carousel" fxLayout="column" fxLayoutAlign="center"  [ngClass]="{ 'draggable': draggable }">
     <img #img class="img-left" [src]="contentPath + contentCount + '.png'" alt="">
