@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, ViewChild} from '@angular/core';
 
 interface Entry {
   date: string;
@@ -7,6 +7,7 @@ interface Entry {
   color: string;
   gradient: Array<string>; // optional gradient
   contentKey: string;
+  video: boolean;
   contentCount: number;
   contentType: string;
   client: string;
@@ -22,6 +23,7 @@ interface Entry {
   styleUrls: ['./development-entry.component.scss']
 })
 export class DevelopmentEntryComponent implements OnInit {
+  @ViewChild('divEntry') divEntry;
   @Input() entry: Entry;
   @Input() index: number;
   even: boolean; // controls background color
@@ -41,6 +43,20 @@ export class DevelopmentEntryComponent implements OnInit {
 
   isString(value): boolean {
     return typeof value === 'string';
+  }
+
+  public scrollTo(): void {
+    setTimeout(() => {
+      this.divEntry.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+    });
+  }
+
+  public getOffsetTop(): number {
+    return this.divEntry.nativeElement.offsetTop;
+  }
+
+  public getOffsetBottom(): number {
+    return this.divEntry.nativeElement.offsetTop + this.divEntry.nativeElement.offsetHeight;
   }
 
 }

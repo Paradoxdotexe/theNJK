@@ -1,4 +1,4 @@
-<div id="div-entry" [ngClass]="{ 'even': even, 'odd': !even }" fxLayout="column">
+<div #divEntry id="div-entry" [ngClass]="{ 'even': even, 'odd': !even }" fxLayout="column">
   <div id="div-heading" class="flex-padding" fxLayout="column">
     <div id="div-date">{{ entry.date }}</div>
     <div id="div-title-subtitle">
@@ -6,11 +6,14 @@
     </div>
   </div>
   <div id="div-content" [ngClass]="{ 'even': even, 'odd': !even }" [style]="backgroundStyle" fxLayoutAlign="center">
-    <app-development-carousel
+    <app-development-carousel *ngIf="!entry.video; else video"
       [contentKey]="entry.contentKey"
       [contentCount]="entry.contentCount"
       [contentType]="entry.contentType">
     </app-development-carousel>
+    <ng-template #video>
+      <app-video-player [src]="'assets/content/development/' + entry.contentKey + '/video.mp4'"></app-video-player>
+    </ng-template>
   </div>
   <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">
     <div class="div-info-small">

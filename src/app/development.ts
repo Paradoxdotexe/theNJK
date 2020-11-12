@@ -61,6 +61,7 @@ export const DevelopmentEntries = [
     subtitle: 'Giving people access to Beecology data and the tools to analyze it.',
     color: '#ffc107',
     contentKey: 'bda',
+    video: true,
     contentCount: 5,
     contentType: 'web',
     client: 'Beecology Project',
