@@ -186,7 +186,6 @@ export class DevelopmentCarouselComponent implements OnInit {
   onMouseUp(): void {
     if (this.dragging) {
       this.dragging = false;
-      console.log(this.mouseVelocity);
       if (Math.abs(this.mouseVelocity) > 0) {
         const clampMin = -(this.dragImage.height - 602);
         this.dragImage.style.top = this.clamp(clampMin, 0,  this.parseCSS(this.dragImage.style.top) + (this.mouseVelocity / 8)) + 'px';

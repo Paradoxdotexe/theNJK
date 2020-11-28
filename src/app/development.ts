@@ -77,7 +77,7 @@ export const DevelopmentEntries = [
     color: '#00918f',
     gradient: ['#10af59', '#1a7bbe'],
     contentKey: 'bsbc',
-    contentCount: 3,
+    contentCount: 5,
     contentType: 'web',
     client: 'Bio-CS Bridge Project',
     role: ['Angular Web Developer', 'Web Designer'],

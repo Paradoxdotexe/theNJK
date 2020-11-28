@@ -26,4 +26,9 @@ export class VideoPlayerComponent implements OnInit {
     }
   }
 
+  onVideoEnd(): void {
+    this.video.nativeElement.load();
+    this.playing = false;
+  }
+
 }

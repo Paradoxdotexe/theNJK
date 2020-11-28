@@ -1,5 +1,8 @@
 <div id="div-video" fxLayoutAlign="center center">
-  <video #video (click)="onClick()">
+  <video #video (ended)="onVideoEnd()">
     <source [src]="src">
   </video>
+  <div id="div-video-controller" fxLayoutAlign="center center" (click)="onClick()">
+    <mat-icon id="mat-icon-play-pause">{{ playing ? 'pause' : 'play_arrow' }}</mat-icon>
+  </div>
 </div>

@@ -6,8 +6,38 @@
   overflow: hidden;
   height: 586px;
   box-shadow: 0 0 10px #a0a0a0;
+  position: relative;
 }
 
 #div-video video {
   height: 588px
+}
+
+#div-video-controller {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: ease 200ms;
+  opacity: 0;
+}
+
+#div-video-controller:hover {
+  opacity: 1;
+}
+
+#mat-icon-play-pause {
+  width: 65px;
+  height: 65px;
+  font-size: 65px;
+  padding: 15px;
+  filter: drop-shadow(0 0 4px #404040);
+  pointer-events: none;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.45);
+  color: #f9f9f9;
+}
+
+#mat-icon-play-pause::selection {
+  background: none;
+  color: unset;
 }
