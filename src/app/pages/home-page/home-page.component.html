@@ -1,21 +1,44 @@
 <app-home-header></app-home-header>
-<app-section-title
-  title = 'Worcester Polytechnic Institute'
-  subtext = 'EDUCATION'
-  color = '#ac2b37'
-></app-section-title>
-<div fxLayoutAlign="center">
-  <div class="div-section" fxLayoutAlign="space-between">
-    <div class="div-section-column" fxLayout="column" fxLayoutAlign="center">
-      <img id="img-education" src="assets/home/education.png" alt="Picture of me at WPI the day I declared my acceptance">
-    </div>
-    <div class="div-section-column" fxLayout="column" fxLayoutAlign="center">
-      <div class="div-big-text">Pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Design</strong> as part of WPI's class of 2022.</div>
-      <div class="div-small-text">Holding a <strong>3.96 GPA (4.0 major/minor GPA)</strong> and having completed the courses below for each of my respective fields of study.</div>
-      <div class="div-list-title">Computer Science</div>
-      <div *ngFor="let c of courses.cs" class="div-list">{{ c }}</div>
-      <div class="div-list-title">Interactive Media & Game Design</div>
-      <div *ngFor="let c of courses.imgd" class="div-list">{{ c }}</div>
-    </div>
+<div id="div-down-arrow" fxLayoutAlign="center center">
+  <mat-icon>keyboard_arrow_down</mat-icon>
+</div>
+
+<div class="div-section-header" fxLayoutAlign="center" style="background-color: #ac2b37">
+  <div class="div-container">
+    <div class="div-subtitle">EDUCATION</div>
+    <div class="div-title">Worcester Polytechnic Institute</div>
+  </div>
+</div>
+<div class="div-section" fxLayoutAlign="center">
+  <div class="div-section-column" fxLayout="column" fxLayoutAlign="center">
+    <img id="img-education" src="assets/home/education.png" alt="Picture of me at WPI the day I declared my acceptance">
+  </div>
+  <div class="div-section-column" fxLayout="column" fxLayoutAlign="center">
+    <div class="div-big-text">My name is Nathan Klingensmith.
+      I am pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Design</strong> as part of WPI's class of 2022.</div>
+    <div class="div-small-text">I currently hold a <strong>3.96 GPA (4.0 major/minor GPA)</strong> and have completed the courses below for each of my respective fields of study.</div>
+    <div class="div-list-title">Computer Science</div>
+    <div *ngFor="let c of courses.cs" class="div-list">{{ c }}</div>
+    <div class="div-list-title">Interactive Media & Game Design</div>
+    <div *ngFor="let c of courses.imgd" class="div-list">{{ c }}</div>
+  </div>
+</div>
+
+<div class="div-section-header" fxLayoutAlign="center" style="background-color: #2eb612">
+  <div class="div-container">
+    <div class="div-subtitle">SKILLS</div>
+    <div class="div-title">Development and Design</div>
+  </div>
+</div>
+<div class="div-section" fxLayoutAlign="center">
+  <div class="div-section-column" fxLayout="column">
+    <img class="img-skills" src="assets/home/dev_computer.svg" alt="">
+    <div class="div-list-title">Development Skills</div>
+    <div *ngFor="let s of skills.development" class="div-list">{{ s }}</div>
+  </div>
+  <div class="div-section-column" fxLayout="column">
+    <img class="img-skills" src="assets/home/design_computer.svg" alt="">
+    <div class="div-list-title">Design Skills</div>
+    <div *ngFor="let s of skills.design" class="div-list">{{ s }}</div>
   </div>
 </div>

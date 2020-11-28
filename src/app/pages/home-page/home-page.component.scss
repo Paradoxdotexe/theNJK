@@ -1,13 +1,62 @@
 @import '../../../theme';
 
+#div-down-arrow {
+  height: 75px;
+}
+
+#div-down-arrow .mat-icon {
+  font-size: 75px;
+  height: 75px;
+  width: 75px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(-5px);
+  }
+  50% {
+    transform: translatey(5px);
+  }
+  100% {
+    transform: translatey(-5px);
+  }
+}
+
+// section header
+
+.div-section-header {
+  padding: 10px 0;
+  margin-bottom: 0.6in;
+  box-shadow: 0 0 5px #404040;
+  border-top: 5px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+}
+
+.div-container .div-title {
+  font-size: 63px;
+  line-height: 63px;
+  color: mat-color($mat-neon-grey, 50);
+  font-weight: bold;
+}
+
+.div-container .div-subtitle {
+  font-family: 'Consolas', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+// section content
+
 .div-section {
-  width: 1275px;
-  margin-bottom: 0.5in;
+  margin-bottom: 0.6in;
 }
 
 .div-section-column {
-  width: 625px;
-  padding: 0 25px;
+  width: 650px;
+  padding: 0 30px;
 }
 
 #img-education {
@@ -17,10 +66,15 @@
   box-sizing: border-box;
 }
 
+.img-skills {
+  width: 300px;
+  padding-left: calc(50% - 150px);
+}
+
 .div-big-text {
   font-size: 28px;
   line-height: 32px;
-  margin-bottom: 0.5in;
+  margin-bottom: 0.6in;
 }
 
 .div-small-text {
@@ -31,14 +85,14 @@
 .div-list-title {
   font-weight: bold;
   font-size: 23px;
-  margin-top: 0.25in;
-  margin-bottom: 0.125in;
+  margin-top: 0.3in;
+  margin-bottom: 0.15in;
 }
 
 .div-list {
   border-left: 1px solid mat-color($mat-neon-grey, 200);
-  padding-left: 6px;
-  margin-left: 6px;
-  font-size: 18px;
-  line-height: 24px;
+  padding-left: 8px;
+  margin-left: 8px;
+  font-size: 17px;
+  line-height: 23px;
 }

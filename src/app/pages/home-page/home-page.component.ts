@@ -14,6 +14,15 @@ export class HomePageComponent implements AfterViewInit {
     'Graphic Design']
   };
 
+  skills = {
+    development: ['Proficient web development in HTML, JS, and TS using Flask and Angular', 'Proficient software development in Java and Python',
+      'Proficient integration of API specifications', 'Competent database implementation with MongoDB and Apache Derby',
+      'Competent creation of UML diagrams', 'Competent software development in C, C#, and C++'],
+    design: ['Proficient UI/UX design targeting user experience', 'Proficient web design in CSS and SCSS following Material Design',
+      'Proficient graphic design in Adobe Photoshop, Illustrator, and InDesign', 'Competent video production in Adobe Premier Pro',
+      'Rudimentary audio design in Audacity and Reaper']
+  };
+
   constructor() { }
 
   ngAfterViewInit(): void {
