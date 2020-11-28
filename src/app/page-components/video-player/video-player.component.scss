@@ -1,6 +1,7 @@
 
 #div-video {
-  width: 1200px;
+  width: 1191px; // offset by 9px to remove scroll bar
+  padding-left: 9px; // recovers left side of video removed from offset
   margin: 50px 0;
   border-radius: 5px;
   overflow: hidden;
@@ -19,6 +20,7 @@
   width: 100%;
   transition: ease 200ms;
   opacity: 0;
+  cursor: pointer;
 }
 
 #div-video-controller:hover {
