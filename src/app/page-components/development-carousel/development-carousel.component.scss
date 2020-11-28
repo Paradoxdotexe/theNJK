@@ -42,12 +42,16 @@ $width-small: 300px; // small mock width
 .div-mobile-carousel img {
   position: absolute;
   transition: all 0.5s;
+  box-sizing: border-box;
+  border-radius: 50px;
+  filter: drop-shadow(0 0 5px #4a4a4a);
 }
 
 .div-mobile-carousel .img-front {
   z-index: 10;
   left: calc((#{$width-carousel} - #{$width-large}) / 2);
   width: $width-large;
+  padding: 0 15px;
 }
 
 .div-mobile-carousel .img-back {
@@ -60,6 +64,7 @@ $width-small: 300px; // small mock width
 .div-mobile-carousel .img-side {
   z-index: 5;
   width: $width-medium;
+  padding: 0 15px;
 }
 
 .div-mobile-carousel .img-left {
