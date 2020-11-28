@@ -11,9 +11,12 @@ export class DevelopmentPageComponent implements AfterViewInit, OnInit {
   @ViewChildren(DevelopmentEntryComponent) developmentEntries;
   entries = DevelopmentEntries;
 
+  // crappy automated scrolling variables
+  /*
   currentEntry = 0;
   canScroll = true;
   scrolling = false;
+   */
 
   constructor() { }
 
@@ -26,6 +29,8 @@ export class DevelopmentPageComponent implements AfterViewInit, OnInit {
     }
   }
 
+  // crappy automated scrolling
+  /*
   @HostListener('wheel', ['$event']) // for window scroll events
   onWheel(event): void {
     console.log(window.scrollY);
@@ -46,21 +51,6 @@ export class DevelopmentPageComponent implements AfterViewInit, OnInit {
       event.preventDefault();
     }
   }
-
-  /*
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event): void {
-    for (const entry of this.developmentEntries) {
-      if (this.getScrollTop() < entry.getOffsetTop() && this.getScrollBottom() > entry.getOffsetTop()) {
-        if (this.entryIndex !== entry.index) {
-          entry.scrollTo();
-          this.entryIndex = entry.index;
-        }
-        return;
-      }
-    }
-  }
-   */
 
   getEntryAfterScroll(scrollPosition): number {
     for (const entry of this.developmentEntries) {
@@ -93,5 +83,6 @@ export class DevelopmentPageComponent implements AfterViewInit, OnInit {
   decrease(n, x): number {
     return n === 0 ? x : n - 1;
   }
+   */
 
 }
