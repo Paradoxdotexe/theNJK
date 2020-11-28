@@ -45,7 +45,7 @@ const routes: Routes = [
     MaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' }),
     FlexLayoutModule,
     CommonModule
   ],

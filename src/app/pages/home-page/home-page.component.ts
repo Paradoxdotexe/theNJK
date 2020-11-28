@@ -1,11 +1,11 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements AfterViewInit {
+export class HomePageComponent {
 
   courses = {
     cs: ['Accelerated Intro to Program Design', 'Object-Oriented Design Concepts', 'Systems Programming Concepts', 'Intro to Machine Organization and Assembly',
@@ -24,11 +24,5 @@ export class HomePageComponent implements AfterViewInit {
   };
 
   constructor() { }
-
-  ngAfterViewInit(): void {
-    if (window.scrollY !== 0) {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
 import { DevelopmentEntries } from '../../development';
 import { DevelopmentEntryComponent } from '../../page-components/development-entry/development-entry.component';
 
@@ -7,7 +7,7 @@ import { DevelopmentEntryComponent } from '../../page-components/development-ent
   templateUrl: './development-page.component.html',
   styleUrls: ['./development-page.component.scss']
 })
-export class DevelopmentPageComponent implements AfterViewInit {
+export class DevelopmentPageComponent {
   @ViewChildren(DevelopmentEntryComponent) developmentEntries;
   entries = DevelopmentEntries;
 
@@ -19,12 +19,6 @@ export class DevelopmentPageComponent implements AfterViewInit {
    */
 
   constructor() { }
-
-  ngAfterViewInit(): void {
-    if (window.scrollY !== 0) {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }
 
   // crappy automated scrolling
   /*
