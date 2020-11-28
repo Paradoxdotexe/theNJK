@@ -1,10 +1,10 @@
 <div #divEntry id="div-entry" [ngClass]="{ 'even': even, 'odd': !even }" fxLayout="column">
-  <div id="div-heading" class="flex-padding" fxLayout="column">
-    <div id="div-date">{{ entry.date }}</div>
-    <div id="div-title-subtitle">
-      <span [ngStyle]="{ 'color': entry.color }">{{ entry.title }}</span> &mdash; {{ entry.subtitle }}
-    </div>
-  </div>
+  <app-section-title
+    [title] = entry.title
+    [subtitle] = entry.subtitle
+    [subtext] = entry.date
+    [color] = entry.color
+  ></app-section-title>
   <div id="div-content" [ngClass]="{ 'even': even, 'odd': !even }" [style]="backgroundStyle" fxLayoutAlign="center">
     <app-development-carousel *ngIf="!entry.video; else video"
       [contentKey]="entry.contentKey"

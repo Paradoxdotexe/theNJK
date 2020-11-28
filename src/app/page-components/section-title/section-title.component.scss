@@ -1,0 +1,24 @@
+@import '../../../theme';
+
+#div-heading {
+  color: mat-color($mat-neon-grey, 900);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#div-subtext {
+  text-indent: 3px;
+  font-family: Consolas, sans-serif;
+  font-size: 21px;
+  line-height: 21px;
+  padding-bottom: 5px;
+}
+
+#div-title-subtitle {
+  font-size: 63px;
+  line-height: 73px;
+}
+
+#div-title-subtitle span {
+  font-weight: 700;
+}

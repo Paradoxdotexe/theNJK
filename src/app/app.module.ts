@@ -16,6 +16,7 @@ import { DevelopmentEntryComponent } from './page-components/development-entry/d
 import { DevelopmentCarouselComponent } from './page-components/development-carousel/development-carousel.component';
 import { VideoPlayerComponent } from './page-components/video-player/video-player.component';
 import { HomeHeaderComponent } from './page-components/home-header/home-header.component';
+import { SectionTitleComponent } from './page-components/section-title/section-title.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
     DevelopmentEntryComponent,
     DevelopmentCarouselComponent,
     VideoPlayerComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    SectionTitleComponent
   ],
   imports: [
     MaterialModule,

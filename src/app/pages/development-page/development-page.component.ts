@@ -1,4 +1,4 @@
-import { Component, ViewChildren, HostListener, AfterViewInit, OnInit } from '@angular/core';
+import { Component, ViewChildren, AfterViewInit } from '@angular/core';
 import { DevelopmentEntries } from '../../development';
 import { DevelopmentEntryComponent } from '../../page-components/development-entry/development-entry.component';
 
@@ -7,7 +7,7 @@ import { DevelopmentEntryComponent } from '../../page-components/development-ent
   templateUrl: './development-page.component.html',
   styleUrls: ['./development-page.component.scss']
 })
-export class DevelopmentPageComponent implements AfterViewInit, OnInit {
+export class DevelopmentPageComponent implements AfterViewInit {
   @ViewChildren(DevelopmentEntryComponent) developmentEntries;
   entries = DevelopmentEntries;
 
@@ -19,9 +19,6 @@ export class DevelopmentPageComponent implements AfterViewInit, OnInit {
    */
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit(): void {
     if (window.scrollY !== 0) {

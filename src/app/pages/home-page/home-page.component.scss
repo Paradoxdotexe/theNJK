@@ -1,0 +1,43 @@
+@import '../../../theme';
+
+.div-section {
+  width: 1275px;
+}
+
+.div-section-column {
+  width: 625px;
+  padding: 0 25px;
+}
+
+#img-education {
+  border: 15px solid black;
+  box-shadow: 0 0 5px #404040;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.div-big-text {
+  font-size: 28px;
+  line-height: 32px;
+  margin-bottom: 0.5in;
+}
+
+.div-small-text {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.div-list-title {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0.25in;
+  margin-bottom: 0.125in;
+}
+
+.div-list {
+  border-left: 1px solid mat-color($mat-neon-grey, 200);
+  padding-left: 6px;
+  margin-left: 6px;
+  font-size: 18px;
+  line-height: 24px;
+}
