@@ -1,0 +1,21 @@
+@import '../../../theme';
+
+#div-footer {
+  width: 100%;
+  height: 65px;
+  background-color: mat-color($mat-neon-grey, 900);
+  box-shadow: 0 0 8px mat-color($mat-neon-grey, 700);
+}
+
+#div-footer-content {
+  width: 1000px;
+}
+
+#div-footer-content img {
+  height: 25px;
+}
+
+#div-footer a {
+  font-size: 15px;
+  color: mat-color($mat-neon-green, 400);
+}
