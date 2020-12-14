@@ -1,0 +1,23 @@
+@import '../../../theme';
+
+#div-entry {
+  box-shadow: 0 1px 10px 2px #e0e0e0;
+  width: max-content;
+}
+
+#div-bottom-bar {
+  height: 40px;
+  background-color: mat-color($mat-neon-grey, 900);
+  padding: 0 15px;
+}
+
+#title {
+  font-size: 18px;
+  color: mat-color($mat-neon-grey, 50);
+}
+
+#subtitle {
+  font-size: 18px;
+  font-family: Consolas, sans-serif;
+  color: mat-color($mat-neon-grey, 500);
+}

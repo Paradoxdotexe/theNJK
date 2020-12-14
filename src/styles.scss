@@ -10,3 +10,7 @@ html, body {
 .flex-padding {
   padding: 0 calc(((100vw - min(1400px, 100vw)) / 2) + 50px);
 }
+
+.flex-margin {
+  margin: 0 calc(((100vw - min(1400px, 100vw)) / 2) + 50px);
+}

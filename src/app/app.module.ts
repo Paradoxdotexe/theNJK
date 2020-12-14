@@ -18,6 +18,7 @@ import { VideoPlayerComponent } from './page-components/video-player/video-playe
 import { HomeHeaderComponent } from './page-components/home-header/home-header.component';
 import { SectionTitleComponent } from './page-components/section-title/section-title.component';
 import { FooterComponent } from './global-components/footer/footer.component';
+import { DesignEntryComponent } from './page-components/design-entry/design-entry.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
     VideoPlayerComponent,
     HomeHeaderComponent,
     SectionTitleComponent,
-    FooterComponent
+    FooterComponent,
+    DesignEntryComponent
   ],
   imports: [
     MaterialModule,

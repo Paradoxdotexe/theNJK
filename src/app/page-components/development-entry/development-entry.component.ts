@@ -45,21 +45,4 @@ export class DevelopmentEntryComponent implements OnInit {
     return typeof value === 'string';
   }
 
-  // used for crappy automated scrolling
-  /*
-  public scrollTo(): void {
-    setTimeout(() => {
-      this.divEntry.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-    });
-  }
-
-  public getOffsetTop(): number {
-    return this.divEntry.nativeElement.offsetTop;
-  }
-
-  public getOffsetBottom(): number {
-    return this.divEntry.nativeElement.offsetTop + this.divEntry.nativeElement.offsetHeight;
-  }
-   */
-
 }
