@@ -18,9 +18,9 @@ export const DesignEntryRows = [
       subtitle: 'poster'
     },
     {
-      contentKey: 'rt',
-      title: 'Reco Toys',
-      subtitle: 'logo'
+      contentKey: 'osg',
+      title: 'Online Support Groups',
+      subtitle: 'web mockup'
     }
   ],
   [
