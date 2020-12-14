@@ -18,7 +18,7 @@ export class DesignEntryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.contentPath = 'assets/content/design/' + this.entry.contentKey + '/';
+    this.contentPath = 'assets/content/design/' + this.entry.contentKey + '_';
   }
 
 }

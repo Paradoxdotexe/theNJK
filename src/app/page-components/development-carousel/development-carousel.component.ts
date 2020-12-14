@@ -35,7 +35,7 @@ export class DevelopmentCarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.contentPath = 'assets/content/development/' + this.contentKey + '/';
+    this.contentPath = 'assets/content/development/' + this.contentKey + '_';
     this.contentIndices = Array(this.contentCount).fill(0).map((x, i) => i + 1);
 
     this.contentLeft = this.contentType === 'mobile' ? this.contentCount - 1 : this.contentCount;
