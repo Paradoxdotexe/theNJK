@@ -1,21 +1,117 @@
 @import '../../../theme';
 
 #div-footer {
+  padding: 60px 0;
   width: 100%;
-  height: 65px;
+  height: 500px;
   background-color: mat-color($mat-neon-grey, 900);
   box-shadow: 0 0 8px mat-color($mat-neon-grey, 700);
+  position: relative;
 }
 
 #div-footer-content {
-  width: 1000px;
+  width: 1240px;
 }
 
-#div-footer-content img {
-  height: 25px;
+.div-footer-content-column {
+
 }
 
-#div-footer a {
-  font-size: 15px;
-  color: mat-color($mat-neon-green, 400);
+img {
+  width: 100px;
+  margin-bottom: 10px;
 }
+
+.div-white-text {
+  font-size: 18px;
+  color: mat-color($mat-neon-grey, 50);
+}
+
+.div-grey-text {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: mat-color($mat-neon-grey, 500);
+}
+
+a {
+  text-decoration: none;
+}
+
+#div-contact-me {
+  margin-left: 60px;
+}
+
+.div-big-white-text {
+  font-size: 28px;
+  color: mat-color($mat-neon-grey, 50);
+  font-family: Consolas, sans-serif;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  margin-top: 20px;
+}
+
+// form underline color
+::ng-deep .mat-form-field-underline {
+  background-color: mat-color($mat-neon-grey, 100) !important;
+}
+
+// form unfocused label color
+::ng-deep .mat-form-field-label {
+  color: mat-color($mat-neon-grey, 500) !important;
+}
+
+// form focused label color
+::ng-deep .mat-unfocused .mat-form-field-label {
+  color: mat-color($mat-neon-green, 500) !important;
+}
+
+// form text color
+::ng-deep .mat-form-field {
+  color: mat-color($mat-neon-grey, 50) !important;
+}
+
+// form placeholder color
+::placeholder {
+  color: mat-color($mat-neon-grey, 500) !important;
+  opacity: 1 !important;
+}
+
+#mat-form-field-name {
+  width: 175px;
+  margin-right: 25px;
+}
+
+#mat-form-field-email {
+  width: 225px;
+}
+
+#mat-form-field-message {
+  width: 425px;
+}
+
+#div-text-bottom {
+  color: mat-color($mat-neon-green, 500);
+  font-size: 14px;
+  font-style: italic;
+  position: absolute;
+  bottom: 60px;
+}
+
+.mat-stroked-button {
+  margin-top: 10px;
+  border: 1px solid mat-color($mat-neon-green, 500) !important;
+  color: mat-color($mat-neon-green, 500);
+  border-radius: 50px;
+  width: 100px;
+}
+
+.mat-stroked-button:disabled {
+  border: 1px solid mat-color($mat-neon-grey, 500) !important;
+  color: mat-color($mat-neon-grey, 500) !important;
+}
+
+
+

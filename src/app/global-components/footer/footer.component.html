@@ -1,7 +1,44 @@
 <div id="div-footer" fxLayoutAlign="center">
-  <div id="div-footer-content" fxLayoutAlign="space-between center">
-    <a href="https://github.com/IamParadoxdotexe" target="_blank">github.com/IamParadoxdotexe</a>
-    <img src="assets/logos/theNJK_white.svg" alt="theNJK">
-    <a href="https://www.linkedin.com/in/thenjk/" target="_blank">linkedin.com/in/theNJK</a>
+  <div id="div-footer-content" fxLayoutAlign="space-between">
+    <div class="div-footer-content-column" fxLayout="column">
+      <img src="assets/logos/theNJK_white.svg" alt="theNJK">
+      <div class="div-grey-text">Developer by design.<br>Designer by necessity.</div>
+    </div>
+    <div class="div-footer-content-column" fxLayout="column">
+      <div class="div-white-text">Explore</div>
+      <a class="div-grey-text" routerLink="home">Home</a>
+      <a class="div-grey-text" routerLink="development">Development</a>
+      <a class="div-grey-text" routerLink="design">Design</a>
+    </div>
+    <div class="div-footer-content-column" fxLayout="column">
+      <div class="div-white-text">Follow</div>
+      <a class="div-grey-text" href="https://www.linkedin.com/in/thenjk/" target="_blank">LinkedIn</a>
+      <a class="div-grey-text" href="https://github.com/IamParadoxdotexe" target="_blank">GitHub</a>
+      <a class="div-grey-text" href="https://www.instagram.com/nathan_paradox/" target="_blank">Instagram</a>
+      <a class="div-grey-text" href="https://twitter.com/Paradoxdotexe" target="_blank">Twitter</a>
+    </div>
+    <div class="div-footer-content-column" id="div-contact-me" fxLayout="column">
+      <div class="div-big-white-text">Contact Me >></div>
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <div fxLayout="row">
+          <mat-form-field id="mat-form-field-name">
+            <mat-label>Your name</mat-label>
+            <input matInput formControlName="name" placeholder="Tony Stark">
+          </mat-form-field>
+          <mat-form-field id="mat-form-field-email">
+            <mat-label>Your email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="tony@starkindustries.com">
+          </mat-form-field>
+        </div>
+        <mat-form-field id="mat-form-field-message">
+          <mat-label>Your message</mat-label>
+          <input matInput formControlName="message" placeholder="I am Iron Man.">
+        </mat-form-field>
+      </form>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button type="submit" mat-stroked-button [disabled]="!contactForm.valid">Submit</button>
+      </div>
+    </div>
+    <div id="div-text-bottom">Designed and developed by Nathan Klingensmith.</div>
   </div>
 </div>
