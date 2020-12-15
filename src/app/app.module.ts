@@ -7,6 +7,7 @@ import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NavBarComponent } from './global-components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -51,7 +52,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'}),
     FlexLayoutModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

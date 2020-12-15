@@ -34,10 +34,10 @@
           <mat-label>Your message</mat-label>
           <input matInput formControlName="message" placeholder="I am Iron Man.">
         </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end">
+          <button type="submit" mat-stroked-button [disabled]="!contactForm.valid">Submit</button>
+        </div>
       </form>
-      <div fxLayout="row" fxLayoutAlign="end">
-        <button type="submit" mat-stroked-button [disabled]="!contactForm.valid">Submit</button>
-      </div>
     </div>
     <div id="div-text-bottom">Designed and developed by Nathan Klingensmith.</div>
   </div>
