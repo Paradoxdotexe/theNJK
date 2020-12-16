@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+
+// imported modules
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// declared components
+import { AppComponent } from './app.component';
 import { NavBarComponent } from './global-components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DevelopmentPageComponent } from './pages/development-page/development-page.component';
@@ -21,6 +24,7 @@ import { HomeHeaderComponent } from './page-components/home-header/home-header.c
 import { SectionTitleComponent } from './page-components/section-title/section-title.component';
 import { FooterComponent } from './global-components/footer/footer.component';
 import { DesignEntryComponent } from './page-components/design-entry/design-entry.component';
+import { EntryInfoComponent } from './page-components/entry-info/entry-info.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -43,7 +47,8 @@ const routes: Routes = [
     HomeHeaderComponent,
     SectionTitleComponent,
     FooterComponent,
-    DesignEntryComponent
+    DesignEntryComponent,
+    EntryInfoComponent
   ],
   imports: [
     MaterialModule,

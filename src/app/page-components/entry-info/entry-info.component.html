@@ -1,0 +1,7 @@
+<div id="div-info" [ngStyle]="{'padding-top': spaced ? '24px' : '0'}">
+  <div id="div-info-title">{{ header }}</div>
+  <div *ngIf="!isArray; else infoList" id="div-info-content">{{ content }}</div>
+  <ng-template #infoList>
+    <div *ngFor="let c of content" id="div-info-list">{{ c }}</div>
+  </ng-template>
+</div>

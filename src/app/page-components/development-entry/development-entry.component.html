@@ -17,23 +17,15 @@
   </div>
   <div id="div-info" class="flex-padding" fxLayoutAlign="space-between">
     <div class="div-info-small">
-      <div class="div-info-title">CLIENT</div>
-      <div>{{ entry.client }}</div>
-      <div class="div-info-title spacer">ROLE</div>
-      <div *ngIf="isString(entry.role); else roleList">{{ entry.role }}</div>
-      <ng-template #roleList>
-        <div *ngFor="let role of entry.role" class="div-info-list">{{ role }}</div>
-      </ng-template>
+      <app-entry-info header="CLIENT" [content]="entry.client"></app-entry-info>
+      <app-entry-info header="ROLE" [content]="entry.role" [spaced]="true"></app-entry-info>
     </div>
     <div class="div-info-small">
-      <div class="div-info-title">TECHNOLOGIES</div>
-      <div *ngFor="let tech of entry.technologies" class="div-info-list">{{ tech }}</div>
+      <app-entry-info header="TECHNOLOGIES" [content]="entry.technologies"></app-entry-info>
     </div>
     <div class="div-info-large">
-      <div class="div-info-title">PLATFORM</div>
-      <div>{{ entry.platform }}</div>
-      <div class="div-info-title spacer">WORK</div>
-      <div>{{ entry.work }}</div>
+      <app-entry-info header="PLATFORM" [content]="entry.platform"></app-entry-info>
+      <app-entry-info header="WORK" [content]="entry.work" [spaced]="true"></app-entry-info>
     </div>
   </div>
 </div>
