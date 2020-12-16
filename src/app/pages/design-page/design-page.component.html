@@ -1,10 +1,32 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over" position="end" [fixedInViewport]="true">
-    <button mat-icon-button (click)="closeEntry()"></button>
+  <mat-sidenav #sidenav mode="over" position="end" [fixedInViewport]="true" [autoFocus]="false">
+    <div id="div-sidenav-content">
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-icon-button (click)="closeEntry()"><mat-icon>close</mat-icon></button>
+      </div>
+      <div fxLayout="column">
+        <div id="div-subtext">{{ entry.date }}</div>
+        <div id="div-title-subtitle">
+          <span [ngStyle]="{ 'color': entry.color }">{{ entry.title }}</span>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <div class="div-info-small">
+          <app-entry-info header="FORM" [content]="entry.subtitle"></app-entry-info>
+          <app-entry-info header="TECHNOLOGIES" [content]="entry.technologies" [spaced]="true"></app-entry-info>
+        </div>
+        <div class="div-info-large">
+          <app-entry-info header="PROJECT" [content]="entry.project"></app-entry-info>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <img *ngFor="let i of contentIndices" [src]="contentPath + i + '.png'" alt="">
+      </div>
+    </div>
   </mat-sidenav>
 </mat-sidenav-container>
 
-<div #overlay id="div-overlay"></div>
+<div #overlay id="div-overlay" (click)="closeEntry()"></div>
 
 <app-portfolio-header
   hTitle="Design"

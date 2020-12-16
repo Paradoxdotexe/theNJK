@@ -1,9 +1,52 @@
+@import '../../../theme';
+
 .mat-drawer-container {
   z-index: 20;
 }
 
 .mat-sidenav {
-  width: 50vw;
+  width: min(750px, 90vw);
+}
+
+#div-sidenav-content {
+  padding: 40px 40px;
+}
+
+.mat-icon-button {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+.mat-sidenav img {
+  margin-top: 40px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#div-subtext {
+  color: mat-color($mat-neon-grey, 900);
+  text-indent: 3px;
+  font-family: Consolas, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+
+#div-title-subtitle {
+  color: mat-color($mat-neon-grey, 900);
+  font-size: 53px;
+  line-height: 63px;
+  font-weight: 700;
+  padding-bottom: 40px;
+}
+
+.div-info-small {
+  width: 200px;
+}
+
+.div-info-large {
+  width: 450px;
 }
 
 #div-overlay {

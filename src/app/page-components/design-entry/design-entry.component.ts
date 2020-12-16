@@ -16,7 +16,7 @@ export class DesignEntryComponent implements OnInit {
   @Output() clickEvent = new EventEmitter<string>();
   @Input() entryKey: string;
   entries = DesignEntries;
-  entry: Entry;;
+  entry: Entry;
   contentPath;
 
   constructor() { }
@@ -27,7 +27,7 @@ export class DesignEntryComponent implements OnInit {
   }
 
   onClick(): void {
-    this.clickEvent.emit(this.entry.contentKey);
+    this.clickEvent.emit(this.entryKey);
   }
 
 }
