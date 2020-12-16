@@ -1,7 +1,7 @@
 export const DesignEntries = {
   njk: {
     contentKey: 'njk',
-    contentCount: 4,
+    contentCount: 3,
     title: 'theNJK',
     subtitle: 'magazine spread',
     date: '10/2020',
@@ -11,7 +11,7 @@ export const DesignEntries = {
   },
   rotk: {
     contentKey: 'rotk',
-    contentCount: 0,
+    contentCount: 3,
     title: 'Return of the King',
     subtitle: 'book cover',
     date: '10/2020',
@@ -21,7 +21,7 @@ export const DesignEntries = {
   },
   bd: {
     contentKey: 'bd',
-    contentCount: 0,
+    contentCount: 1,
     title: 'Battery Day',
     subtitle: 'poster',
     date: '9/2020',
@@ -31,7 +31,7 @@ export const DesignEntries = {
   },
   osg: {
     contentKey: 'osg',
-    contentCount: 0,
+    contentCount: 11,
     title: 'Online Support Groups',
     subtitle: 'web mockup',
     date: '12/2020',
@@ -41,7 +41,7 @@ export const DesignEntries = {
   },
   pd: {
     contentKey: 'pd',
-    contentCount: 0,
+    contentCount: 3,
     title: 'Paradoxdotexe',
     subtitle: 'logo',
     date: '05/2019',
@@ -51,7 +51,7 @@ export const DesignEntries = {
   },
   we: {
     contentKey: 'we',
-    contentCount: 0,
+    contentCount: 1,
     title: 'WPI Esports',
     subtitle: 'logo',
     date: '03/2020',
@@ -61,8 +61,8 @@ export const DesignEntries = {
   },
   gn1: {
     contentKey: 'gn1',
-    contentCount: 0,
-    title: 'Gaming News',
+    contentCount: 2,
+    title: 'Gaming News App',
     subtitle: 'logo',
     date: '9/2020',
     color: '#E12E2E',
@@ -71,8 +71,8 @@ export const DesignEntries = {
   },
   gn2: {
     contentKey: 'gn2',
-    contentCount: 0,
-    title: 'Gaming News',
+    contentCount: 2,
+    title: 'Gaming News App',
     subtitle: 'logo',
     date: '9/2020',
     color: '#1FD557',
@@ -81,7 +81,7 @@ export const DesignEntries = {
   },
   bps: {
     contentKey: 'bps',
-    contentCount: 0,
+    contentCount: 3,
     title: 'BPS',
     subtitle: 'logo',
     date: '12/2020',
@@ -91,7 +91,7 @@ export const DesignEntries = {
   },
   wip: {
     contentKey: 'wip',
-    contentCount: 0,
+    contentCount: 1,
     title: 'Work in Progress',
     subtitle: 'logo',
     date: '06/2019',

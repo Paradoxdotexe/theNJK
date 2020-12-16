@@ -25,7 +25,7 @@ export class DesignPageComponent implements OnInit {
   viewEntry(entryKey): void {
     this.entry = this.entries[entryKey];
     this.contentPath = 'assets/content/design/' + this.entry.contentKey + '_';
-    this.contentIndices = Array(this.entry.contentCount).fill(0).map((x, i) => i);
+    this.contentIndices = Array(this.entry.contentCount).fill(0).map((x, i) => i + 1);
 
     this.sidenav.open().then();
     document.body.classList.add('prevent-scrolling');
