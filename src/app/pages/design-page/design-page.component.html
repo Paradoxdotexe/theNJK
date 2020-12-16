@@ -4,6 +4,7 @@
   </mat-sidenav>
 </mat-sidenav-container>
 
+<div #overlay id="div-overlay"></div>
 
 <app-portfolio-header
   hTitle="Design"
@@ -11,6 +12,7 @@
   I am by no means an artist, but I have an eye for what looks good and what users would think is functional, yet attractive.
   I have integrated this perspective with how I design websites, games, logos, and social content to create my own digital works of art."
 ></app-portfolio-header>
+
 <div *ngFor="let row of entryRows" id="div-entry-row"  class="flex-margin" fxLayout="row" fxLayoutAlign="space-between">
   <app-design-entry [entryKey]="row[0]" (clickEvent)="viewEntry($event)"></app-design-entry>
   <app-design-entry [entryKey]="row[1]" (clickEvent)="viewEntry($event)"></app-design-entry>

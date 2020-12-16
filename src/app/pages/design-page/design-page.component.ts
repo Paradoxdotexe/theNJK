@@ -9,6 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class DesignPageComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild('overlay') overlay; // used to darken background behind sidenav
   entryRows = DesignEntryRows;
 
   constructor() { }
@@ -19,11 +20,13 @@ export class DesignPageComponent implements OnInit {
   viewEntry(contentKey): void {
     this.sidenav.open().then();
     document.body.classList.add('prevent-scrolling');
+    this.overlay.nativeElement.classList.add('show');
   }
 
   closeEntry(): void {
     this.sidenav.close().then();
     document.body.classList.remove('prevent-scrolling');
+    this.overlay.nativeElement.classList.remove('show');
   }
 
 }

@@ -3,6 +3,13 @@
 #div-entry {
   box-shadow: 0 1px 10px 2px #e0e0e0;
   width: max-content;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 800ms;
+}
+
+#div-entry:hover {
+  transform: scale(1.05);
 }
 
 #div-bottom-bar {
