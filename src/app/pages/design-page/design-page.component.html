@@ -1,3 +1,10 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" position="end" [fixedInViewport]="true">
+    <button mat-icon-button (click)="closeEntry()"></button>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+
 <app-portfolio-header
   hTitle="Design"
   caption="Despite my passion for technical code development, I don't mind getting my hands dirty in the world of digital design.
@@ -5,6 +12,6 @@
   I have integrated this perspective with how I design websites, games, logos, and social content to create my own digital works of art."
 ></app-portfolio-header>
 <div *ngFor="let row of entryRows" id="div-entry-row"  class="flex-margin" fxLayout="row" fxLayoutAlign="space-between">
-  <app-design-entry [entry]="row[0]"></app-design-entry>
-  <app-design-entry [entry]="row[1]"></app-design-entry>
+  <app-design-entry [entryKey]="row[0]" (clickEvent)="viewEntry($event)"></app-design-entry>
+  <app-design-entry [entryKey]="row[1]" (clickEvent)="viewEntry($event)"></app-design-entry>
 </div>

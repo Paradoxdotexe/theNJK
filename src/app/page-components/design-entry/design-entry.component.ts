@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DesignEntries } from '../../design';
 
 interface Entry {
   contentKey: string;
@@ -12,13 +13,21 @@ interface Entry {
   styleUrls: ['./design-entry.component.scss']
 })
 export class DesignEntryComponent implements OnInit {
-  @Input() entry: Entry;
+  @Output() clickEvent = new EventEmitter<string>();
+  @Input() entryKey: string;
+  entries = DesignEntries;
+  entry: Entry;;
   contentPath;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.entry = this.entries[this.entryKey];
     this.contentPath = 'assets/content/design/' + this.entry.contentKey + '_';
+  }
+
+  onClick(): void {
+    this.clickEvent.emit(this.entry.contentKey);
   }
 
 }
