@@ -20,7 +20,7 @@
         </div>
       </div>
       <div fxLayout="column">
-        <img *ngFor="let i of contentIndices" [src]="contentPath + i + '.png'" alt="">
+        <img *ngFor="let i of contentIndices" [src]="contentPath + i + '.png'" alt="" [attr.loading]="'lazy'">
       </div>
     </div>
   </mat-sidenav>
