@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DesignEntries, DesignEntryRows } from '../../design';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-design-page',
@@ -8,11 +8,12 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./design-page.component.scss']
 })
 export class DesignPageComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
   @ViewChild('overlay') overlay; // used to darken background behind sidenav
   entryRows = DesignEntryRows;
   entries = DesignEntries;
-  entry = this.entries.njk; // viewed entry
+  entry = null; // viewed entry
 
   contentPath;  // path to entry content based on contentKey
   contentIndices; // [0, 1, 2, ...contentCount], used to generate list of entry images

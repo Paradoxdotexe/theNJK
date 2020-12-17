@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over" position="end" [fixedInViewport]="true" [autoFocus]="false">
-    <div id="div-sidenav-content">
+  <mat-sidenav mode="over" position="end" [fixedInViewport]="true" [autoFocus]="false">
+    <div *ngIf="entry !== null" id="div-sidenav-content">
       <div fxLayout="row" fxLayoutAlign="end">
         <button mat-icon-button (click)="closeEntry()"><mat-icon>close</mat-icon></button>
       </div>
