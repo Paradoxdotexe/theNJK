@@ -20,7 +20,13 @@
         </div>
       </div>
       <div fxLayout="column">
-        <img *ngFor="let i of contentIndices" [src]="contentPath + i + '.png'" alt="" [attr.loading]="'lazy'">
+        <div *ngFor="let i of contentIndices">
+          <div *ngIf="!loaded[contentPath + i]" class="div-placeholder" fxLayoutAlign="center center">
+            <mat-icon>insert_photo</mat-icon>
+            <div class="div-loading-effect"></div>
+          </div>
+          <img  [hidden]="!loaded[contentPath + i]" [src]="contentPath + i + '.png'" alt="" (load)="loaded[contentPath + i] = true">
+        </div>
       </div>
     </div>
   </mat-sidenav>
