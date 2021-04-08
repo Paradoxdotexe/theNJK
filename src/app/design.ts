@@ -1,4 +1,24 @@
 export const DesignEntries = {
+  hs: {
+    contentKey: 'hs',
+    contentCount: 1,
+    title: 'Beecology Conservation Habitat',
+    subtitle: 'sign design',
+    date: '03/2021',
+    color: '#8E24A9',
+    technologies: ['Illustrator'],
+    project: 'As part of my work with the Beecology Project, I designed a 12" x 18" outdoor sign for the Beecology conservation habitats. Using Illustrator, I worked with my client to iterate over multiple stages of the design until they though it was perfect.'
+  },
+  so: {
+    contentKey: 'so',
+    contentCount: 3,
+    title: 'Significant Other',
+    subtitle: 'poster design',
+    date: '02/2021',
+    color: '#EE5F9B',
+    technologies: ['Photoshop', 'Illustrator'],
+    project: 'As part of a project in WR 2310 Visual Rhetoric, I created a poster for the play Significant Other being performed by the WPI Masque theatre club. I designed the elements using Illustrator, including a version for an Instagram post and Facebook event, and used Photoshop to create mockups for each of those versions.'
+  },
   njk: {
     contentKey: 'njk',
     contentCount: 3,
@@ -102,6 +122,7 @@ export const DesignEntries = {
 };
 
 export const DesignEntryRows = [
+  ['hs', 'so'],
   ['njk', 'rotk'],
   ['bd', 'osg'],
   ['pd', 'we'],
