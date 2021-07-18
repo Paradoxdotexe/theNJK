@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HelloWorld from "@/components/HelloWorld.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import HelloWorld from '@/components/HelloWorld.vue';
 
 const routes = [
   {
@@ -7,11 +7,11 @@ const routes = [
     name: 'Home',
     component: HelloWorld
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes: routes as RouteRecordRaw[]
-})
+});
 
-export default router
+export default router;
