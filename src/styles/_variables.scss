@@ -1,0 +1,15 @@
+// breakpoints (to use with min-width as per mobile-first responsive design)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// transitions
+$transition-duration: 150ms;
+$transition-timing: ease-in-out;
+
+// paddings
+$page-padding: 20px;
+$gap-lg: 24px;
+$gap-md: 16px;
+$gap-sm: 8px;

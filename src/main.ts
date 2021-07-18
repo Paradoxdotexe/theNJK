@@ -1,7 +1,10 @@
 import { createApp } from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
+import Ripple from "@/directives/ripple/Ripple";
 
-createApp(App as any)
-  .use(router)
-  .mount('#app');
+const app = createApp(App as any);
+app.use(router).mount('#app');
+
+import '@/directives/ripple/Ripple.scss'
+app.directive('ripple', Ripple);

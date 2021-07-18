@@ -1,0 +1,59 @@
+// shadows
+$shadow-color: rgba(0, 0, 0, 0.15);
+$shadow-offset: 2px;
+$shadow-blur: 8px;
+
+@mixin mix-shadow-down {
+  box-shadow: 0 $shadow-offset $shadow-blur $shadow-color;
+}
+
+// buttons
+@mixin mix-button {
+  background: none;
+  border: none;
+  outline: 0;
+  color: $color-primary;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // for ripple effect
+  position: relative;
+  overflow: hidden;
+}
+
+// focus highlighting
+@mixin mix-focus-outline($color, $size) {
+  transition-property: box-shadow, border;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing;
+  &:focus,
+  &.focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 $size $color;
+    border-color: $color;
+  }
+}
+
+@mixin mix-focus-background($color) {
+  transition-property: background;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing;
+  &:focus,
+  &.focus {
+    background: $color;
+  }
+}
+
+@mixin mix-focus-color($color) {
+  transition-property: color;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing;
+  &:focus,
+  &.focus {
+    color: $color;
+  }
+}

@@ -2,4 +2,16 @@
   <router-view />
 </template>
 
-<style></style>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+});
+</script>
+
+<style lang="scss">
+  #app {
+    height: 100vh;
+  }
+</style>

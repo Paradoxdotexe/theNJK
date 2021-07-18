@@ -1,0 +1,24 @@
+// colors
+$_light: #ffffff;
+$_dark: #121212;
+$_accent: #33bc15;
+
+$color-primary: $_light;
+$color-secondary: scale-color($_light, $lightness: -25%);
+$color-tertiary: scale-color($_light, $lightness: -50%);
+
+$background-primary: scale-color($_dark, $lightness: 10%);
+$background-secondary: scale-color($_dark, $lightness: 5%);
+$background-tertiary: $_dark;
+
+$accent-primary: $_accent;
+$accent-secondary: scale-color($_accent, $lightness: -25%);
+$accent-tertiary: scale-color($_accent, $lightness: -50%);
+
+// fonts
+$font-family: 'Roboto', sans-serif;
+
+$font-size-sm: 0.875rem; // 14px default
+$font-size-md: 1rem; // 16px default
+$font-size-lg: 1.25rem; // 20px default
+$font-size-xl: 1.75rem; // 28px default
