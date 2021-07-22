@@ -14,14 +14,14 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import IconNJK from '@/icons/IconNJK.vue';
-import IconMenu from '@/icons/IconMenu.vue';
+import IconMenu from '@/components/icons/IconMenu.vue';
+import IconNJK from '@/components/icons/IconNJK.vue';
 
 export default defineComponent({
   name: 'Icon',
   components: {
-    IconNJK,
-    IconMenu
+    IconMenu,
+    IconNJK
   },
   props: {
     name: {
@@ -31,6 +31,7 @@ export default defineComponent({
   },
   setup(props) {
     let iconComponent = computed(() => `Icon${props.name}`);
+
     return {
       iconComponent
     };

@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Icon from "@/icons/Icon.vue";
+import Icon from "@/components/icons/Icon.vue";
 
 export default defineComponent({
   name: 'Header',
@@ -68,10 +68,15 @@ export default defineComponent({
 
   .header {
     @include mix-shadow-down;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: $accent-primary;
-    height: $gap-xl * 2;
+    height: $header-height;
     display: flex;
     justify-content: center;
+    z-index: 1;
 
     .header__framework {
       width: $framework-width-extended;
