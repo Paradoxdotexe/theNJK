@@ -1,13 +1,12 @@
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     :aria-labelledby="name"
     fill="currentColor"
     stroke="none"
     style="fill-rule: evenodd"
   >
-    <title lang="en">{{ name }} icon</title>
+    <title lang="en">{{ name }} Icon</title>
     <component v-bind:is="iconComponent"></component>
   </svg>
 </template>

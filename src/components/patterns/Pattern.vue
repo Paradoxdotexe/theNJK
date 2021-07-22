@@ -1,10 +1,11 @@
 <template>
-  <svg width="100%" height="100%">
+  <svg width="100%" height="100%" aria-label="space effect">
     <defs>
       <pattern id="pattern" :width="size.toString()" :height="size.toString()" patternUnits="userSpaceOnUse">
         <component v-bind:is="patternComponent"></component>
       </pattern>
     </defs>
+    <title lang="en">{{ name }} Pattern</title>
     <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)" />
   </svg>
 </template>

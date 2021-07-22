@@ -1,6 +1,10 @@
 <template>
   <Header />
-  <Banner />
+  <Banner graphics="Home">
+    <template v-slot:title>
+      Developer by design.<br>Designer by <span>necessity</span>.
+    </template>
+  </Banner>
 </template>
 
 <script lang="ts">
@@ -18,5 +22,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
 </style>

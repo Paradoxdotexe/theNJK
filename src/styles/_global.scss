@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
   background: $background-secondary;
 
+  font-family: $font-family;
+  font-size: 100%; // 16 px default
+  color: $color-primary;
+
   a {
     color: $accent-secondary;
     outline: none;
@@ -18,9 +22,13 @@ body {
     }
   }
 
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    color: $color-primary;
+  }
+
   * {
     box-sizing: border-box;
-    font-family: $font-family;
-    font-size: 100%; // 16 px default
   }
 }

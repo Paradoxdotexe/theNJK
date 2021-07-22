@@ -76,7 +76,7 @@ export default defineComponent({
     height: $header-height;
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 100;
 
     .header__framework {
       width: $framework-width-extended;
@@ -88,7 +88,6 @@ export default defineComponent({
         margin-left: $gap-xl;
 
         svg {
-          fill: $color-primary;
           width: $edge-item-width;
         }
       }
@@ -118,6 +117,7 @@ export default defineComponent({
 
         .header__button--contact {
           @include mix-outline-button($color-primary);
+          @include mix-focus-background(rgba(255, 255, 255, 0.25));
           width: 100%;
           display: none;
         }
