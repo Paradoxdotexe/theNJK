@@ -12,7 +12,11 @@ $font-path: '~@/assets/fonts';
 $font-weights: ("Thin": 100, "Light": 300, "Regular": 400, "Medium": 500, "Bold": 700, "Black": 900);
 $font-families: (
         'Roboto': (
-                'fonts': ('Light', 'Regular', 'Medium', 'Bold'),
+                'fonts': ('Regular', 'Medium', 'Bold'),
+                'italics': true
+        ),
+        'Roboto Mono': (
+                'fonts': ('Regular', 'Medium', 'Bold'),
                 'italics': true
         )
 );

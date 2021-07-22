@@ -16,7 +16,8 @@ $accent-secondary: scale-color($_accent, $lightness: -25%);
 $accent-tertiary: scale-color($_accent, $lightness: -50%);
 
 // fonts
-$font-family: 'Roboto', sans-serif;
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Roboto Mono', sans-serif;
 
 $font-size-sm: 0.875rem; // 14px default
 $font-size-md: 1rem; // 16px default
