@@ -10,6 +10,14 @@ $transition-timing: ease-in-out;
 
 // paddings
 $page-padding: 20px;
-$gap-lg: 24px;
-$gap-md: 16px;
 $gap-sm: 8px;
+$gap-md: 16px;
+$gap-lg: 24px;
+$gap-xl: 32px;
+
+// framework widths
+$framework-width-extended: 1280px; // 720p width
+$framework-width: 1000px;
+
+// other
+$border-radius: $gap-sm;

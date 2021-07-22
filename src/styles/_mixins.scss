@@ -24,6 +24,13 @@ $shadow-blur: 8px;
   overflow: hidden;
 }
 
+@mixin mix-outline-button($color) {
+  @include mix-button;
+  padding: $gap-sm;
+  border-radius: $border-radius;
+  border: 2px solid $color;
+}
+
 // focus highlighting
 @mixin mix-focus-outline($color, $size) {
   transition-property: box-shadow, border;

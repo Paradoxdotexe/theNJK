@@ -1,16 +1,12 @@
-let parent: HTMLElement;
-
-function mount() {
+function mount(parent: HTMLElement) {
   const ripple = document.createElement('span');
   ripple.className = 'ripple';
-  ripple.style.width = ripple.style.height = Math.max(parent.clientWidth, parent.clientHeight) + 'px';
   ripple.addEventListener('animationend', onAnimationEnd);
-
   parent.appendChild(ripple);
   parent.addEventListener('mousedown', onMouseDown);
 }
 
-function unmount() {
+function unmount(parent: HTMLElement) {
   const ripple = getInk(parent);
   if (ripple) {
     parent.removeEventListener('mousedown', onMouseDown);
@@ -21,10 +17,12 @@ function unmount() {
 
 function onMouseDown(event: MouseEvent) {
   const ripple = getInk(event.currentTarget as HTMLElement) as HTMLElement;
-  if (ripple && getComputedStyle(ripple, null).display !== 'none') {
+  if (ripple && ripple.parentElement && getComputedStyle(ripple, null).display !== 'none') {
+    const size = Math.max(ripple.parentElement.clientWidth, ripple.parentElement.clientHeight);
+    ripple.style.width = ripple.style.height = size + 'px';
     ripple.classList.remove('ripple-active');
-    ripple.style.top = event.offsetY - ripple.clientHeight / 2 + 'px';
-    ripple.style.left = event.offsetX - ripple.clientHeight / 2 + 'px';
+    ripple.style.top = event.offsetY - size / 2 + 'px';
+    ripple.style.left = event.offsetX - size / 2 + 'px';
     ripple.classList.add('ripple-active');
   }
 }
@@ -33,22 +31,22 @@ function onAnimationEnd(event: Event) {
   (event.currentTarget as HTMLElement).classList.remove('ripple-active');
 }
 
-function getInk(el: HTMLElement) {
-  for (let i = 0; i < el.children.length; i++) {
-    if (el.children[i].className.indexOf('ripple') !== -1) {
-      return el.children[i];
+function getInk(parent: HTMLElement) {
+  for (let i = 0; i < parent.children.length; i++) {
+    // typeof el.children[i].className can be SVGAnimatedString
+    if (typeof parent.children[i].className === 'string' && parent.children[i].className.indexOf('ripple') !== -1) {
+      return parent.children[i];
     }
   }
   return null;
 }
 
 const Ripple = {
-  mounted(el: HTMLElement) {
-    parent = el;
-    mount();
+  mounted(parent: HTMLElement) {
+    mount(parent);
   },
-  unmounted() {
-    unmount();
+  unmounted(parent: HTMLElement) {
+    unmount(parent);
   }
 };
 
