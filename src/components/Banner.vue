@@ -8,6 +8,7 @@
         <div class="title__text"><slot name="title"></slot></div>
         <Graphics class="title__graphics" :name="graphics"></Graphics>
       </div>
+      <slot name="content"></slot>
     </div>
   </div>
 </template>
@@ -88,6 +89,7 @@ export default defineComponent({
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      z-index: 51;
 
       .banner__title {
         position: relative;
@@ -98,7 +100,7 @@ export default defineComponent({
         align-items: center;
 
         .title__text {
-          font-size: 96px;
+          font-size: $font-size-xxl;
           font-weight: bold;
           text-align: center;
           z-index: 52;
@@ -114,7 +116,6 @@ export default defineComponent({
           position: absolute;
           top: 0;
           left: 0;
-          z-index: 51;
         }
       }
     }
