@@ -1,9 +1,4 @@
-<template xmlns:svg="http://www.w3.org/2000/svg">
-  <defs>
-    <svg:style>
-      .cls-1,.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}.cls-1{opacity:0.8;}.cls-2{opacity:0.6;}
-    </svg:style>
-  </defs>
+<template>
   <polygon id="Triangle" class="cls-1" points="1106.36 37.51 1089.8 56.78 1114.76 61.49 1106.36 37.51"/>
   <circle id="Circle" class="cls-2" cx="1129.01" cy="27.59" r="10"/>
   <circle id="Circle-2" data-name="Circle" class="cls-1" cx="98.39" cy="54.14" r="10"/>
@@ -17,3 +12,7 @@ export default {
   name: 'Graphics' + 'Home'
 };
 </script>
+
+<style lang="scss">
+  .cls-1,.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}.cls-1{opacity:0.8;}.cls-2{opacity:0.6;}
+</style>

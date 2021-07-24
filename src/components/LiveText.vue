@@ -26,12 +26,12 @@ export default defineComponent({
       flash: false
     });
     let nextText = '';
-    const baseDuration = 200;
-    // const usedTextOptions: string[] = [];
+    let remainingTextOptions: string[] = [];
+    const baseDuration = 150;
 
     onMounted(() => {
       refs.text = getRandomText();
-      pause(baseDuration * 8).then(changeText);
+      pause(baseDuration * 10).then(changeText);
     });
 
     async function changeText() {
@@ -41,21 +41,25 @@ export default defineComponent({
         refs.text = refs.text.slice(0, refs.text.length - 1);
         await Sleep(baseDuration);
       }
-      await Sleep(baseDuration * 3); // sleep between deleting and adding characters
+      await Sleep(baseDuration * 4); // sleep between deleting and adding characters
       // add characters until text is fully updated
       while (refs.text !== nextText) {
         refs.text += nextText[refs.text.length];
         await Sleep(baseDuration);
       }
-      pause(baseDuration * 15).then(changeText); // pause before changing text again
+      pause(baseDuration * 20).then(changeText); // pause before changing text again
     }
 
     function getRandomText(): string {
-      let newText = refs.text;
-      while (newText == refs.text) {
-        newText = textOptions[Math.round(Math.random() * (textOptions.length - 1))];
+      // refresh text options
+      if (remainingTextOptions.length === 0) {
+        remainingTextOptions = [...textOptions];
       }
-      return newText;
+      // get random text in remaining text options
+      const index = Math.floor(Math.random() * remainingTextOptions.length);
+      const newText = remainingTextOptions[index];
+      remainingTextOptions.splice(index, 1);
+      return newText
     }
 
     async function pause(duration: number) {
