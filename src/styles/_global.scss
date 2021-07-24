@@ -13,12 +13,13 @@ body {
   color: $color-primary;
 
   a {
-    color: $accent-secondary;
+    color: $accent-primary;
     outline: none;
+    text-decoration: underline;
 
     &:focus {
-      color: $accent-primary;
-      background: $accent-primary;
+      color: $color-primary;
+      background: $accent-secondary;
     }
   }
 

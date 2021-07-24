@@ -81,6 +81,7 @@ export default defineComponent({
     padding-right: 4px;
 
     pre {
+      margin: 0;
       font-family: $font-family-secondary;
       font-size: $font-size-xl;
       font-weight: 300;
