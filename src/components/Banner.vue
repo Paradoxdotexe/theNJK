@@ -42,9 +42,10 @@ export default defineComponent({
   $tile-size: 100px;
 
   .banner {
+    @include mix-shadow-down;
+    background: $background-tertiary;
     position: relative;
     overflow: hidden;
-    background: $background-tertiary;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +60,6 @@ export default defineComponent({
       width: calc(100% + #{$tile-size});
       height: calc(100% + #{$tile-size});
       margin: (-$tile-size) 0 0 (-$tile-size);
-      transition: left $transition-duration $transition-timing;
       opacity: 0.5;
       z-index: 50;
       animation: space 5s linear infinite;

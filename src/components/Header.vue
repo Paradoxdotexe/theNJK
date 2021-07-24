@@ -104,7 +104,7 @@ export default defineComponent({
           }
 
           &.router-link-active > .header__button {
-            @include mix-button-nav-active;
+            background: rgba(0, 0, 0, 0.2);
           }
         }
       }

@@ -7,8 +7,8 @@
     <template v-slot:content>
       <div class="banner__live"><LiveText /></div>
       <div class="banner__buttons">
-        <button class="banner__button banner__button--primary" v-ripple>Dev Portfolio</button>
-        <button class="banner__button banner__button--secondary" v-ripple>Design Portfolio</button>
+        <button class="banner__button banner__button--primary" v-ripple @click="goToPortfolio(0)">Dev Portfolio</button>
+        <button class="banner__button banner__button--secondary" v-ripple @click="goToPortfolio(1)">Design Portfolio</button>
       </div>
     </template>
   </Banner>
@@ -19,6 +19,7 @@ import { defineComponent } from 'vue';
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
 import LiveText from "@/components/LiveText.vue";
+import router from "@/router";
 
 export default defineComponent({
   name: "HomePage",
@@ -26,17 +27,20 @@ export default defineComponent({
     Header,
     Banner,
     LiveText
+  },
+  setup() {
+    function goToPortfolio(n: number) {
+      router.push({ name: n ? 'Design': 'Development' })
+    }
+
+    return {
+      goToPortfolio
+    }
   }
 });
 </script>
 
 <style lang="scss" scoped>
-.banner__live {
-  font-family: $font-family-secondary;
-  font-size: $font-size-xl;
-  font-weight: 300;
-}
-
 .banner__buttons {
   margin-top: $gap-lg;
   display: flex;

@@ -80,6 +80,12 @@ export default defineComponent({
     position: relative;
     padding-right: 4px;
 
+    pre {
+      font-family: $font-family-secondary;
+      font-size: $font-size-xl;
+      font-weight: 300;
+    }
+
     .live-text__cursor {
       position: absolute;
       top: 0;
