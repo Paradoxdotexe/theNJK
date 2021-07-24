@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <div class="banner__pattern" :style="{ left: `${ refs.patternOffset }px` }">
+    <div class="banner__pattern">
       <Pattern name="Dot" :size="100"></Pattern>
     </div>
     <div class="banner__framework">
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, onUnmounted, onMounted } from 'vue';
+import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
 import Graphics from "@/components/graphics/Graphics.vue";
 
@@ -31,21 +31,8 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const refs: { [key: string]: any } = reactive({
-      windowWidth: window.innerWidth,
-      patternOffset: computed(() => (refs.windowWidth % 100) / 2) // offsets pattern to center dots
-    });
-
-    onMounted(() => window.addEventListener('resize', onWidthChange));
-    onUnmounted(() => window.removeEventListener('resize', onWidthChange));
-
-    const onWidthChange = () => {
-      refs.windowWidth = window.innerWidth;
-    };
-
     return {
-      props,
-      refs
+      props
     }
   }
 });
