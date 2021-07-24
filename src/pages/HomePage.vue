@@ -15,26 +15,40 @@
   </Banner>
   <!-- CONTENT -->
   <div class="content">
-    <ContentHeader
-      path="C:\Users\Nathan\README.md"
-      title="Hello, I'm Nathan Klingensmith"
-    >
-      I am a UI/UX designer, full stack developer, and team leader.
-      I have the skills to take your idea from <router-link :to="{ name: 'Design' }">design</router-link> to <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
-    </ContentHeader>
-    <ContentCard
-      v-for="(role, i) of roles"
-      :key="i"
-      :title="role.title"
-      :subtitle="role.company"
-      :tag="Array.isArray(role.years) ? `${Math.min(...role.years)} - ${Math.max(...role.years)}` : role.years"
-    ></ContentCard>
-    <ContentHeader
-      path="C:\Users\Nathan\WPI\courses.zip"
-      title="Education"
-    >
-      I am pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute (WPI).
-    </ContentHeader>
+    <div class="content__framework">
+      <!-- README -->
+      <ContentHeader
+        path="C:\Users\Nathan\README.md"
+        title="Hello, I'm Nathan Klingensmith"
+      >
+        I am a UI/UX designer, full stack developer, and team leader.
+        I have the skills to take your idea from <router-link :to="{ name: 'Design' }">design</router-link> to <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
+      </ContentHeader>
+      <ContentCard
+        v-for="(role, i) of roles"
+        :key="i"
+        :title="role.title"
+        :subtitle="role.company"
+        :tag="Array.isArray(role.years) ? `${Math.min(...role.years)} - ${Math.max(...role.years)}` : role.years"
+      ></ContentCard>
+
+      <!-- EDUCATION -->
+      <ContentHeader
+        path="C:\Users\Nathan\WPI\courses.zip"
+        title="Education"
+      >
+        I am pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute (WPI).
+      </ContentHeader>
+      <div v-for="i of [0, 1, 2]" :key="i" class="content__courses">
+        <ContentCard
+          v-for="course of getCourses(i)"
+          :key="course.code"
+          :title="course.title"
+          :subtitle="course.code"
+          :tag="course.grade"
+        ></ContentCard>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,6 +61,7 @@ import ContentHeader from "@/components/ContentHeader.vue";
 import ContentCard from "@/components/ContentCard.vue";
 import router from "@/router";
 import Roles from '@/data/roles';
+import Courses, { CourseType } from "@/data/courses";
 
 export default defineComponent({
   name: "HomePage",
@@ -64,9 +79,14 @@ export default defineComponent({
       router.push({ name: n ? 'Design': 'Development' })
     }
 
+    function getCourses(courseType: CourseType) {
+      return Courses.filter(c => c.type === courseType);
+    }
+
     return {
       roles,
-      goToPortfolio
+      goToPortfolio,
+      getCourses
     }
   }
 });
@@ -95,7 +115,26 @@ export default defineComponent({
 
 .content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  padding-bottom: $gap-xl * 2;
+
+  .content__framework {
+    display: flex;
+    flex-direction: column;
+    max-width: $max-width;
+
+    .content__courses {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:not(:last-child) {
+        margin-bottom: $gap-lg;
+      }
+
+      > div {
+        margin-right: $gap-md;
+      }
+    }
+  }
 }
 </style>

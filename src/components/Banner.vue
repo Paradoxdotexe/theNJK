@@ -96,7 +96,7 @@ export default defineComponent({
           ::v-deep(span) {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: white;
-            color: $background-tertiary;
+            color: $background-primary;
           }
         }
 

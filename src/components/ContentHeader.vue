@@ -32,6 +32,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content-header {
   margin: $gap-xl * 2 0 $gap-xl;
+  max-width: 800px;
 
   .content-header__path {
     font-family: $font-family-secondary;

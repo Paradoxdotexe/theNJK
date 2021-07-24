@@ -39,6 +39,7 @@ export default defineComponent({
   position: relative;
   background: $background-tertiary;
   width: 400px;
+  height: min-content;
   border-radius: $border-radius;
   padding: $gap-sm $gap-md;
   line-height: 100%;
