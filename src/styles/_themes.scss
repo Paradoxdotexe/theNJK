@@ -7,9 +7,9 @@ $color-primary: $_light;
 $color-secondary: scale-color($_light, $lightness: -25%);
 $color-tertiary: scale-color($_light, $lightness: -50%);
 
-$background-primary: scale-color($_dark, $lightness: 10%);
+$background-primary: $_dark;
 $background-secondary: scale-color($_dark, $lightness: 5%);
-$background-tertiary: $_dark;
+$background-tertiary: scale-color($_dark, $lightness: 10%);
 
 $accent-primary: $_accent;
 $accent-secondary: scale-color($_accent, $lightness: -25%);

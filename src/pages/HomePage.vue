@@ -22,6 +22,19 @@
       I am a UI/UX designer, full stack developer, and team leader.
       I have the skills to take your idea from <router-link :to="{ name: 'Design' }">design</router-link> to <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
     </ContentHeader>
+    <ContentCard
+      v-for="(role, i) of roles"
+      :key="i"
+      :title="role.title"
+      :subtitle="role.company"
+      :tag="Array.isArray(role.years) ? `${Math.min(...role.years)} - ${Math.max(...role.years)}` : role.years"
+    ></ContentCard>
+    <ContentHeader
+      path="C:\Users\Nathan\WPI\courses.zip"
+      title="Education"
+    >
+      I am pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute (WPI).
+    </ContentHeader>
   </div>
 </template>
 
@@ -31,7 +44,9 @@ import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
 import LiveText from "@/components/LiveText.vue";
 import ContentHeader from "@/components/ContentHeader.vue";
+import ContentCard from "@/components/ContentCard.vue";
 import router from "@/router";
+import Roles from '@/data/roles';
 
 export default defineComponent({
   name: "HomePage",
@@ -39,14 +54,18 @@ export default defineComponent({
     Header,
     Banner,
     LiveText,
-    ContentHeader
+    ContentHeader,
+    ContentCard
   },
   setup() {
+    const roles = Roles;
+
     function goToPortfolio(n: number) {
       router.push({ name: n ? 'Design': 'Development' })
     }
 
     return {
+      roles,
       goToPortfolio
     }
   }

@@ -43,7 +43,7 @@ export default defineComponent({
 
   .banner {
     @include mix-shadow-down;
-    background: $background-tertiary;
+    background: $background-primary;
     position: relative;
     overflow: hidden;
     display: flex;
