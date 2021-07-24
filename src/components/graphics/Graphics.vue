@@ -3,7 +3,6 @@
     viewBox="0 0 1200 400"
     aria-label="graphical elements"
   >
-    <title lang="en">{{ name }} Graphics</title>
     <component v-bind:is="graphicsComponent"></component>
   </svg>
 </template>

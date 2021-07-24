@@ -51,7 +51,7 @@ export default defineComponent({
 
   @mixin mix-button-nav {
     @include mix-button;
-    @include mix-focus-background(rgba(255, 255, 255, 0.15));
+    @include mix-focus-background(rgba(0, 0, 0, 0.1));
     padding: 0 $gap-xl;
     height: 100%;
     letter-spacing: 0.02rem;
@@ -62,7 +62,7 @@ export default defineComponent({
   }
 
   @mixin mix-button-nav-active {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.2);
     font-weight: 500;
   }
 
@@ -116,8 +116,8 @@ export default defineComponent({
         align-items: center;
 
         .header__button--contact {
-          @include mix-outline-button($color-primary);
-          @include mix-focus-background(rgba(255, 255, 255, 0.25));
+          @include mix-basic-button--stroked($color-primary);
+          @include mix-focus-background(rgba(0, 0, 0, 0.1));
           width: 100%;
           display: none;
         }

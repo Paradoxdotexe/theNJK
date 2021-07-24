@@ -5,7 +5,6 @@
         <component v-bind:is="patternComponent"></component>
       </pattern>
     </defs>
-    <title lang="en">{{ name }} Pattern</title>
     <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)" />
   </svg>
 </template>

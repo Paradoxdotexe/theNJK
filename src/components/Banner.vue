@@ -98,6 +98,7 @@ export default defineComponent({
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: -$gap-xl;
 
         .title__text {
           font-size: $font-size-xxl;

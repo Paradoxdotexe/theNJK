@@ -6,7 +6,7 @@
     stroke="none"
     style="fill-rule: evenodd"
   >
-    <title lang="en">{{ name }} Icon</title>
+    <title lang="en">{{ name }}</title>
     <component v-bind:is="iconComponent"></component>
   </svg>
 </template>

@@ -23,10 +23,20 @@ $shadow-blur: 8px;
   overflow: hidden;
 }
 
-@mixin mix-outline-button($color) {
+@mixin mix-basic-button {
   @include mix-button;
-  padding: $gap-sm;
+  padding: $gap-sm $gap-md;
   border-radius: $border-radius;
+}
+
+@mixin mix-basic-button--raised($color) {
+  @include mix-basic-button;
+  @include mix-shadow-down;
+  background: $color;
+}
+
+@mixin mix-basic-button--stroked($color) {
+  @include mix-basic-button;
   border: 2px solid $color;
 }
 
