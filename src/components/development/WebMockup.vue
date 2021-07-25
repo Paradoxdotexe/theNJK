@@ -6,15 +6,15 @@
       </div>
       <div class="web-mockup__search-bar"></div>
     </div>
-    <div class="web-mockup__image" :style="{ 'background-image': `url(${src})` }"></div>
+    <div class="web-mockup__image" :style="{ 'background-image': `url(${path})` }"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "WebMockup",
+  name: 'WebMockup',
   props: {
     path: {
       type: String,
@@ -22,61 +22,59 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const src = computed(() => require(`@/assets/content/development${props.path}`));
-
     return {
-      src
-    }
+      props
+    };
   }
 });
 </script>
 
 <style lang="scss" scoped>
-  .web-mockup {
-    width: $max-width;
-    border-radius: $border-radius;
-    overflow: hidden;
-    border: 2px solid $background-primary;
-    background: $background-primary;
+.web-mockup {
+  width: $max-width;
+  border-radius: $border-radius;
+  overflow: hidden;
+  border: 2px solid $background-primary;
+  background: $background-primary;
+  display: flex;
+  flex-direction: column;
+
+  .web-mockup__header {
+    position: relative;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: $gap-xl;
 
-    .web-mockup__header {
-      position: relative;
-      width: 100%;
+    .web-mockup__dots {
+      position: absolute;
+      left: $gap-md;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: $gap-xl;
 
-      .web-mockup__dots {
-        position: absolute;
-        left: $gap-md;
-        display: flex;
+      .web-mockup__dot {
+        height: $gap-sm * 1.5;
+        width: $gap-sm * 1.5;
+        border-radius: $gap-sm;
+        background: $background-tertiary;
 
-        .web-mockup__dot {
-          height: $gap-sm * 1.5;
-          width: $gap-sm * 1.5;
-          border-radius: $gap-sm;
-          background: $background-tertiary;
-
-          &:not(:last-child) {
-            margin-right: $gap-sm;
-          }
+        &:not(:last-child) {
+          margin-right: $gap-sm;
         }
       }
-
-      .web-mockup__search-bar {
-        width: 50%;
-        height: $gap-md;
-        border-radius: $gap-md;
-        background: $background-tertiary;
-      }
     }
 
-    .web-mockup__image {
-      height: 638px;
-      background-size: contain;
+    .web-mockup__search-bar {
+      width: 50%;
+      height: $gap-md;
+      border-radius: $gap-md;
+      background: $background-tertiary;
     }
   }
+
+  .web-mockup__image {
+    height: 638px;
+    background-size: contain;
+  }
+}
 </style>

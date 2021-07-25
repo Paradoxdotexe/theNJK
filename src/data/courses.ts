@@ -7,7 +7,7 @@ export enum CourseType {
 interface Course {
   title: string;
   code: string;
-  type: CourseType
+  type: CourseType;
   grade: string;
 }
 

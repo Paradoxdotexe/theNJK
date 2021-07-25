@@ -1,13 +1,13 @@
 <template>
   <div class="live-text">
     <pre>{{ refs.text }}</pre>
-    <div class="live-text__cursor" v-bind:class="{ 'flash': refs.flash }"></div>
+    <div class="live-text__cursor" v-bind:class="{ flash: refs.flash }"></div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, onMounted } from 'vue';
-import Sleep from "@/util/sleep";
+import Sleep from '@/util/sleep';
 
 const textOptions: string[] = [
   'See my work',
@@ -37,7 +37,7 @@ export default defineComponent({
     async function changeText() {
       nextText = getRandomText();
       // delete characters until prefixes match
-      while(refs.text !== nextText.slice(0, refs.text.length)) {
+      while (refs.text !== nextText.slice(0, refs.text.length)) {
         refs.text = refs.text.slice(0, refs.text.length - 1);
         await Sleep(baseDuration);
       }
@@ -59,7 +59,7 @@ export default defineComponent({
       const index = Math.floor(Math.random() * remainingTextOptions.length);
       const newText = remainingTextOptions[index];
       remainingTextOptions.splice(index, 1);
-      return newText
+      return newText;
     }
 
     async function pause(duration: number) {
@@ -70,49 +70,49 @@ export default defineComponent({
 
     return {
       refs
-    }
+    };
   }
 });
 </script>
 
 <style lang="scss" scoped>
-  .live-text {
-    position: relative;
-    padding-right: 4px;
+.live-text {
+  position: relative;
+  padding-right: 4px;
 
-    pre {
-      margin: 0;
-      font-family: $font-family-secondary;
-      font-size: $font-size-xl;
-      font-weight: 300;
-    }
-
-    .live-text__cursor {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: 2px;
-      background: $color-primary;
-
-      &.flash {
-        animation: flash 1.25s ease infinite;
-      }
-    }
+  pre {
+    margin: 0;
+    font-family: $font-family-secondary;
+    font-size: $font-size-xl;
+    font-weight: 300;
   }
 
-  @keyframes flash {
-    from {
-      opacity: 1;
-    }
-    47.5% {
-      opacity: 1;
-    }
-    52.5% {
-      opacity: 0;
-    }
-    to {
-      opacity: 0;
+  .live-text__cursor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 2px;
+    background: $color-primary;
+
+    &.flash {
+      animation: flash 1.25s ease infinite;
     }
   }
+}
+
+@keyframes flash {
+  from {
+    opacity: 1;
+  }
+  47.5% {
+    opacity: 1;
+  }
+  52.5% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
 </style>

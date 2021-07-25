@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "ContentHeader",
+  name: 'ContentHeader',
   props: {
     path: {
       type: String,
@@ -31,7 +31,7 @@ export default defineComponent({
   setup(props) {
     return {
       props
-    }
+    };
   }
 });
 </script>

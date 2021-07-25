@@ -2,35 +2,31 @@
   <Header />
   <!-- BANNER -->
   <Banner graphics="Design">
-    <template v-slot:title>
-      Design<br><span>Portfolio</span>
-    </template>
+    <template v-slot:title> Design<br /><span>Portfolio</span> </template>
     <template v-slot:content>
       <div class="banner__caption">
-        Although I am by no means an artist, I have an eye for what looks good
-        and what users think is functional, yet attractive. I have integrated this
-        skill into how I design everything from websites to logos.
+        Although I am by no means an artist, I have an eye for what looks good and what users think
+        is functional, yet attractive. I have integrated this skill into how I design everything
+        from websites to logos.
       </div>
     </template>
   </Banner>
   <!-- CONTENT -->
-  <div class="content">
-  </div>
+  <div class="content"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from "@/components/Header.vue";
-import Banner from "@/components/Banner.vue";
+import Header from '@/components/Header.vue';
+import Banner from '@/components/Banner.vue';
 
 export default defineComponent({
-  name: "DesignPage",
+  name: 'DesignPage',
   components: {
     Header,
     Banner
   },
-  setup() {
-  }
+  setup() {}
 });
 </script>
 

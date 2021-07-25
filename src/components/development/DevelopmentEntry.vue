@@ -1,23 +1,19 @@
 <template>
-  <ContentHeader
-    :path="path"
-    :title="entry.title"
-    :subtitle="entry.subtitle"
-  />
-  <WebCarousel v-if="isContentType('WEB')" :content="entry.content"></WebCarousel>
+  <ContentHeader :path="path" :title="entry.title" :subtitle="entry.subtitle" />
+  <Carousel :content="entry.content"></Carousel>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import{ DevelopmentEntry, ContentType } from "@/data/development";
-import ContentHeader from "@/components/ContentHeader.vue";
-import WebCarousel from "@/components/development/WebCarousel.vue";
+import { DevelopmentEntry } from '@/data/development';
+import ContentHeader from '@/components/ContentHeader.vue';
+import Carousel from '@/components/development/Carousel.vue';
 
 export default defineComponent({
-  name: "DevelopmentEntry",
+  name: 'DevelopmentEntry',
   components: {
     ContentHeader,
-    WebCarousel
+    Carousel
   },
   props: {
     path: {
@@ -30,18 +26,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-    function isContentType(type: ContentType) {
-      return props.entry.content.type === type;
-    }
-
     return {
-      props,
-      isContentType
-    }
+      props
+    };
   }
 });
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

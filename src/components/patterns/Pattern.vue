@@ -1,7 +1,12 @@
 <template>
   <svg width="100%" height="100%" aria-label="space effect">
     <defs>
-      <pattern id="pattern" :width="size.toString()" :height="size.toString()" patternUnits="userSpaceOnUse">
+      <pattern
+        id="pattern"
+        :width="size.toString()"
+        :height="size.toString()"
+        patternUnits="userSpaceOnUse"
+      >
         <component v-bind:is="patternComponent"></component>
       </pattern>
     </defs>
@@ -10,11 +15,11 @@
 </template>
 
 <script>
-import { computed } from "vue";
-import PatternDot from "@/components/patterns/PatternDot";
+import { computed } from 'vue';
+import PatternDot from '@/components/patterns/PatternDot';
 
 export default {
-  name: "Pattern",
+  name: 'Pattern',
   components: {
     PatternDot
   },
@@ -36,9 +41,7 @@ export default {
       patternComponent
     };
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

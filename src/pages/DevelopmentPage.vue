@@ -2,31 +2,35 @@
   <Header />
   <!-- BANNER -->
   <Banner graphics="Development">
-    <template v-slot:title>
-      Development<br><span>Portfolio</span>
-    </template>
+    <template v-slot:title> Development<br /><span>Portfolio</span> </template>
     <template v-slot:content>
       <div class="banner__caption">
-        Web development has become my personal outlet for creativity.<br>
-        It challenges me everyday to equally balance the weights of an intelligently-engineered system and a beautifully-designed website.
+        Web development has become my personal outlet for creativity.<br />
+        It challenges me everyday to equally balance the weights of an intelligently-engineered
+        system and a beautifully-designed website.
       </div>
     </template>
   </Banner>
   <!-- CONTENT -->
   <div class="content">
-    <DevelopmentEntry v-for="entry of developmentEntries" :key="entry.content.key" :path="paths[entry.content.key]" :entry="entry"></DevelopmentEntry>
+    <DevelopmentEntry
+      v-for="entry of developmentEntries"
+      :key="entry.content.key"
+      :path="paths[entry.content.key]"
+      :entry="entry"
+    ></DevelopmentEntry>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onBeforeMount } from 'vue';
-import Header from "@/components/Header.vue";
-import Banner from "@/components/Banner.vue";
-import DevelopmentEntry from "@/components/development/DevelopmentEntry.vue";
-import DevelopmentEntries from "@/data/development";
+import Header from '@/components/Header.vue';
+import Banner from '@/components/Banner.vue';
+import DevelopmentEntry from '@/components/development/DevelopmentEntry.vue';
+import DevelopmentEntries from '@/data/development';
 
 export default defineComponent({
-  name: "DevelopmentPage",
+  name: 'DevelopmentPage',
   components: {
     Header,
     Banner,
@@ -49,7 +53,7 @@ export default defineComponent({
     return {
       developmentEntries,
       paths
-    }
+    };
   }
 });
 </script>

@@ -6,12 +6,12 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'App'
 });
 </script>
 
 <style lang="scss" scoped>
-  #app {
-    height: 100vh;
-  }
+#app {
+  height: 100vh;
+}
 </style>

@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
-import Graphics from "@/components/graphics/Graphics.vue";
+import Graphics from '@/components/graphics/Graphics.vue';
 
 export default defineComponent({
   name: 'Banner',
@@ -33,86 +33,86 @@ export default defineComponent({
   setup(props) {
     return {
       props
-    }
+    };
   }
 });
 </script>
 
 <style lang="scss" scoped>
-  $tile-size: 100px;
+$tile-size: 100px;
 
-  .banner {
-    @include mix-shadow-down;
-    background: $background-primary;
-    position: relative;
-    overflow: hidden;
+.banner {
+  @include mix-shadow-down;
+  background: $background-primary;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding-top: $header-height;
+  box-sizing: border-box;
+
+  .banner__pattern {
+    position: absolute;
+    left: 0;
+    top: $header-height;
+    width: calc(100% + #{$tile-size});
+    height: calc(100% + #{$tile-size});
+    margin: (-$tile-size) 0 0 (-$tile-size);
+    opacity: 0.5;
+    z-index: 50;
+    animation: space 5s linear infinite;
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+
+  .banner__framework {
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    padding-top: $header-height;
-    box-sizing: border-box;
+    z-index: 51;
 
-    .banner__pattern {
-      position: absolute;
-      left: 0;
-      top: $header-height;
-      width: calc(100% + #{$tile-size});
-      height: calc(100% + #{$tile-size});
-      margin: (-$tile-size) 0 0 (-$tile-size);
-      opacity: 0.5;
-      z-index: 50;
-      animation: space 5s linear infinite;
-
-      svg {
-        fill: $color-primary;
-      }
-    }
-
-    .banner__framework {
-      width: 100%;
-      height: 100%;
+    .banner__title {
+      position: relative;
+      width: 1200px;
+      height: 400px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 51;
+      margin-top: -$gap-xl;
 
-      .banner__title {
-        position: relative;
-        width: 1200px;
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: -$gap-xl;
+      .title__text {
+        font-size: $font-size-xxl;
+        font-weight: bold;
+        text-align: center;
+        z-index: 52;
 
-        .title__text {
-          font-size: $font-size-xxl;
-          font-weight: bold;
-          text-align: center;
-          z-index: 52;
-
-          ::v-deep(span) {
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: white;
-            color: $background-primary;
-          }
+        ::v-deep(span) {
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: white;
+          color: $background-primary;
         }
+      }
 
-        .title__graphics {
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
+      .title__graphics {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
   }
+}
 
-  @keyframes space {
-    100% {
-      transform: translate(100px, 100px);
-    }
+@keyframes space {
+  100% {
+    transform: translate(100px, 100px);
   }
+}
 </style>

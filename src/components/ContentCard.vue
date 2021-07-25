@@ -2,7 +2,7 @@
   <div class="content-card">
     <div class="content-card__title">{{ title }}</div>
     <div class="content-card__subtitle">{{ subtitle }}</div>
-    <div class="content-card__tag">{{tag }}</div>
+    <div class="content-card__tag">{{ tag }}</div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "ContentHeader",
+  name: 'ContentHeader',
   props: {
     title: {
       type: String,
@@ -28,7 +28,7 @@ export default defineComponent({
   setup(props) {
     return {
       props
-    }
+    };
   }
 });
 </script>

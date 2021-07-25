@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import HomePage from "@/pages/HomePage.vue";
-import DevelopmentPage from "@/pages/DevelopmentPage.vue";
-import DesignPage from "@/pages/DesignPage.vue";
+import HomePage from '@/pages/HomePage.vue';
+import DevelopmentPage from '@/pages/DevelopmentPage.vue';
+import DesignPage from '@/pages/DesignPage.vue';
 
 const routes = [
   {

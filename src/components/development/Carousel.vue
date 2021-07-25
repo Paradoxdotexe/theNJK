@@ -1,15 +1,39 @@
 <template>
-  <div class="carousel">
-    <div class="carousel__objects-container" :style="{ height: `${refs.objectHeight}px` }">
+  <div
+    class="carousel"
+    :style="{
+      background: Array.isArray(content.color)
+        ? `linear-gradient(to right, ${content.color[0]}, ${content.color[1]})`
+        : content.color
+    }"
+  >
+    <div
+      class="carousel__objects-container"
+      :style="{ height: `${refs.objectHeight}px`, width: `${refs.objectWidth}px` }"
+    >
       <div class="carousel__objects" :style="{ left: `-${refs.offset}px` }">
-        <WebMockup
-          class="carousel__object"
-          v-bind:class="{ active: i === refs.index }"
-          v-for="(path, i) of paths"
-          :key="i"
-          :path="path"
-          :ref="`object${i}`"
-          @click="goToObject(i)" />
+        <template v-if="isContentType('WEB')">
+          <WebMockup
+            v-for="(path, i) of paths"
+            :key="i"
+            :path="path"
+            :ref="`object${i}`"
+            class="carousel__object"
+            v-bind:class="{ active: i === refs.index }"
+            @click="goToObject(i)"
+          />
+        </template>
+        <template v-else>
+          <div
+            v-for="(path, i) of paths"
+            :key="i"
+            :ref="`object${i}`"
+            class="carousel__object carousel__object--mobile"
+            v-bind:class="{ active: i === refs.index }"
+            :style="{ 'background-image': `url(${path})` }"
+            @click="goToObject(i)"
+          />
+        </template>
       </div>
       <div class="carousel__dots">
         <div
@@ -26,11 +50,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType, onBeforeMount, ref, reactive, computed } from 'vue';
-import { DevelopmentEntryContent } from "@/data/development";
+import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
 
 export default defineComponent({
-  name: "DevelopmentEntry",
+  name: 'Carousel',
   components: {
     WebMockup
   },
@@ -43,8 +67,12 @@ export default defineComponent({
   setup(props) {
     const object0 = ref<any>();
     const refs: { [key: string]: any } = reactive({
-      objectHeight: computed(() => object0.value ? object0.value.$el.offsetHeight : 0),
-      objectWidth: computed(() => object0.value ? object0.value.$el.offsetWidth : 0),
+      objectHeight: computed(() =>
+        object0.value ? (object0.value.$el || object0.value).offsetHeight : 0
+      ),
+      objectWidth: computed(() =>
+        object0.value ? (object0.value.$el || object0.value).offsetWidth : 0
+      ),
       index: 0,
       offset: computed(() => refs.index * refs.objectWidth)
     });
@@ -52,9 +80,13 @@ export default defineComponent({
 
     onBeforeMount(() => {
       for (let i = 0; i < props.content.count; i++) {
-        paths.push(`/${props.content.key}/_${i}.png`);
+        paths.push(require(`@/assets/content/development/${props.content.key}/_${i}.png`));
       }
     });
+
+    function isContentType(type: ContentType) {
+      return props.content.type === type;
+    }
 
     function goToObject(index: number) {
       refs.index += index - refs.index;
@@ -64,8 +96,9 @@ export default defineComponent({
       object0,
       refs,
       paths,
+      isContentType,
       goToObject
-    }
+    };
   }
 });
 </script>
@@ -80,7 +113,6 @@ $dot-size: $gap-sm * 1.5;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: linear-gradient(to right, #10af59, #1a7bbe);
   padding: $carousel-padding 0 $carousel-padding * 2;
 
   .carousel__objects-container {
@@ -99,13 +131,18 @@ $dot-size: $gap-sm * 1.5;
       transition: left $transition-timing $transition-duration;
 
       .carousel__object {
-        @include mix-shadow-down;
+        filter: drop-shadow(0 $shadow-offset $shadow-blur $shadow-color);
         transition: all $transition-timing $transition-duration;
 
         &:not(.active) {
           opacity: 0.25;
           cursor: pointer;
-          transform: scale(0.85)
+          transform: scale(0.85);
+        }
+
+        &.carousel__object--mobile {
+          height: 670px;
+          width: 342px;
         }
       }
     }

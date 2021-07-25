@@ -34,7 +34,10 @@ function onAnimationEnd(event: Event) {
 function getInk(parent: HTMLElement) {
   for (let i = 0; i < parent.children.length; i++) {
     // typeof el.children[i].className can be SVGAnimatedString
-    if (typeof parent.children[i].className === 'string' && parent.children[i].className.indexOf('ripple') !== -1) {
+    if (
+      typeof parent.children[i].className === 'string' &&
+      parent.children[i].className.indexOf('ripple') !== -1
+    ) {
       return parent.children[i];
     }
   }

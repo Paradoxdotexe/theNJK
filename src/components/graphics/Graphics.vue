@@ -1,8 +1,5 @@
 <template>
-  <svg
-    viewBox="0 0 1200 400"
-    aria-label="graphical elements"
-  >
+  <svg viewBox="0 0 1200 400" aria-label="graphical elements">
     <component v-bind:is="graphicsComponent"></component>
   </svg>
 </template>
