@@ -52,6 +52,7 @@ export default defineComponent({
     width: 100vw;
     height: 100vh;
     padding-top: $header-height;
+    box-sizing: border-box;
 
     .banner__pattern {
       position: absolute;

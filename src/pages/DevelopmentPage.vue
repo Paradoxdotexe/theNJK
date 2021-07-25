@@ -14,21 +14,42 @@
   </Banner>
   <!-- CONTENT -->
   <div class="content">
+    <DevelopmentEntry v-for="entry of developmentEntries" :key="entry.content.key" :path="paths[entry.content.key]" :entry="entry"></DevelopmentEntry>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onBeforeMount } from 'vue';
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
+import DevelopmentEntry from "@/components/development/DevelopmentEntry.vue";
+import DevelopmentEntries from "@/data/development";
 
 export default defineComponent({
   name: "DevelopmentPage",
   components: {
     Header,
-    Banner
+    Banner,
+    DevelopmentEntry
   },
   setup() {
+    const developmentEntries = DevelopmentEntries;
+    const paths: { [key: string]: string } = {}; // header paths for development entries that begin a new year
+
+    onBeforeMount(() => {
+      const years: { [year: number]: boolean } = {};
+      for (const entry of developmentEntries) {
+        if (!years[entry.year]) {
+          years[entry.year] = true;
+          paths[entry.content.key] = `C:\\Users\\Nathan\\Development\\${entry.year}`;
+        }
+      }
+    });
+
+    return {
+      developmentEntries,
+      paths
+    }
   }
 });
 </script>

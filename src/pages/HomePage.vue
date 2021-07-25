@@ -39,9 +39,9 @@
       >
         I am pursuing a BS in <strong>Computer Science</strong> and minor in <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute (WPI).
       </ContentHeader>
-      <div v-for="i of [0, 1, 2]" :key="i" class="content__courses">
+      <div v-for="type of ['CS', 'IMGD', 'DESIGN']" :key="type" class="content__courses">
         <ContentCard
-          v-for="course of getCourses(i)"
+          v-for="course of getCourses(type)"
           :key="course.code"
           :title="course.title"
           :subtitle="course.code"

@@ -1,8 +1,11 @@
 <template>
   <div class="content-header">
-    <div class="content-header__path">{{ path }}</div>
+    <div v-if="path" class="content-header__path">{{ path }}</div>
     <div class="content-header__title">{{ title }}</div>
-    <div class="content-header__subtitle"><slot></slot></div>
+    <div class="content-header__subtitle">
+      <slot v-if="!subtitle"></slot>
+      <template v-else>{{ subtitle }}</template>
+    </div>
   </div>
 </template>
 
@@ -14,11 +17,15 @@ export default defineComponent({
   props: {
     path: {
       type: String,
-      required: true
+      default: undefined
     },
     title: {
       type: String,
       required: true
+    },
+    subtitle: {
+      type: String,
+      default: undefined
     }
   },
   setup(props) {
@@ -32,7 +39,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content-header {
   margin: $gap-xl * 2 0 $gap-xl;
-  max-width: 800px;
+  width: $max-width;
 
   .content-header__path {
     font-family: $font-family-secondary;
@@ -48,6 +55,7 @@ export default defineComponent({
 
   .content-header__subtitle {
     color: $color-secondary;
+    max-width: 800px;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 export enum CourseType {
-  CS,
-  IMGD,
-  DESIGN
+  CS = 'CS',
+  IMGD = 'IMGD',
+  DESIGN = 'DESIGN'
 }
 
 interface Course {
