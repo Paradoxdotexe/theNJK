@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomePage from "@/pages/HomePage.vue";
+import DevelopmentPage from "@/pages/DevelopmentPage.vue";
+import DesignPage from "@/pages/DesignPage.vue";
 
 const routes = [
   {
@@ -10,12 +12,12 @@ const routes = [
   {
     path: '/development',
     name: 'Development',
-    component: HomePage
+    component: DevelopmentPage
   },
   {
     path: '/design',
     name: 'Design',
-    component: HomePage
+    component: DesignPage
   }
 ];
 

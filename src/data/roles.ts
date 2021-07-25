@@ -7,18 +7,13 @@ interface Role {
 const Roles: Role[] = [
   {
     title: 'Head of Development',
-    company: 'Head of Technologies',
+    company: 'Pallyt Technologies',
     years: 2021
   },
   {
     title: 'Angular Web Developer',
     company: 'Bio-CS Bridge Project',
     years: [2019, 2020, 2021]
-  },
-  {
-    title: 'Lead Software Engineer',
-    company: 'CS 3733 Software Engineering',
-    years: 2019
   },
   {
     title: 'Network Automation Intern',

@@ -10,11 +10,15 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import GraphicsHome from '@/components/graphics/GraphicsHome.vue';
+import GraphicsDevelopment from '@/components/graphics/GraphicsDevelopment.vue';
+import GraphicsDesign from '@/components/graphics/GraphicsDesign.vue';
 
 export default defineComponent({
   name: 'Icon',
   components: {
-    GraphicsHome
+    GraphicsHome,
+    GraphicsDevelopment,
+    GraphicsDesign
   },
   props: {
     name: {

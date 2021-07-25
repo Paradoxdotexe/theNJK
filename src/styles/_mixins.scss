@@ -73,3 +73,24 @@ $shadow-blur: 8px;
     color: $color;
   }
 }
+
+// content
+@mixin mix-content {
+  display: flex;
+  justify-content: center;
+  padding-bottom: $gap-xl * 2;
+}
+
+@mixin mix-content-framework {
+  display: flex;
+  flex-direction: column;
+  max-width: $max-width;
+}
+
+// banner
+@mixin mix-banner-caption {
+  margin-top: $gap-xl;
+  width: 760px;
+  font-size: $font-size-xl;
+  text-align: center;
+}

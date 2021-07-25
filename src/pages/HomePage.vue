@@ -29,7 +29,7 @@
         :key="i"
         :title="role.title"
         :subtitle="role.company"
-        :tag="Array.isArray(role.years) ? `${Math.min(...role.years)} - ${Math.max(...role.years)}` : role.years"
+        :tag="Array.isArray(role.years) ? `${Math.min(...role.years)} - ${Math.max(...role.years)}` : `${role.years}`"
       ></ContentCard>
 
       <!-- EDUCATION -->
@@ -114,14 +114,10 @@ export default defineComponent({
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  padding-bottom: $gap-xl * 2;
+  @include mix-content;
 
   .content__framework {
-    display: flex;
-    flex-direction: column;
-    max-width: $max-width;
+    @include mix-content-framework;
 
     .content__courses {
       display: flex;
