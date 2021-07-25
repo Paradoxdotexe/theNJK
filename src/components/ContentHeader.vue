@@ -56,6 +56,7 @@ export default defineComponent({
   .content-header__subtitle {
     color: $color-secondary;
     max-width: 800px;
+    line-height: 150%;
   }
 }
 </style>

@@ -35,13 +35,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .content-card {
-  @include mix-shadow-down;
+  @include mix-card;
+  padding: $gap-sm $gap-md;
   position: relative;
-  background: $background-tertiary;
   width: 400px;
   height: min-content;
-  border-radius: $border-radius;
-  padding: $gap-sm $gap-md;
   line-height: 100%;
 
   &:not(:last-child) {

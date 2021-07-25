@@ -54,7 +54,7 @@ import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
 
 export default defineComponent({
-  name: 'Carousel',
+  name: 'EntryCarousel',
   components: {
     WebMockup
   },

@@ -99,3 +99,10 @@ $shadow-blur: 8px;
   text-align: center;
   margin-top: $gap-xl;
 }
+
+// cards
+@mixin mix-card {
+  @include mix-shadow-down;
+  background: $background-tertiary;
+  border-radius: $border-radius;
+}
