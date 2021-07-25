@@ -32,7 +32,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
     subtitle: 'Bridging biology and computer science in education through digital ecology.',
     content: {
       key: 'BCBC',
-      count: 3,
+      count: 5,
       type: ContentType.WEB
     },
     details: {

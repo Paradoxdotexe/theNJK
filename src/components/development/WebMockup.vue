@@ -33,17 +33,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .web-mockup {
-    width: 1000px;
+    width: $max-width;
     border-radius: $border-radius;
     overflow: hidden;
-    border: 2px solid $background-secondary;
+    border: 2px solid $background-primary;
+    background: $background-primary;
     display: flex;
     flex-direction: column;
 
     .web-mockup__header {
       position: relative;
       width: 100%;
-      background: $background-secondary;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,7 +75,7 @@ export default defineComponent({
     }
 
     .web-mockup__image {
-      height: 625px;
+      height: 638px;
       background-size: contain;
     }
   }
