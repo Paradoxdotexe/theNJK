@@ -48,7 +48,7 @@ export default defineComponent({
 
   .content-card__title {
     font-weight: 500;
-    margin-bottom: $gap-sm / 2;
+    margin-bottom: $gap-sm * 0.5;
   }
 
   .content-card__subtitle {
@@ -67,7 +67,7 @@ export default defineComponent({
     bottom: $gap-sm;
     border-radius: $gap-md;
     font-size: $font-size-sm;
-    padding: $gap-sm / 2 $gap-sm;
+    padding: $gap-sm * 0.5 $gap-sm;
   }
 }
 </style>

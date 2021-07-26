@@ -52,7 +52,6 @@ $tile-size: 100px;
   width: 100vw;
   height: 100vh;
   padding-top: $header-height;
-  box-sizing: border-box;
 
   .banner__pattern {
     position: absolute;

@@ -30,14 +30,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+$mockup-border-radius: $border-radius * 1.5;
+
 .web-mockup {
   width: $max-width;
-  border-radius: $border-radius;
+  border-radius: $mockup-border-radius;
   overflow: hidden;
-  border: 2px solid $background-primary;
+  border: $gap-sm * 0.5 solid $background-primary;
   background: $background-primary;
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
 
   .web-mockup__header {
     position: relative;
@@ -75,6 +78,8 @@ export default defineComponent({
   .web-mockup__image {
     height: 638px;
     background-size: contain;
+    border-bottom-left-radius: $mockup-border-radius - 2px;
+    border-bottom-right-radius: $mockup-border-radius - 2px;
   }
 }
 </style>
