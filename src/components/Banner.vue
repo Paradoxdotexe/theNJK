@@ -2,6 +2,7 @@
   <div class="banner">
     <div class="banner__pattern">
       <Pattern name="Dot" :size="100"></Pattern>
+      <Pattern name="Dot" :size="100"></Pattern>
     </div>
     <div class="banner__framework">
       <div class="banner__title">
@@ -57,17 +58,22 @@ $tile-size: 100px;
 
   .banner__pattern {
     position: absolute;
-    left: 0;
-    top: $header-height;
-    width: calc(100% + #{$tile-size});
-    height: calc(100% + #{$tile-size});
-    margin: (-$tile-size) 0 0 (-$tile-size);
+    width: 400%;
+    height: 400%;
     opacity: 0.5;
     z-index: 100;
-    animation: space 5s linear infinite;
 
     svg {
+      position: absolute;
       fill: $color-primary;
+
+      &:first-child {
+        animation: space1 100s linear infinite;
+      }
+
+      &:last-child {
+        animation: space2 80s linear infinite;
+      }
     }
   }
 
@@ -117,9 +123,21 @@ $tile-size: 100px;
   }
 }
 
-@keyframes space {
-  100% {
-    transform: translate(100px, 100px);
+@keyframes space1 {
+  from {
+    transform: translate(0, 0) rotateZ(0) rotateX(45deg);
+  }
+  to {
+    transform: translate($tile-size, $tile-size) rotateZ(360deg) rotateX(45deg);
+  }
+}
+
+@keyframes space2 {
+  from {
+    transform: translate($tile-size, $tile-size) rotateZ(-45deg) rotateY(45deg);
+  }
+  to {
+    transform: translate($tile-size, $tile-size) rotateZ(315deg) rotateY(45deg);
   }
 }
 
