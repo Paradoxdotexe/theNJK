@@ -4,9 +4,8 @@
     <template v-slot:title> Development<br /><span>Portfolio</span> </template>
     <template v-slot:content>
       <div class="banner__caption">
-        Web development has become my personal outlet for creativity.<br />
-        It challenges me everyday to equally balance the weights of an intelligently-engineered
-        system and a beautifully-designed website.
+        Web development has become my personal outlet for creativity.
+        It challenges me everyday to equally balance the weights of an intelligently-engineered system and a beautifully-designed website.
       </div>
     </template>
   </Banner>

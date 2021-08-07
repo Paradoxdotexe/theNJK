@@ -114,10 +114,14 @@ $shadow-blur: 8px;
 
 // banner
 @mixin mix-banner-caption {
-  width: 760px;
-  font-size: $font-size-lg;
+  max-width: 640px;
+  font-size: $font-size-md;
   text-align: center;
   margin-top: $gap-xl;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-lg;
+  }
 }
 
 // cards

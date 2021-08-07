@@ -7,10 +7,10 @@
     <template v-slot:content>
       <LiveText />
       <div class="banner__buttons">
-        <button class="banner__button banner__button--primary" v-ripple @click="goToPortfolio(0)">
+        <button class="banner__button primary" v-ripple @click="goToPortfolio(0)">
           Dev Portfolio
         </button>
-        <button class="banner__button banner__button--secondary" v-ripple @click="goToPortfolio(1)">
+        <button class="banner__button secondary" v-ripple @click="goToPortfolio(1)">
           Design Portfolio
         </button>
       </div>
@@ -96,22 +96,41 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .banner__buttons {
-  margin-top: $gap-xl;
+  margin-top: $gap-xl * 2;
   display: flex;
-
-  .banner__button--primary {
-    @include mix-basic-button--raised($accent-primary);
-    @include mix-focus-background($accent-secondary);
-    margin-right: $gap-xl;
-  }
-
-  .banner__button--secondary {
-    @include mix-basic-button--stroked($accent-primary);
-    @include mix-focus-background(scale-color($accent-primary, $alpha: -85%));
-  }
+  flex-direction: column;
+  align-items: center;
 
   .banner__button {
-    padding: $gap-md $gap-xl;
+    padding: $gap-md $gap-xl !important;
+    width: 100%;
+
+    &.primary {
+      @include mix-basic-button--raised($accent-primary);
+      @include mix-focus-background($accent-secondary);
+      margin-bottom: $gap-lg;
+    }
+
+    &.secondary {
+      @include mix-basic-button--stroked($accent-primary);
+      @include mix-focus-background(scale-color($accent-primary, $alpha: -85%));
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .banner__buttons {
+    margin-top: $gap-xl;
+    flex-direction: row;
+
+    .banner__button {
+      width: unset;
+
+      &.primary {
+        margin-right: $gap-xl;
+        margin-bottom: unset;
+      }
+    }
   }
 }
 

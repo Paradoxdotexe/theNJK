@@ -3,7 +3,7 @@
   <div class="header">
     <div class="header__framework">
       <div class="header__left">
-        <Icon name="NJK" />
+        <Icon name="NJK" @click="goHome" />
       </div>
       <div class="header__middle">
         <HeaderButtons />
@@ -32,6 +32,7 @@ import Icon from '@/components/icons/Icon.vue';
 import HeaderButtons from '@/components/global/HeaderButtons.vue';
 import CoverService from '@/services/CoverService';
 import { useRoute } from 'vue-router';
+import router from "@/router";
 
 export default defineComponent({
   name: 'Header',
@@ -69,9 +70,14 @@ export default defineComponent({
       }
     }
 
+    function goHome() {
+      router.push({ name: 'Home' });
+    }
+
     return {
       refs,
-      toggleDrawer
+      toggleDrawer,
+      goHome
     };
   }
 });
@@ -102,8 +108,16 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
     justify-content: space-between;
     align-items: center;
 
-    .header__left svg {
-      width: $edge-item-width;
+    .header__left {
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: $edge-item-width;
+        cursor: pointer;
+      }
     }
 
     .header__middle {

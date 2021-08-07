@@ -7,6 +7,7 @@
       <div class="banner__title">
         <div class="title__text"><slot name="title"></slot></div>
         <Graphics class="title__graphics" :name="graphics"></Graphics>
+        <GraphicsMobile class="title__graphics mobile" :name="graphics"></GraphicsMobile>
       </div>
       <slot name="content"></slot>
     </div>
@@ -17,12 +18,14 @@
 import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
 import Graphics from '@/components/graphics/Graphics.vue';
+import GraphicsMobile from "@/components/graphics/GraphicsMobile.vue";
 
 export default defineComponent({
   name: 'Banner',
   components: {
     Pattern,
-    Graphics
+    Graphics,
+    GraphicsMobile
   },
   props: {
     graphics: {
@@ -49,7 +52,6 @@ $tile-size: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
   padding-top: $header-height;
 
@@ -70,7 +72,7 @@ $tile-size: 100px;
   }
 
   .banner__framework {
-    width: 100%;
+    @include mix-framework;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -80,21 +82,24 @@ $tile-size: 100px;
 
     .banner__title {
       position: relative;
-      width: 1200px;
-      height: 400px;
+      width: 100%;
+      height: calc(180px * var(--graphics-scale));
+      margin-bottom: $gap-xl * 2;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: -$gap-xl;
+      --text-scale: 0.25;
+      --graphics-scale: 1;
 
       .title__text {
-        font-size: $font-size-xxl;
+        font-size: calc(#{$font-size-xxl} * var(--text-scale));
         font-weight: bold;
         text-align: center;
         z-index: 102;
 
         ::v-deep(span) {
-          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-width: 0.5px;
           -webkit-text-stroke-color: white;
           color: $background-primary;
         }
@@ -102,8 +107,11 @@ $tile-size: 100px;
 
       .title__graphics {
         position: absolute;
-        top: 0;
-        left: 0;
+        height: 100%;
+
+        &:not(.mobile) {
+          display: none;
+        }
       }
     }
   }
@@ -112,6 +120,59 @@ $tile-size: 100px;
 @keyframes space {
   100% {
     transform: translate(100px, 100px);
+  }
+}
+
+@media (min-width: $breakpoint-xs) {
+  .banner .banner__framework .banner__title {
+    --text-scale: 0.32;
+    --graphics-scale: 0.32 / 0.25;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .banner .banner__framework .banner__title {
+    --text-scale: 0.45;
+    --graphics-scale: 0.45 / 0.25;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .banner .banner__framework .banner__title {
+    height: calc(400px * var(--graphics-scale));
+    margin-bottom: $gap-xl;
+    --text-scale: 0.6;
+    --graphics-scale: 0.6;
+
+    .title__text {
+      ::v-deep(span) {
+        -webkit-text-stroke-width: 1px;
+      }
+    }
+
+    .title__graphics {
+      &:not(.mobile) {
+        display: unset;
+      }
+
+      &.mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .banner .banner__framework .banner__title {
+    --text-scale: 0.8;
+    --graphics-scale: 0.8;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .banner .banner__framework .banner__title {
+    --text-scale: 1;
+    --graphics-scale: 1;
   }
 }
 </style>
