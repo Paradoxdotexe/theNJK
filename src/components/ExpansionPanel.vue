@@ -82,6 +82,7 @@ export default defineComponent({
     }
 
     .expansion-panel__arrow {
+      min-width: $font-size-lg;
       width: $font-size-lg;
       transform: rotate(90deg);
       transition: transform $transition-duration $transition-timing;

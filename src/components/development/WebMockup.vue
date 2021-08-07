@@ -6,7 +6,7 @@
       </div>
       <div class="web-mockup__search-bar"></div>
     </div>
-    <div class="web-mockup__image" :style="{ 'background-image': `url(${path})` }"></div>
+    <img class="web-mockup__image" :src="path" />
   </div>
 </template>
 
@@ -34,14 +34,12 @@ $mockup-border-radius: $border-radius * 1.5;
 $mockup-border-width: $gap-sm * 0.5;
 
 .web-mockup {
-  width: $framework-width;
   border-radius: $mockup-border-radius;
   overflow: hidden;
   border: $mockup-border-width solid $background-primary;
   background: $background-primary;
   display: flex;
   flex-direction: column;
-  box-sizing: content-box;
 
   .web-mockup__header {
     position: relative;
@@ -49,19 +47,50 @@ $mockup-border-width: $gap-sm * 0.5;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: $gap-xl;
+    height: $gap-lg;
     margin-top: -$mockup-border-width;
 
     .web-mockup__dots {
       position: absolute;
-      left: $gap-md;
+      left: $gap-sm;
       display: flex;
+
+      .web-mockup__dot {
+        height: $gap-sm;
+        width: $gap-sm;
+        border-radius: $gap-sm;
+        background: $background-tertiary;
+
+        &:not(:last-child) {
+          margin-right: $gap-sm * 0.5;
+        }
+      }
+    }
+
+    .web-mockup__search-bar {
+      width: 25%;
+      height: $gap-sm;
+      border-radius: $gap-md;
+      background: $background-tertiary;
+    }
+  }
+
+  .web-mockup__image {
+    border-bottom-left-radius: $mockup-border-radius - 2px;
+    border-bottom-right-radius: $mockup-border-radius - 2px;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .web-mockup .web-mockup__header {
+    height: $gap-xl;
+
+    .web-mockup__dots {
+      left: $gap-md;
 
       .web-mockup__dot {
         height: $gap-sm * 1.5;
         width: $gap-sm * 1.5;
-        border-radius: $gap-sm;
-        background: $background-tertiary;
 
         &:not(:last-child) {
           margin-right: $gap-sm;
@@ -72,16 +101,7 @@ $mockup-border-width: $gap-sm * 0.5;
     .web-mockup__search-bar {
       width: 50%;
       height: $gap-md;
-      border-radius: $gap-md;
-      background: $background-tertiary;
     }
-  }
-
-  .web-mockup__image {
-    height: 638px;
-    background-size: contain;
-    border-bottom-left-radius: $mockup-border-radius - 2px;
-    border-bottom-right-radius: $mockup-border-radius - 2px;
   }
 }
 </style>

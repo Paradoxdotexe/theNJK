@@ -7,49 +7,50 @@
         : content.color
     }"
   >
-    <div
-      class="carousel__objects-container"
-      :style="{ height: `${refs.objectHeight}px`, width: `${refs.objectWidth}px` }"
-    >
-      <div class="carousel__objects" :style="{ left: `-${refs.offset}px` }">
-        <template v-if="isContentType('WEB')">
-          <WebMockup
-            v-for="(path, i) of paths"
-            :key="i"
-            :path="path"
-            :ref="`object${i}`"
-            class="carousel__object"
-            v-bind:class="{ active: i === refs.index }"
-            @click="goToObject(i)"
-          />
-        </template>
-        <template v-else>
+    <div class="carousel__framework">
+      <div
+        class="carousel__objects-container"
+        v-bind:class="{ mobile: content.type === ContentType.MOBILE }"
+      >
+        <div class="carousel__objects" :style="{ 'margin-left': `-${computes.offset}%` }">
+          <template v-if="content.type === ContentType.WEB">
+            <WebMockup
+              v-for="(path, i) of paths"
+              :key="i"
+              :path="path"
+              class="carousel__object"
+              v-bind:class="{ active: i === refs.index }"
+              @click="goToObject(i)"
+            />
+          </template>
+          <template v-else>
+            <img
+              v-for="(path, i) of paths"
+              :key="i"
+              :ref="`object${i}`"
+              class="carousel__object"
+              v-bind:class="{ active: i === refs.index }"
+              :src="path"
+              @click="goToObject(i)"
+            />
+          </template>
+        </div>
+        <div class="carousel__dots">
           <div
-            v-for="(path, i) of paths"
-            :key="i"
-            :ref="`object${i}`"
-            class="carousel__object carousel__object--mobile"
+            class="carousel__dot"
             v-bind:class="{ active: i === refs.index }"
-            :style="{ 'background-image': `url(${path})` }"
+            v-for="i of [...Array(paths.length).keys()]"
+            :key="i"
             @click="goToObject(i)"
-          />
-        </template>
-      </div>
-      <div class="carousel__dots">
-        <div
-          class="carousel__dot"
-          v-bind:class="{ active: i === refs.index }"
-          v-for="i of [...Array(paths.length).keys()]"
-          :key="i"
-          @click="goToObject(i)"
-        ></div>
+          ></div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, onBeforeMount, ref, reactive, computed } from 'vue';
+import { defineComponent, PropType, onBeforeMount, reactive, computed } from 'vue';
 import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
 
@@ -65,16 +66,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const object0 = ref<any>();
-    const refs: { [key: string]: any } = reactive({
-      objectHeight: computed(() =>
-        object0.value ? (object0.value.$el || object0.value).offsetHeight : 0
-      ),
-      objectWidth: computed(() =>
-        object0.value ? (object0.value.$el || object0.value).offsetWidth : 0
-      ),
-      index: 0,
-      offset: computed(() => refs.index * refs.objectWidth)
+    const refs = reactive({
+      index: 0
+    });
+    const computes = reactive({
+      offset: computed(() => refs.index * 100 * 2)
     });
     const paths: string[] = [];
 
@@ -84,89 +80,95 @@ export default defineComponent({
       }
     });
 
-    function isContentType(type: ContentType) {
-      return props.content.type === type;
-    }
-
     function goToObject(index: number) {
       refs.index += index - refs.index;
     }
 
     return {
-      object0,
       refs,
+      computes,
       paths,
-      isContentType,
-      goToObject
+      goToObject,
+      ContentType
     };
   }
 });
 </script>
 
 <style lang="scss" scoped>
-$carousel-padding: $gap-xl;
 $dot-size: $gap-sm * 1.5;
 
 .carousel {
   @include mix-framework-container;
   @include mix-shadow;
-  padding: $carousel-padding 0 $carousel-padding * 2;
+  padding: var(--carousel-padding) 0;
+  overflow: hidden;
+  --carousel-padding: #{$gap-lg};
 
-  .carousel__objects-container {
+  .carousel__framework {
     @include mix-framework;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 
-    .carousel__objects {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .carousel__objects-container {
+      width: 100%;
       display: flex;
-      transition: left $transition-timing $transition-duration;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
 
-      .carousel__object {
-        filter: drop-shadow(0 $shadow-offset $shadow-blur $shadow-color);
-        transition: all $transition-timing $transition-duration;
+      &.mobile {
+        max-width: 342px;
+      }
 
-        &:not(.active) {
+      .carousel__objects {
+        width: 100%;
+        display: flex;
+        transition: margin-left $transition-timing $transition-duration;
+
+        .carousel__object {
+          min-width: 100%;
+          filter: drop-shadow(0 $shadow-offset $shadow-blur $shadow-color);
+          transition: all $transition-timing $transition-duration;
+
+          &:not(.active) {
+            opacity: 0.25;
+            cursor: pointer;
+            transform: scale(0.85);
+          }
+        }
+      }
+
+      .carousel__dots {
+        margin-top: calc(var(--carousel-padding) - #{$dot-size} * 0.5);
+        display: flex;
+
+        .carousel__dot {
+          background: $background-primary;
+          width: $dot-size;
+          height: $dot-size;
+          border-radius: $gap-sm;
           opacity: 0.25;
           cursor: pointer;
-          transform: scale(0.85);
-        }
+          transition: opacity $transition-timing $transition-duration * 0.5;
 
-        &.carousel__object--mobile {
-          height: 670px;
-          width: 342px;
-        }
-      }
-    }
+          &:not(:last-child) {
+            margin-right: $gap-sm;
+          }
 
-    .carousel__dots {
-      display: flex;
-      margin-bottom: -$carousel-padding - $dot-size * 0.5;
-
-      .carousel__dot {
-        background: $background-primary;
-        width: $dot-size;
-        height: $dot-size;
-        border-radius: $gap-sm;
-        opacity: 0.25;
-        cursor: pointer;
-        transition: opacity $transition-timing $transition-duration * 0.5;
-
-        &:not(:last-child) {
-          margin-right: $gap-sm;
-        }
-
-        &.active {
-          opacity: 0.75;
-          cursor: default;
+          &.active {
+            opacity: 0.75;
+            cursor: default;
+          }
         }
       }
     }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .carousel {
+    --carousel-padding: #{$gap-xl};
   }
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div class="details">
     <div v-for="side of ['left', 'right']" :key="side" class="details__items">
-      <div v-for="key of refs[side]" :key="key" class="details__item">
+      <div
+        v-for="key of refs[side]"
+        :key="key"
+        class="details__item"
+        v-bind:class="`${key}_${side}`"
+      >
         <div class="item__title">// {{ key.toUpperCase() }}</div>
         <div v-if="!Array.isArray(details[key])" class="item__content">{{ details[key] }}</div>
         <div v-else class="item__list">
@@ -27,7 +32,7 @@ export default defineComponent({
   setup(props) {
     const refs = reactive({
       left: ['client', 'role', 'technologies'],
-      right: ['platform', 'work']
+      right: ['platform', 'work', 'technologies']
     });
 
     return {
@@ -42,23 +47,20 @@ export default defineComponent({
 .details {
   @include mix-card;
   display: flex;
+  flex-direction: column;
   margin-top: $gap-xl;
 
   .details__items {
     display: flex;
     flex-direction: column;
 
-    &:first-child {
-      width: 30%;
-    }
-
-    &:last-child {
-      width: 70%;
-    }
-
     .details__item {
       &:not(:last-child) {
         margin-bottom: $gap-md;
+      }
+
+      &.technologies_left {
+        display: none;
       }
 
       .item__title {
@@ -71,6 +73,32 @@ export default defineComponent({
         border-left: 1px solid $color-secondary;
         padding-left: $gap-sm;
         margin: $gap-sm 0 0 $gap-sm;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .details {
+    flex-direction: row;
+
+    .details__items {
+      &:first-child {
+        width: 30%;
+      }
+
+      &:last-child {
+        width: 70%;
+      }
+
+      .details__item {
+        &.technologies_left {
+          display: unset;
+        }
+
+        &.technologies_right {
+          display: none;
+        }
       }
     }
   }
