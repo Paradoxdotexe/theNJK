@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <!-- BANNER -->
   <Banner graphics="Home">
     <template v-slot:title>
@@ -59,7 +58,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 import LiveText from '@/components/LiveText.vue';
 import ContentHeader from '@/components/ContentHeader.vue';
@@ -71,7 +69,6 @@ import Courses, { CourseType } from '@/data/courses';
 export default defineComponent({
   name: 'HomePage',
   components: {
-    Header,
     Banner,
     LiveText,
     ContentHeader,

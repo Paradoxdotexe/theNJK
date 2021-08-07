@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <!-- BANNER -->
   <Banner graphics="Development">
     <template v-slot:title> Development<br /><span>Portfolio</span> </template>
@@ -24,7 +23,6 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount } from 'vue';
-import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 import DevelopmentEntry from '@/components/development/DevelopmentEntry.vue';
 import DevelopmentEntries from '@/data/development';
@@ -32,7 +30,6 @@ import DevelopmentEntries from '@/data/development';
 export default defineComponent({
   name: 'DevelopmentPage',
   components: {
-    Header,
     Banner,
     DevelopmentEntry
   },

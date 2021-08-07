@@ -44,6 +44,26 @@ $shadow-blur: 8px;
   border: 2px solid $color;
 }
 
+@mixin mix-header-button {
+  @include mix-button;
+  @include mix-focus-background(rgba(0, 0, 0, 0.1));
+  padding: 0 $gap-md;
+  height: 100%;
+  letter-spacing: 0.02rem;
+
+  svg {
+    width: $gap-xl;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 $gap-lg;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $gap-xl;
+  }
+}
+
 // focus highlighting
 @mixin mix-focus-outline($color, $size) {
   transition-property: box-shadow, border;
@@ -105,4 +125,30 @@ $shadow-blur: 8px;
   @include mix-shadow-down;
   background: $background-tertiary;
   border-radius: $border-radius;
+}
+
+// frameworks
+$framework-width: 1000px;
+$framework-width-extended: 1280px;
+$framework-padding: $gap-lg;
+$framework-padding-md: $gap-lg * 2;
+
+@mixin mix-framework {
+  @include mix-framework-dynamic($framework-width);
+}
+
+@mixin mix-framework-extended {
+  @include mix-framework-dynamic($framework-width-extended);
+}
+
+@mixin mix-framework-dynamic($width) {
+  width: 100%;
+  max-width: $width + $framework-padding * 2;
+  padding: 0 $framework-padding;
+
+  @media (min-width: $breakpoint-md) {
+    max-width: 100%;
+    width: $width + $framework-padding-md * 2;
+    padding: 0 $framework-padding-md;
+  }
 }

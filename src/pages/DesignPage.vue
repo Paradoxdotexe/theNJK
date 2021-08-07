@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <!-- BANNER -->
   <Banner graphics="Design">
     <template v-slot:title> Design<br /><span>Portfolio</span> </template>
@@ -17,13 +16,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 
 export default defineComponent({
   name: 'DesignPage',
   components: {
-    Header,
     Banner
   },
   setup() {}

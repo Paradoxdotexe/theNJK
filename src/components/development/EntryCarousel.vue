@@ -109,11 +109,11 @@ $dot-size: $gap-sm * 1.5;
 
 .carousel {
   @include mix-shadow;
+  width: 100%;
+  padding: $carousel-padding 0 $carousel-padding * 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: $carousel-padding 0 $carousel-padding * 2;
 
   .carousel__objects-container {
     position: relative;

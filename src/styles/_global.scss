@@ -1,6 +1,6 @@
 @import '_themes.scss';
-@import '_mixins.scss';
 @import '_variables.scss';
+@import '_mixins.scss';
 @import '_fonts.scss';
 
 body {
@@ -32,5 +32,10 @@ body {
   * {
     line-height: 125%;
     box-sizing: border-box;
+  }
+
+  &.no-scrolling {
+    height: 100vh;
+    overflow-y: hidden;
   }
 }

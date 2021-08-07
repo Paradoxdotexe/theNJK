@@ -61,7 +61,7 @@ $tile-size: 100px;
     height: calc(100% + #{$tile-size});
     margin: (-$tile-size) 0 0 (-$tile-size);
     opacity: 0.5;
-    z-index: 50;
+    z-index: 100;
     animation: space 5s linear infinite;
 
     svg {
@@ -76,7 +76,7 @@ $tile-size: 100px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 51;
+    z-index: 101;
 
     .banner__title {
       position: relative;
@@ -91,7 +91,7 @@ $tile-size: 100px;
         font-size: $font-size-xxl;
         font-weight: bold;
         text-align: center;
-        z-index: 52;
+        z-index: 102;
 
         ::v-deep(span) {
           -webkit-text-stroke-width: 1px;

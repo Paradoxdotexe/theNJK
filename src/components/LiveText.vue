@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, onMounted } from 'vue';
-import Sleep from '@/util/sleep';
+import Sleep from '@/util/Sleep';
 
 const textOptions: string[] = [
   'See my work',
