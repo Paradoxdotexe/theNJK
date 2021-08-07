@@ -53,6 +53,7 @@
 import { defineComponent, PropType, onBeforeMount, reactive, computed } from 'vue';
 import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
+import RequireImage from '@/util/RequireImage';
 
 export default defineComponent({
   name: 'EntryCarousel',
@@ -76,7 +77,7 @@ export default defineComponent({
 
     onBeforeMount(() => {
       for (let i = 0; i < props.content.count; i++) {
-        paths.push(require(`@/assets/content/development/${props.content.key}/_${i}.png`));
+        paths.push(RequireImage(`/development/${props.content.key}/_${i}`));
       }
     });
 

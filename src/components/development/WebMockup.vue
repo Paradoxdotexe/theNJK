@@ -31,7 +31,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 $mockup-border-radius: $border-radius * 1.5;
-$mockup-border-width: $gap-sm * 0.5;
+$mockup-border-width: 2px;
 
 .web-mockup {
   border-radius: $mockup-border-radius;
