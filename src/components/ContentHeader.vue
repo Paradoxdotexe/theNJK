@@ -39,24 +39,32 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content-header {
   margin: $gap-xl * 2 0 $gap-xl;
-  width: $max-width;
 
   .content-header__path {
+    font-size: $font-size-sm;
     font-family: $font-family-secondary;
     color: $accent-primary;
-    margin-bottom: $gap-lg;
+    margin-bottom: $gap-md;
   }
 
   .content-header__title {
-    font-size: $font-size-xl;
+    font-size: $font-size-xxl;
     font-weight: 500;
     margin-bottom: $gap-sm;
   }
 
   .content-header__subtitle {
     color: $color-secondary;
-    max-width: 800px;
+    max-width: $framework-width * 0.75;
     line-height: 150%;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .content-header {
+    .content-header__path {
+      font-size: $font-size-md;
+    }
   }
 }
 </style>

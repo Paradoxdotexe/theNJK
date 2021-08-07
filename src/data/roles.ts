@@ -6,7 +6,7 @@ interface Role {
 
 const Roles: Role[] = [
   {
-    title: 'Head of Development',
+    title: 'Head of Technology',
     company: 'Pallyt Technologies',
     years: 2021
   },

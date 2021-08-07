@@ -146,22 +146,17 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
   }
 }
 
-.drawer-enter-active,
-.drawer-leave-active {
-  transition: top $transition-duration $transition-timing;
-}
-
-.drawer-enter-from,
-.drawer-leave-to {
-  top: 0 !important;
-}
-
 .header-drawer {
   @include mix-bar;
   top: $header-height;
   background: $background-tertiary;
   z-index: 999;
   transition: top $transition-duration $transition-timing;
+
+  &.drawer-enter-from,
+  &.drawer-leave-to {
+    top: 0 !important;
+  }
 
   .header__framework {
     @include mix-framework;

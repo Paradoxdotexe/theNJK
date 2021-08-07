@@ -1,8 +1,10 @@
 <template>
   <div class="content-card">
     <div class="content-card__title">{{ title }}</div>
-    <div class="content-card__subtitle">{{ subtitle }}</div>
-    <div class="content-card__tag">{{ tag }}</div>
+    <div class="content-card__bottom">
+      <div class="content-card__subtitle">{{ subtitle }}</div>
+      <div class="content-card__tag">{{ tag }}</div>
+    </div>
   </div>
 </template>
 
@@ -36,38 +38,45 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content-card {
   @include mix-card;
-  padding: $gap-sm $gap-md;
   position: relative;
-  width: 400px;
+  max-width: $card-width;
   height: min-content;
   line-height: 100%;
-
-  &:not(:last-child) {
-    margin-bottom: $gap-md;
-  }
 
   .content-card__title {
     font-weight: 500;
     margin-bottom: $gap-sm * 0.5;
   }
 
-  .content-card__subtitle {
-    color: $color-secondary;
-    font-style: italic;
-  }
-
-  .content-card__tag {
-    position: absolute;
+  .content-card__bottom {
+    margin-top: -$gap-sm;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    line-height: 80%;
-    background: $accent-primary;
-    right: $gap-sm;
-    bottom: $gap-sm;
-    border-radius: $gap-md;
-    font-size: $font-size-sm;
-    padding: $gap-sm * 0.5 $gap-sm;
+    flex-wrap: wrap;
+
+    .content-card__subtitle {
+      color: $color-secondary;
+      font-style: italic;
+      margin-right: $gap-md;
+    }
+
+    .content-card__tag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: -$gap-sm;
+      line-height: 80%;
+      background: $accent-primary;
+      border-radius: $gap-md;
+      font-size: $font-size-sm;
+      padding: $gap-sm * 0.5 $gap-sm;
+    }
+
+    .content-card__subtitle, .content-card__tag {
+      margin-top: $gap-sm;
+    }
   }
 }
 </style>

@@ -41,7 +41,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .details {
   @include mix-card;
-  padding: $gap-md $gap-lg;
   width: $max-width;
   display: flex;
   margin-top: $gap-xl;

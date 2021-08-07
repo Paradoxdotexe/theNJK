@@ -83,7 +83,7 @@ export default defineComponent({
   pre {
     margin: 0;
     font-family: $font-family-secondary;
-    font-size: $font-size-lg;
+    font-size: $font-size-xl;
     font-weight: 300;
   }
 
@@ -118,7 +118,7 @@ export default defineComponent({
 
 @media (min-width: $breakpoint-md) {
   .live-text pre {
-    font-size: $font-size-xl;
+    font-size: $font-size-xxl;
   }
 }
 </style>

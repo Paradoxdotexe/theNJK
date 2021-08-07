@@ -93,7 +93,7 @@ $tile-size: 100px;
       --graphics-scale: 1;
 
       .title__text {
-        font-size: calc(#{$font-size-xxl} * var(--text-scale));
+        font-size: calc(96px * var(--text-scale));
         font-weight: bold;
         text-align: center;
         z-index: 102;

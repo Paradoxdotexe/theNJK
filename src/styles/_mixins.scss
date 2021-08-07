@@ -129,6 +129,7 @@ $shadow-blur: 8px;
   @include mix-shadow-down;
   background: $background-tertiary;
   border-radius: $border-radius;
+  padding: $gap-sm * 1.5 $gap-md;
 }
 
 // frameworks
@@ -155,4 +156,11 @@ $framework-padding-md: $gap-lg * 2;
     width: $width + $framework-padding-md * 2;
     padding: 0 $framework-padding-md;
   }
+}
+
+@mixin mix-framework-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: $gap-xl * 2;
 }

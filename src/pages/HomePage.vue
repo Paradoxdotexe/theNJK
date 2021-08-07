@@ -24,34 +24,39 @@
         I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
         idea from <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
+        Over my career, I have worked in the following roles, utilizing my skills to create unique value for all the teams I have worked on.
       </ContentHeader>
-      <ContentCard
-        v-for="(role, i) of roles"
-        :key="i"
-        :title="role.title"
-        :subtitle="role.company"
-        :tag="
+      <div class="content__roles">
+        <ContentCard
+          v-for="(role, i) of roles"
+          :key="i"
+          :title="role.title"
+          :subtitle="role.company"
+          :tag="
           Array.isArray(role.years)
             ? `${Math.min(...role.years)} - ${Math.max(...role.years)}`
             : `${role.years}`
         "
-      ></ContentCard>
-
-      <!-- EDUCATION -->
-      <ContentHeader path="C:\Users\Nathan\WPI\courses.zip" title="Education">
-        I am pursuing a BS in <strong>Computer Science</strong> and minor in
-        <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute
-        (WPI).
-      </ContentHeader>
-      <div v-for="type of ['CS', 'IMGD', 'DESIGN']" :key="type" class="content__courses">
-        <ContentCard
-          v-for="course of getCourses(type)"
-          :key="course.code"
-          :title="course.title"
-          :subtitle="course.code"
-          :tag="course.grade"
         ></ContentCard>
       </div>
+
+      <!-- EDUCATION -->
+      <ContentHeader path="C:\Users\Nathan\WPI\Education.zip" title="Education">
+        I am pursuing a BS in <strong>Computer Science</strong> and minor in
+        <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute
+        (WPI). To date, I have completed the below courses with an esteemed <strong>3.97 GPA</strong> (4.0 major/minor GPA).
+      </ContentHeader>
+      <ExpansionPanel v-for="type of ['CS', 'IMGD', 'DESIGN']" :key="type" :title="`${CourseType[type]} Courses`" class="content__courses-container">
+        <div class="content__courses">
+          <ContentCard
+            v-for="course of getCourses(CourseType[type])"
+            :key="course.code"
+            :title="course.title"
+            :subtitle="course.code"
+            :tag="course.grade"
+          ></ContentCard>
+        </div>
+      </ExpansionPanel>
     </div>
   </div>
 </template>
@@ -62,6 +67,7 @@ import Banner from '@/components/Banner.vue';
 import LiveText from '@/components/LiveText.vue';
 import ContentHeader from '@/components/ContentHeader.vue';
 import ContentCard from '@/components/ContentCard.vue';
+import ExpansionPanel from "@/components/ExpansionPanel.vue";
 import router from '@/router';
 import Roles from '@/data/roles';
 import Courses, { CourseType } from '@/data/courses';
@@ -72,7 +78,8 @@ export default defineComponent({
     Banner,
     LiveText,
     ContentHeader,
-    ContentCard
+    ContentCard,
+    ExpansionPanel
   },
   setup() {
     const roles = Roles;
@@ -88,7 +95,8 @@ export default defineComponent({
     return {
       roles,
       goToPortfolio,
-      getCourses
+      getCourses,
+      CourseType
     };
   }
 });
@@ -135,21 +143,26 @@ export default defineComponent({
 }
 
 .content {
-  @include mix-content;
+  @include mix-framework-container;
 
   .content__framework {
-    @include mix-content-framework;
+    @include mix-framework;
 
-    .content__courses {
-      display: flex;
-      flex-wrap: wrap;
+    .content__roles {
+      display: grid;
+      grid-template-columns: minmax(0, $card-width);
+      grid-gap: $gap-md;
+    }
 
+    .content__courses-container {
       &:not(:last-child) {
         margin-bottom: $gap-lg;
       }
 
-      > div {
-        margin-right: $gap-md;
+      .content__courses {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(0, $card-width));
+        grid-gap: $gap-md;
       }
     }
   }
