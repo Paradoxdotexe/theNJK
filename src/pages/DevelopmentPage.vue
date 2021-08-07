@@ -4,13 +4,14 @@
     <template v-slot:title> Development<br /><span>Portfolio</span> </template>
     <template v-slot:content>
       <div class="banner__caption">
-        Web development has become my personal outlet for creativity.
-        It challenges me everyday to equally balance the weights of an intelligently-engineered system and a beautifully-designed website.
+        Web development has become my personal outlet for creativity. It challenges me everyday to
+        equally balance the weights of an intelligently-engineered system and a beautifully-designed
+        website.
       </div>
     </template>
   </Banner>
   <!-- CONTENT -->
-  <div class="content">
+  <div class="development-entries">
     <DevelopmentEntry
       v-for="entry of developmentEntries"
       :key="entry.content.key"
@@ -59,7 +60,7 @@ export default defineComponent({
   @include mix-banner-caption;
 }
 
-.content {
-  @include mix-content;
+.development-entries {
+  @include mix-framework-container;
 }
 </style>

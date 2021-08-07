@@ -24,7 +24,8 @@
         I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
         idea from <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
-        Over my career, I have worked in the following roles, utilizing my skills to create unique value for all the teams I have worked on.
+        Over my career, I have worked in the following roles, utilizing my skills to create unique
+        value for all the teams I have worked on.
       </ContentHeader>
       <div class="content__roles">
         <ContentCard
@@ -33,10 +34,10 @@
           :title="role.title"
           :subtitle="role.company"
           :tag="
-          Array.isArray(role.years)
-            ? `${Math.min(...role.years)} - ${Math.max(...role.years)}`
-            : `${role.years}`
-        "
+            Array.isArray(role.years)
+              ? `${Math.min(...role.years)} - ${Math.max(...role.years)}`
+              : `${role.years}`
+          "
         ></ContentCard>
       </div>
 
@@ -44,9 +45,15 @@
       <ContentHeader path="C:\Users\Nathan\WPI\Education.zip" title="Education">
         I am pursuing a BS in <strong>Computer Science</strong> and minor in
         <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute
-        (WPI). To date, I have completed the below courses with an esteemed <strong>3.97 GPA</strong> (4.0 major/minor GPA).
+        (WPI). To date, I have completed the below courses with an esteemed
+        <strong>3.97 GPA</strong> (4.0 major/minor GPA).
       </ContentHeader>
-      <ExpansionPanel v-for="type of ['CS', 'IMGD', 'DESIGN']" :key="type" :title="`${CourseType[type]} Courses`" class="content__courses-container">
+      <ExpansionPanel
+        v-for="type of ['CS', 'IMGD', 'DESIGN']"
+        :key="type"
+        :title="`${CourseType[type]} Courses`"
+        class="content__courses-container"
+      >
         <div class="content__courses">
           <ContentCard
             v-for="course of getCourses(CourseType[type])"
@@ -67,7 +74,7 @@ import Banner from '@/components/Banner.vue';
 import LiveText from '@/components/LiveText.vue';
 import ContentHeader from '@/components/ContentHeader.vue';
 import ContentCard from '@/components/ContentCard.vue';
-import ExpansionPanel from "@/components/ExpansionPanel.vue";
+import ExpansionPanel from '@/components/ExpansionPanel.vue';
 import router from '@/router';
 import Roles from '@/data/roles';
 import Courses, { CourseType } from '@/data/courses';

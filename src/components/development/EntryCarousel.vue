@@ -108,16 +108,13 @@ $carousel-padding: $gap-xl;
 $dot-size: $gap-sm * 1.5;
 
 .carousel {
+  @include mix-framework-container;
   @include mix-shadow;
-  width: 100%;
   padding: $carousel-padding 0 $carousel-padding * 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .carousel__objects-container {
+    @include mix-framework;
     position: relative;
-    width: $max-width;
     display: flex;
     flex-direction: column;
     align-items: center;

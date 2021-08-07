@@ -11,7 +11,6 @@
     </template>
   </Banner>
   <!-- CONTENT -->
-  <div class="content"></div>
 </template>
 
 <script lang="ts">
@@ -30,9 +29,5 @@ export default defineComponent({
 <style lang="scss" scoped>
 .banner__caption {
   @include mix-banner-caption;
-}
-
-.content {
-  @include mix-content;
 }
 </style>

@@ -32,7 +32,7 @@ import Icon from '@/components/icons/Icon.vue';
 import HeaderButtons from '@/components/global/HeaderButtons.vue';
 import CoverService from '@/services/CoverService';
 import { useRoute } from 'vue-router';
-import router from "@/router";
+import router from '@/router';
 
 export default defineComponent({
   name: 'Header',

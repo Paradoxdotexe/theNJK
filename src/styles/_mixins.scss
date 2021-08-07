@@ -98,20 +98,6 @@ $shadow-blur: 8px;
   }
 }
 
-// content
-@mixin mix-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: $gap-xl * 2;
-}
-
-@mixin mix-content-framework {
-  display: flex;
-  flex-direction: column;
-  max-width: $max-width;
-}
-
 // banner
 @mixin mix-banner-caption {
   max-width: 640px;
@@ -159,6 +145,7 @@ $framework-padding-md: $gap-lg * 2;
 }
 
 @mixin mix-framework-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

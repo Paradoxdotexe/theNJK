@@ -10,7 +10,8 @@
     <div
       ref="slot"
       class="expansion-panel__slot"
-      :style="{ height: refs.open ? refs.slotHeight : '0' }">
+      :style="{ height: refs.open ? refs.slotHeight : '0' }"
+    >
       <slot />
     </div>
   </div>
@@ -18,10 +19,10 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, onMounted } from 'vue';
-import Icon from "@/components/icons/Icon.vue";
+import Icon from '@/components/icons/Icon.vue';
 
 export default defineComponent({
-  name: "ExpansionPanel",
+  name: 'ExpansionPanel',
   components: {
     Icon
   },
@@ -45,7 +46,7 @@ export default defineComponent({
 
     function getSlotHeight() {
       if (slot.value && slot.value.children[0]) {
-        refs.slotHeight = `${ slot.value.children[0].clientHeight }px`;
+        refs.slotHeight = `${slot.value.children[0].clientHeight}px`;
       }
     }
 
@@ -58,7 +59,7 @@ export default defineComponent({
       slot,
       refs,
       toggle
-    }
+    };
   }
 });
 </script>
@@ -96,7 +97,7 @@ export default defineComponent({
     height: $gap-md;
     transition: height 0s linear $transition-duration;
 
-    &.gap-leave-to, {
+    &.gap-leave-to {
       height: 0 !important;
     }
   }

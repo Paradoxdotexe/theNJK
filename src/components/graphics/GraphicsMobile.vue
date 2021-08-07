@@ -6,9 +6,9 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import GraphicsMobileHome from "@/components/graphics/GraphicsMobileHome.vue";
-import GraphicsMobileDevelopment from "@/components/graphics/GraphicsMobileDevelopment.vue";
-import GraphicsMobileDesign from "@/components/graphics/GraphicsMobileDesign.vue";
+import GraphicsMobileHome from '@/components/graphics/GraphicsMobileHome.vue';
+import GraphicsMobileDevelopment from '@/components/graphics/GraphicsMobileDevelopment.vue';
+import GraphicsMobileDesign from '@/components/graphics/GraphicsMobileDesign.vue';
 
 export default defineComponent({
   name: 'Icon',

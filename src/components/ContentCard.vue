@@ -74,7 +74,8 @@ export default defineComponent({
       padding: $gap-sm * 0.5 $gap-sm;
     }
 
-    .content-card__subtitle, .content-card__tag {
+    .content-card__subtitle,
+    .content-card__tag {
       margin-top: $gap-sm;
     }
   }

@@ -18,7 +18,7 @@
 import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
 import Graphics from '@/components/graphics/Graphics.vue';
-import GraphicsMobile from "@/components/graphics/GraphicsMobile.vue";
+import GraphicsMobile from '@/components/graphics/GraphicsMobile.vue';
 
 export default defineComponent({
   name: 'Banner',

@@ -31,12 +31,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 $mockup-border-radius: $border-radius * 1.5;
+$mockup-border-width: $gap-sm * 0.5;
 
 .web-mockup {
-  width: $max-width;
+  width: $framework-width;
   border-radius: $mockup-border-radius;
   overflow: hidden;
-  border: $gap-sm * 0.5 solid $background-primary;
+  border: $mockup-border-width solid $background-primary;
   background: $background-primary;
   display: flex;
   flex-direction: column;
@@ -49,6 +50,7 @@ $mockup-border-radius: $border-radius * 1.5;
     justify-content: center;
     align-items: center;
     height: $gap-xl;
+    margin-top: -$mockup-border-width;
 
     .web-mockup__dots {
       position: absolute;

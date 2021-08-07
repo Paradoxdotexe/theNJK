@@ -1,7 +1,13 @@
 <template>
-  <ContentHeader :path="path" :title="entry.title" :subtitle="entry.subtitle" />
-  <EntryCarousel :content="entry.content" />
-  <EntryDetails :details="entry.details" />
+  <div class="development-entry">
+    <div class="development-entry__framework">
+      <ContentHeader :path="path" :title="entry.title" :subtitle="entry.subtitle" />
+    </div>
+    <EntryCarousel :content="entry.content" />
+    <div class="development-entry__framework">
+      <EntryDetails :details="entry.details" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -36,4 +42,13 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.development-entry {
+  @include mix-framework-container;
+  padding-bottom: 0;
+
+  .development-entry__framework {
+    @include mix-framework;
+  }
+}
+</style>
