@@ -129,7 +129,7 @@ $dot-size: $gap-sm * 1.5;
 
         .carousel__object {
           min-width: 100%;
-          filter: drop-shadow(0 $shadow-offset $shadow-blur $shadow-color);
+          filter: drop-shadow(0 $shadow-offset $shadow-blur * 0.5 rgb(0, 0, 0, $shadow-intensity));
           transition: all $transition-timing $transition-duration;
 
           &:not(.active) {

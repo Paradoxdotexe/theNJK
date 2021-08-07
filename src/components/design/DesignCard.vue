@@ -39,6 +39,13 @@ export default defineComponent({
   @include mix-card;
   padding: 0;
   overflow: hidden;
+  transition: all $transition-duration $transition-timing;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 $shadow-offset $shadow-blur rgb(0, 0, 0, $shadow-intensity * 3);
+    transform: translateY(-#{$gap-sm});
+  }
 
   .design-card__bottom {
     padding: $gap-sm $gap-md;

@@ -1,14 +1,18 @@
-// shadows
-$shadow-color: rgba(0, 0, 0, 0.15);
-$shadow-offset: 2px;
-$shadow-blur: 8px;
+// shadows https://shadows.brumm.af/
+$shadow-intensity: 0.2;
+$shadow-offset: 20px;
+$shadow-blur: 40px;
 
 @mixin mix-shadow {
-  box-shadow: 0 0 $shadow-blur $shadow-color;
+  box-shadow: 0 0 $shadow-blur rgb(0, 0, 0, $shadow-intensity);
 }
 
 @mixin mix-shadow-down {
-  box-shadow: 0 $shadow-offset $shadow-blur $shadow-color;
+  box-shadow: 0 $shadow-offset $shadow-blur rgb(0, 0, 0, $shadow-intensity);
+}
+
+@mixin mix-shadow-up {
+  box-shadow: 0 (-$shadow-offset) $shadow-blur rgb(0, 0, 0, $shadow-intensity);
 }
 
 // buttons
