@@ -1,6 +1,6 @@
 <template>
   <div class="expansion-panel">
-    <div class="expansion-panel__header" v-ripple @click="toggle">
+    <div class="expansion-panel__header" v-ripple @click="toggle" tabindex="0" @keypress="onKeyPress">
       <div class="expansion-panel__title">{{ title }}</div>
       <Icon class="expansion-panel__arrow" v-bind:class="{ rotated: refs.open }" name="Arrow" />
     </div>
@@ -54,11 +54,18 @@ export default defineComponent({
       refs.open = !refs.open;
     }
 
+    function onKeyPress(event: KeyboardEvent) {
+      if ((event.keyCode && event.keyCode === 13) || event.key === '13') {
+        toggle();
+      }
+    }
+
     return {
       props,
       slot,
       refs,
-      toggle
+      toggle,
+      onKeyPress
     };
   }
 });
@@ -75,6 +82,11 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:focus {
+      background: $accent-secondary;
+      outline: none !important;
+    }
 
     .expansion-panel__title {
       font-size: $font-size-lg;
