@@ -16,18 +16,18 @@
       <ContentHeader path="C:\Users\Nathan\Design" title="Assorted Designs">
         Designs that I have done throughout my project career.
       </ContentHeader>
-      <div
-        v-for="(entryRow, i) of refs.entryRows"
-        :key="i"
-        class="design-entries__cards"
-        :style="{ 'grid-template-columns': getTemplateColumns(entryRow) }">
-        <DesignCard
-          v-for="entry of entryRow"
-          :key="entry.key"
-          :entry="entry"
-          class="design-entries__card"
-        />
-      </div>
+      <template v-for="(entryRows, i) of [refs.fullEntryRows, refs.partialEntryRows]" :key="i">
+        <div
+          v-for="(entryRow, i) of entryRows"
+          :key="i"
+          class="design-entries__grid"
+          :style="{ 'grid-template-columns': getTemplateColumns(entryRow) }">
+          <DesignCard
+            v-for="entry of entryRow"
+            :key="entry.key"
+            :entry="entry" />
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -50,7 +50,9 @@ export default defineComponent({
   setup() {
     const refs = reactive({
       entryRows: [] as DesignEntry[][],
-      maxWidth: 1
+      fullEntryRows: [] as DesignEntry[][],
+      partialEntryRows: [] as DesignEntry[][],
+      minWidth: 0 // represents min sum of grid template column widths ex. 3 = 1fr 2fr, 2 = 1fr 1fr or 2fr, 1 = 1fr or 2fr
     });
 
     onBeforeMount(() => {
@@ -58,20 +60,26 @@ export default defineComponent({
       window.addEventListener('resize', () => calculateEntryRows());
     });
 
+    const getRowWidth = (entryRow: DesignEntry[]): number => {
+      return entryRow.reduce((width, entry) => width + entry.width, 0)
+    }
+
     function calculateEntryRows() {
-      const newMaxWidth = window.innerWidth < parseInt(exports.breakpointXS) ? 1 :
+      // get min row width via exported breakpoints
+      const newMinWidth = window.innerWidth < parseInt(exports.breakpointSM) ? 1 :
         (window.innerWidth < parseInt(exports.breakpointMD) ? 2 : 3);
-      if (newMaxWidth !== refs.maxWidth) {
-        refs.maxWidth = newMaxWidth;
+
+      if (newMinWidth !== refs.minWidth) {
+        refs.minWidth = newMinWidth;
         refs.entryRows = [];
         const entries = [...DesignEntries];
         while (entries.length > 0) {
           // create new row
           refs.entryRows.push([entries[0]]);
-          if (entries[0].width < refs.maxWidth) {
+          if (entries[0].width < refs.minWidth) {
             // find complementary entry based on width and height
             for (let i = 1; i < entries.length; i++) {
-              if (entries[i].width + entries[0].width === refs.maxWidth && entries[i].height === entries[0].height) {
+              if (entries[i].width + entries[0].width === refs.minWidth && entries[i].height === entries[0].height) {
                 // add entry to row and delete from list of entries
                 refs.entryRows[refs.entryRows.length - 1].push(entries[i]);
                 entries.splice(i, 1);
@@ -83,10 +91,23 @@ export default defineComponent({
           entries.splice(0, 1);
         }
       }
+
+      // divide entry rows into full and partial
+      refs.fullEntryRows = [];
+      refs.partialEntryRows = [];
+      refs.entryRows.forEach(entryRow => {
+        if (getRowWidth(entryRow) >= refs.minWidth) {
+          refs.fullEntryRows.push(entryRow);
+        } else {
+          refs.partialEntryRows.push(entryRow);
+        }
+      });
     }
 
     function getTemplateColumns(entryRow: DesignEntry[]) {
-      return entryRow.reduce((prev, curr) => prev + `${ curr.width * 3 / refs.maxWidth }fr `, '')
+      // add filler column to partial entry rows
+      const filler = refs.minWidth > getRowWidth(entryRow) ? `${refs.minWidth - getRowWidth(entryRow)}fr` : '';
+      return entryRow.reduce((prev, curr) => prev + `${ curr.width }fr `, '') + filler
     }
 
     return {
@@ -109,13 +130,14 @@ export default defineComponent({
     @include mix-framework;
     display: flex;
     flex-direction: column;
+    $grid-gap: $gap-lg;
 
-    .design-entries__cards {
+    .design-entries__grid {
       display: grid;
-      grid-gap: $gap-lg;
+      grid-gap: $grid-gap;
 
       &:not(:last-child) {
-        margin-bottom: $gap-lg;
+        margin-bottom: $grid-gap;
       }
     }
   }

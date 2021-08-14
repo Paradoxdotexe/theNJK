@@ -122,6 +122,20 @@ $shadow-blur: 40px;
   padding: $gap-sm * 1.5 $gap-md;
 }
 
+@mixin mix-card-tag {
+  height: min-content;
+  margin-left: auto;
+  margin-right: -$gap-sm;
+  line-height: 80%;
+  background: $accent-primary;
+  border-radius: $gap-md;
+  font-size: $font-size-sm;
+  padding: $gap-sm * 0.5 $gap-sm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // frameworks
 $framework-width: 1000px;
 $framework-width-extended: 1280px;

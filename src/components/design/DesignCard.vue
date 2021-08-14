@@ -1,9 +1,12 @@
 <template>
   <div class="design-card">
     <img :src="computes.path" />
-    <div class="design-card__bottom">
-      <div class="design-card__title">{{ entry.title }}</div>
-      <div class="design-card__format">// {{ entry.format }}</div>
+    <div class="design-card__content">
+      <div class="design-card__top">
+        <div class="design-card__title">{{ entry.title }}</div>
+        <div class="design-card__tag">{{ entry.format }}</div>
+      </div>
+      <div class="design-card__description">{{ entry.description }}</div>
     </div>
   </div>
 </template>
@@ -51,32 +54,31 @@ export default defineComponent({
     width: 100%;
   }
 
-  .design-card__bottom {
+  .design-card__content {
     padding: $gap-sm $gap-md;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
-    .design-card__title {
-      font-size: $font-size-lg;
+    .design-card__top {
+      margin-bottom: $gap-md;
+      display: flex;
+      justify-content: space-between;
+
+      .design-card__tag {
+        @include mix-card-tag;
+        margin-left: $gap-sm;
+      }
     }
 
-    .design-card__format {
-      font-size: $font-size-sm;
-      font-family: $font-family-secondary;
+    .design-card__description {
       color: $color-secondary;
     }
   }
 }
 
-@media (min-width: $breakpoint-xs) {
-  .design-card .design-card__bottom {
-    .design-card__title {
-      font-size: $font-size-xl;
-    }
-
-    .design-card__format {
-      font-size: $font-size-md;
+@media (min-width: $breakpoint-md) {
+  .design-card .design-card__bottom .design-card__title {
+      font-size: $font-size-lg;
     }
   }
-}
 </style>

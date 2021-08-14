@@ -62,16 +62,7 @@ export default defineComponent({
     }
 
     .content-card__tag {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: auto;
-      margin-right: -$gap-sm;
-      line-height: 80%;
-      background: $accent-primary;
-      border-radius: $gap-md;
-      font-size: $font-size-sm;
-      padding: $gap-sm * 0.5 $gap-sm;
+      @include mix-card-tag;
     }
 
     .content-card__subtitle,
