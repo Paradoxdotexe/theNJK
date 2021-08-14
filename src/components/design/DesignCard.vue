@@ -108,7 +108,7 @@ export default defineComponent({
   }
 
   .design-card__content {
-    padding: $gap-sm $gap-md;
+    @include mix-card-padding;
     display: flex;
     flex-direction: column;
 
@@ -130,7 +130,7 @@ export default defineComponent({
 }
 
 @media (min-width: $breakpoint-md) {
-  .design-card .design-card__bottom .design-card__title {
+  .design-card .design-card__content .design-card__top .design-card__title {
     font-size: $font-size-lg;
   }
 }

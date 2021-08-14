@@ -117,15 +117,19 @@ $shadow-blur: 40px;
 // cards
 @mixin mix-card {
   @include mix-shadow-down;
+  @include mix-card-padding;
   background: $background-tertiary;
   border-radius: $border-radius;
-  padding: $gap-sm * 1.5 $gap-md;
 }
+
+@mixin mix-card-padding {
+  padding: $gap-sm * 1.5 $gap-md;
+};
 
 @mixin mix-card-tag {
   height: min-content;
   margin-left: auto;
-  margin-right: -$gap-sm;
+  margin-right: -$gap-sm * 0.5;
   line-height: 80%;
   background: $accent-primary;
   border-radius: $gap-md;

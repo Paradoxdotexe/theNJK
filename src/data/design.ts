@@ -81,7 +81,7 @@ const DesignEntries: DesignEntry[] = [
   {
     title: 'Online Support Groups',
     key: 'OSG',
-    contentCount: 1,
+    contentCount: 10,
     description:
       "As part of a 14-week WPI research project, I worked on a team to explore support groups in the US and develop an online platform adapted to China's cultural landscape. For this, I took charge or creating a collection of mockups based on our final recommendations.",
     format: ContentFormat.WEBSITE,
