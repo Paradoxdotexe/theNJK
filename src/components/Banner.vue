@@ -125,19 +125,19 @@ $tile-size: 100px;
 
 @keyframes space1 {
   from {
-    transform: translate(0, 0) rotateZ(0) rotateX(45deg);
+    transform: translate(0, 0) rotateZ(0) rotateX(30deg);
   }
   to {
-    transform: translate($tile-size, $tile-size) rotateZ(360deg) rotateX(45deg);
+    transform: translate($tile-size, $tile-size) rotateZ(360deg) rotateX(30deg);
   }
 }
 
 @keyframes space2 {
   from {
-    transform: translate($tile-size, $tile-size) rotateZ(-45deg) rotateY(45deg);
+    transform: rotateZ(-60deg) rotateY(45deg);
   }
   to {
-    transform: translate($tile-size, $tile-size) rotateZ(315deg) rotateY(45deg);
+    transform: rotateZ(300deg) rotateY(45deg);
   }
 }
 

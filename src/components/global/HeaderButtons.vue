@@ -1,6 +1,6 @@
 <template>
   <router-link
-    v-for="button in buttons"
+    v-for="button in NavButtons"
     :key="button.label"
     class="header__button-wrapper"
     :to="{ name: button.route }"
@@ -14,17 +14,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+export const NavButtons = [
+  { label: 'Home', route: 'Home' },
+  { label: 'Development', route: 'Development' },
+  { label: 'Design', route: 'Design' }
+];
+
 export default defineComponent({
   name: 'HeaderButtons',
   setup() {
-    const buttons = [
-      { label: 'Home', route: 'Home' },
-      { label: 'Development', route: 'Development' },
-      { label: 'Design', route: 'Design' }
-    ];
-
     return {
-      buttons
+      NavButtons
     };
   }
 });

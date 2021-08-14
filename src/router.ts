@@ -26,4 +26,13 @@ const router = createRouter({
   routes: routes as RouteRecordRaw[]
 });
 
+router.beforeEach((to, _from, next) => {
+  window.scrollTo(0, 0); // returns to top of the page
+  window.document.title =
+    to.name !== 'Home'
+      ? `theNJK - ${String(to.name)}`
+      : 'theNJK - Portfolio of Nathan J Klingensmith'; // dynamically set website title
+  next();
+});
+
 export default router;

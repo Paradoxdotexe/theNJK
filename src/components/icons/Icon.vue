@@ -16,13 +16,19 @@ import { defineComponent, computed } from 'vue';
 import IconMenu from '@/components/icons/IconMenu.vue';
 import IconNJK from '@/components/icons/IconNJK.vue';
 import IconArrow from '@/components/icons/IconArrow.vue';
+import IconGitHub from '@/components/icons/IconGitHub.vue';
+import IconLinkedIn from '@/components/icons/IconLinkedIn.vue';
+import IconInstagram from '@/components/icons/IconInstagram.vue';
 
 export default defineComponent({
   name: 'Icon',
   components: {
     IconMenu,
     IconNJK,
-    IconArrow
+    IconArrow,
+    IconGitHub,
+    IconLinkedIn,
+    IconInstagram
   },
   props: {
     name: {

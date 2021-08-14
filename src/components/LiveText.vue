@@ -10,12 +10,12 @@ import { defineComponent, reactive, onMounted } from 'vue';
 import Sleep from '@/util/Sleep';
 
 const textOptions: string[] = [
-  'See my work',
-  'See what I do',
   'See how I think',
   'See where I shine',
   'See my passion',
-  'See my skills'
+  'See my creativity',
+  'See my ingenuity',
+  'See what I do best'
 ];
 
 export default defineComponent({
