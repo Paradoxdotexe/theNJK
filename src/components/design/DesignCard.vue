@@ -47,18 +47,35 @@ export default defineComponent({
     transform: translateY(-#{$gap-sm});
   }
 
+  img {
+    width: 100%;
+  }
+
   .design-card__bottom {
     padding: $gap-sm $gap-md;
     display: flex;
     justify-content: space-between;
 
     .design-card__title {
+      font-size: $font-size-lg;
+    }
+
+    .design-card__format {
+      font-size: $font-size-sm;
+      font-family: $font-family-secondary;
+      color: $color-secondary;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xs) {
+  .design-card .design-card__bottom {
+    .design-card__title {
       font-size: $font-size-xl;
     }
 
     .design-card__format {
-      font-family: $font-family-secondary;
-      color: $color-secondary;
+      font-size: $font-size-md;
     }
   }
 }
