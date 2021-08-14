@@ -1,17 +1,22 @@
 <template>
   <div class="design-card">
-    <div class="design-card__image" :style="{ left: `-${refs.index * 100}%` }" @click="goToNextObject()">
-      <img
-        v-for="(path, i) of paths"
-        :key="i"
-        :src="path"
-        alt="" />
-      <div class="design-card__dots" v-if="paths.length > 1" :style="{ left: `${refs.index * 100}%` }">
+    <div
+      class="design-card__image"
+      :style="{ left: `-${refs.index * 100}%` }"
+      @click="goToNextObject()"
+    >
+      <img v-for="(path, i) of paths" :key="i" :src="path" alt="" />
+      <div
+        class="design-card__dots"
+        v-if="paths.length > 1"
+        :style="{ left: `${refs.index * 100}%` }"
+      >
         <div
           v-bind:class="{ active: i === refs.index }"
           v-for="i of [...Array(paths.length).keys()]"
           :key="i"
-          @click="goToObject(i - 1)" />
+          @click="goToObject(i - 1)"
+        />
       </div>
     </div>
     <div class="design-card__content">
@@ -126,7 +131,7 @@ export default defineComponent({
 
 @media (min-width: $breakpoint-md) {
   .design-card .design-card__bottom .design-card__title {
-      font-size: $font-size-lg;
-    }
+    font-size: $font-size-lg;
   }
+}
 </style>

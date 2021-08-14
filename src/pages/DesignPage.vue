@@ -21,11 +21,9 @@
           v-for="(entryRow, i) of entryRows"
           :key="i"
           class="design-entries__grid"
-          :style="{ 'grid-template-columns': getTemplateColumns(entryRow) }">
-          <DesignCard
-            v-for="entry of entryRow"
-            :key="entry.key"
-            :entry="entry" />
+          :style="{ 'grid-template-columns': getTemplateColumns(entryRow) }"
+        >
+          <DesignCard v-for="entry of entryRow" :key="entry.key" :entry="entry" />
         </div>
       </template>
     </div>
@@ -61,13 +59,17 @@ export default defineComponent({
     });
 
     const getRowWidth = (entryRow: DesignEntry[]): number => {
-      return entryRow.reduce((width, entry) => width + entry.width, 0)
-    }
+      return entryRow.reduce((width, entry) => width + entry.width, 0);
+    };
 
     function calculateEntryRows() {
       // get min row width via exported breakpoints
-      const newMinWidth = window.innerWidth < parseInt(exports.breakpointSM) ? 1 :
-        (window.innerWidth < parseInt(exports.breakpointMD) ? 2 : 3);
+      const newMinWidth =
+        window.innerWidth < parseInt(exports.breakpointSM)
+          ? 1
+          : window.innerWidth < parseInt(exports.breakpointMD)
+          ? 2
+          : 3;
 
       if (newMinWidth !== refs.minWidth) {
         refs.minWidth = newMinWidth;
@@ -79,7 +81,10 @@ export default defineComponent({
           if (entries[0].width < refs.minWidth) {
             // find complementary entry based on width and height
             for (let i = 1; i < entries.length; i++) {
-              if (entries[i].width + entries[0].width === refs.minWidth && entries[i].height === entries[0].height) {
+              if (
+                entries[i].width + entries[0].width === refs.minWidth &&
+                entries[i].height === entries[0].height
+              ) {
                 // add entry to row and delete from list of entries
                 refs.entryRows[refs.entryRows.length - 1].push(entries[i]);
                 entries.splice(i, 1);
@@ -106,8 +111,9 @@ export default defineComponent({
 
     function getTemplateColumns(entryRow: DesignEntry[]) {
       // add filler column to partial entry rows
-      const filler = refs.minWidth > getRowWidth(entryRow) ? `${refs.minWidth - getRowWidth(entryRow)}fr` : '';
-      return entryRow.reduce((prev, curr) => prev + `${ curr.width }fr `, '') + filler
+      const filler =
+        refs.minWidth > getRowWidth(entryRow) ? `${refs.minWidth - getRowWidth(entryRow)}fr` : '';
+      return entryRow.reduce((prev, curr) => prev + `${curr.width}fr `, '') + filler;
     }
 
     return {

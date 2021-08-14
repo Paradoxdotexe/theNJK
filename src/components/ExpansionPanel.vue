@@ -1,6 +1,12 @@
 <template>
   <div class="expansion-panel">
-    <div class="expansion-panel__header" v-ripple @click="toggle" tabindex="0" @keypress="onKeyPress">
+    <div
+      class="expansion-panel__header"
+      v-ripple
+      @click="toggle"
+      tabindex="0"
+      @keypress="onKeyPress"
+    >
       <div class="expansion-panel__title">{{ title }}</div>
       <Icon class="expansion-panel__arrow" v-bind:class="{ rotated: refs.open }" name="Arrow" />
     </div>

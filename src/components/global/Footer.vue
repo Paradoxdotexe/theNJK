@@ -7,12 +7,12 @@
             <Icon name="NJK" />
           </div>
           <div class="footer__slogan">
-            Developer by design.<br>
+            Developer by design.<br />
             Designer by necessity.
           </div>
           <div class="footer__media">
             <a href="https://github.com/IamParadoxdotexe"><Icon name="GitHub" /></a>
-            <a href="https://www.linkedin.com/in/thenjk/"><Icon name="LinkedIn"/></a>
+            <a href="https://www.linkedin.com/in/thenjk/"><Icon name="LinkedIn" /></a>
             <a href="https://www.instagram.com/nathan_paradox/"><Icon name="Instagram" /></a>
           </div>
         </div>
@@ -21,7 +21,9 @@
           <router-link
             v-for="button of NavButtons"
             :key="button.route"
-            :to="{ name: button.route }">{{ button.label }}</router-link>
+            :to="{ name: button.route }"
+            >{{ button.label }}</router-link
+          >
         </div>
       </div>
       <div class="footer__copyright">© 2021 theNJK. All rights reserved.</div>
@@ -31,18 +33,18 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Icon from "@/components/icons/Icon.vue";
+import Icon from '@/components/icons/Icon.vue';
 import { NavButtons } from '@/components/global/HeaderButtons.vue';
 
 export default defineComponent({
-  name: "Footer",
+  name: 'Footer',
   components: {
     Icon
   },
   setup() {
     return {
       NavButtons
-    }
+    };
   }
 });
 </script>
