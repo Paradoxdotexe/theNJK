@@ -124,7 +124,7 @@ $shadow-blur: 40px;
 
 @mixin mix-card-padding {
   padding: $gap-sm * 1.5 $gap-md;
-};
+}
 
 @mixin mix-card-tag {
   height: min-content;
