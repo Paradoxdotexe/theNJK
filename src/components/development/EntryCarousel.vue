@@ -37,7 +37,6 @@
         </div>
         <div class="carousel__dots">
           <div
-            class="carousel__dot"
             v-bind:class="{ active: i === refs.index }"
             v-for="i of [...Array(paths.length).keys()]"
             :key="i"
@@ -82,7 +81,7 @@ export default defineComponent({
     });
 
     function goToObject(index: number) {
-      refs.index += index - refs.index;
+      refs.index = index;
     }
 
     return {
@@ -97,8 +96,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$dot-size: $gap-sm * 1.5;
-
 .carousel {
   @include mix-framework-container;
   @include mix-shadow;
@@ -141,27 +138,8 @@ $dot-size: $gap-sm * 1.5;
       }
 
       .carousel__dots {
+        @include mix-dots;
         margin-top: calc(var(--carousel-padding) - #{$dot-size} * 0.5);
-        display: flex;
-
-        .carousel__dot {
-          background: $background-primary;
-          width: $dot-size;
-          height: $dot-size;
-          border-radius: $gap-sm;
-          opacity: 0.25;
-          cursor: pointer;
-          transition: opacity $transition-timing $transition-duration * 0.5;
-
-          &:not(:last-child) {
-            margin-right: $gap-sm;
-          }
-
-          &.active {
-            opacity: 0.75;
-            cursor: default;
-          }
-        }
       }
     }
   }

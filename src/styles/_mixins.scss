@@ -169,3 +169,30 @@ $framework-padding-md: $gap-lg * 2;
   align-items: center;
   padding-bottom: $gap-xl * 2;
 }
+
+// dots
+$dot-size: $gap-sm * 1.5;
+
+@mixin mix-dots {
+  display: flex;
+  justify-content: center;
+
+  div {
+    background: $background-primary;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: $gap-sm;
+    opacity: 0.25;
+    cursor: pointer;
+    transition: opacity $transition-timing $transition-duration * 0.5;
+
+    &:not(:last-child) {
+      margin-right: $gap-sm;
+    }
+
+    &.active {
+      opacity: 0.75;
+      cursor: default;
+    }
+  }
+}
