@@ -81,6 +81,7 @@ export default defineComponent({
 .expansion-panel {
   .expansion-panel__header {
     @include mix-card;
+    max-width: $card-width * 2 + $gap-md;
     position: relative;
     overflow: hidden;
     background: var(--accent-primary);
