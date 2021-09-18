@@ -2,6 +2,7 @@
   <div class="design-card">
     <div
       class="design-card__image"
+      v-bind:class="{ clickable: paths.length > 1 }"
       :style="{ left: `-${refs.index * 100}%` }"
       @click="goToNextObject()"
     >
@@ -80,18 +81,16 @@ export default defineComponent({
   overflow: hidden;
   transition: all $transition-duration $transition-timing;
 
-  &:hover {
-    box-shadow: 0 $shadow-offset $shadow-blur rgb(0, 0, 0, $shadow-intensity * 3);
-    transform: translateY(-#{$gap-sm});
-  }
-
   .design-card__image {
     position: relative;
     left: 0;
     width: 100%;
     transition: left $transition-duration $transition-timing;
-    cursor: pointer;
     display: flex;
+
+    &.clickable {
+      cursor: pointer;
+    }
 
     img {
       min-width: 100%;
