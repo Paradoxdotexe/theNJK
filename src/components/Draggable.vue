@@ -137,7 +137,6 @@ export default defineComponent({
       refs.position = 0;
       refs.index += n;
       emitter.emit(`${props.callbackPrefix}-${n > 0 ? 'end' : 'start'}`);
-      console.log(refs.index);
     }
 
     function getTouch(event: TouchEvent) {
