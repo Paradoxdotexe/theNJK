@@ -81,39 +81,54 @@ export default defineComponent({
     });
     let dragStart = 0; // touch position at the start of drag
     let dragEnd = 0; // touch position at the end of drag
+    let dragStartPerpendicular = 0; // touch position at the start of drag perpendicular to the dragging direction
+    let dragEndPerpendicular = 0; // touch position at the end of drag perpendicular to the dragging direction
     let lastChange = 0; // last change in touch position
-    let forcePoint = 200; // point where draggable is forced to stop at one side, even when dragging in the other direction
+    let scrolling = false; // whether user is scrolling and dragging should be avoided
+    const forcePoint = 200; // point where draggable is forced to stop at one side, even when dragging in the other direction
 
     onMounted(() => {
       emitter.on(`${props.callbackPrefix}-set-index`, i => (refs.index = i as number));
     });
 
     function onDragStart(event: TouchEvent) {
-      dragStart = dragEnd = getTouch(event);
+      const touch = getTouch(event);
+      dragStart = dragEnd = touch[0];
+      dragStartPerpendicular = dragEndPerpendicular = touch[1];
     }
 
     function onDrag(event: TouchEvent) {
-      event.preventDefault(); // prevent vertical scrolling while dragging
-      refs.dragging = true;
-      const newDragEnd = getTouch(event);
-      lastChange = newDragEnd - dragEnd;
-      dragEnd = newDragEnd;
-      refs.position = -dragEnd + dragStart;
-      const dampener = 120;
-      if (props.dampenEnd && refs.position > 0) {
-        refs.position = (dampener * refs.position) / (refs.position + dampener);
-      } else if (props.dampenStart && refs.position < 0) {
-        refs.position = (-dampener * -refs.position) / (-refs.position + dampener);
-      }
-      if (props.stopEnd) {
-        refs.position = Math.min(0, refs.position);
-      } else if (props.stopStart) {
-        refs.position = Math.max(0, refs.position);
+      // update drag positions
+      const touch = getTouch(event);
+      dragEndPerpendicular = touch[1];
+      lastChange = touch[0] - dragEnd;
+      dragEnd = touch[0];
+
+      // if user is not vertically dragging
+      if (Math.abs(dragStartPerpendicular - dragEndPerpendicular) > 10 && Math.abs(dragStart - dragEnd) < 10) {
+        scrolling = true;
+        refs.position = 0;
+      } else if (!scrolling && Math.abs(dragStart - dragEnd) > 10) {
+        event.preventDefault(); // prevent vertical scrolling while dragging
+        refs.dragging = true;
+        refs.position = -dragEnd + dragStart;
+        const dampener = 120;
+        if (props.dampenEnd && refs.position > 0) {
+          refs.position = (dampener * refs.position) / (refs.position + dampener);
+        } else if (props.dampenStart && refs.position < 0) {
+          refs.position = (-dampener * -refs.position) / (-refs.position + dampener);
+        }
+        if (props.stopEnd) {
+          refs.position = Math.min(0, refs.position);
+        } else if (props.stopStart) {
+          refs.position = Math.max(0, refs.position);
+        }
       }
     }
 
     function onDragEnd() {
       refs.dragging = false;
+      scrolling = false;
       const dragDistance = dragEnd - dragStart;
       if (Math.abs(dragDistance) > forcePoint) {
         // dragged far enough to guarantee edge change
@@ -139,9 +154,9 @@ export default defineComponent({
       emitter.emit(`${props.callbackPrefix}-${n > 0 ? 'end' : 'start'}`);
     }
 
-    function getTouch(event: TouchEvent) {
+    function getTouch(event: TouchEvent): number[] {
       const touch = event.targetTouches[0];
-      return props.direction === Direction.X ? touch.clientX * -1 : touch.clientY;
+      return props.direction === Direction.X ? [touch.clientX * -1, touch.clientY] : [touch.clientY, touch.clientX * -1];
     }
 
     return {
