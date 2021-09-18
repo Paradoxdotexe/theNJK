@@ -9,7 +9,7 @@
         <HeaderButtons />
       </div>
       <div class="header__right">
-        <button class="header__button--contact" v-ripple>Contact</button>
+        <button class="header__button--contact" v-ripple @click="contact()">Contact</button>
         <button class="header__button--menu" v-ripple @click="toggleDrawer">
           <Icon name="Menu" />
         </button>
@@ -74,10 +74,15 @@ export default defineComponent({
       router.push({ name: 'Home' });
     }
 
+    function contact() {
+      window.location.href = "mailto: njklingensmith@wpi.edu";
+    }
+
     return {
       refs,
       toggleDrawer,
-      goHome
+      goHome,
+      contact
     };
   }
 });
