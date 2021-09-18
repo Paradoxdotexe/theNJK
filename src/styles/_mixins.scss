@@ -74,7 +74,8 @@ $shadow-blur: 32px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 $size $color;
@@ -87,7 +88,8 @@ $shadow-blur: 32px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     background: $color;
   }
 }
@@ -97,7 +99,8 @@ $shadow-blur: 32px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     color: $color;
   }
 }

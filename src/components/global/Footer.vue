@@ -98,7 +98,7 @@ export default defineComponent({
               margin-right: $gap-sm;
             }
 
-            &:focus {
+            &:focus, &:hover {
               color: var(--accent-primary);
               background: none;
             }
@@ -120,7 +120,7 @@ export default defineComponent({
           color: var(--color-secondary);
           text-decoration: none;
 
-          &:focus {
+          &:focus, &:hover {
             color: var(--accent-primary);
             background: none;
             text-decoration: underline;

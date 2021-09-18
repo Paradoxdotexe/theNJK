@@ -48,12 +48,16 @@ export default defineComponent({
 .header__button-wrapper {
   text-decoration: none;
 
-  .header__button {
-    @include mix-header-button;
+  &:hover {
+    background: none;
   }
 
   &.router-link-active > .header__button {
     background: rgba(0, 0, 0, 0.2);
+  }
+
+  .header__button {
+    @include mix-header-button;
   }
 }
 </style>
