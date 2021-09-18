@@ -82,7 +82,7 @@ export default defineComponent({
     let dragStart = 0; // touch position at the start of drag
     let dragEnd = 0; // touch position at the end of drag
     let lastChange = 0; // last change in touch position
-    let forcePoint = 0; // point where draggable is forced to stop at one side, even when dragging in the other direction
+    let forcePoint = 200; // point where draggable is forced to stop at one side, even when dragging in the other direction
 
     onMounted(() => {
       emitter.on(`${props.callbackPrefix}-set-index`, i => (refs.index = i as number));
