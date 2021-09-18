@@ -1,7 +1,7 @@
 // shadows https://shadows.brumm.af/
-$shadow-intensity: 0.2;
-$shadow-offset: 20px;
-$shadow-blur: 40px;
+$shadow-intensity: 0.15;
+$shadow-offset: 12px;
+$shadow-blur: 32px;
 
 @mixin mix-shadow {
   box-shadow: 0 0 $shadow-blur rgb(0, 0, 0, $shadow-intensity);
