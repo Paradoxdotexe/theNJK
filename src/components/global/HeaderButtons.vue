@@ -7,7 +7,7 @@
     v-slot="{ navigate }"
     tabindex="-1"
   >
-    <button class="header__button" @click="navigate()" v-ripple>{{ button.label }}</button>
+    <button class="header__button" @click="emitNavigate(); navigate()" v-ripple>{{ button.label }}</button>
   </router-link>
 </template>
 
@@ -22,9 +22,14 @@ export const NavButtons = [
 
 export default defineComponent({
   name: 'HeaderButtons',
-  setup() {
+  setup(_props, ctx) {
+    function emitNavigate() {
+      ctx.emit('navigate');
+    }
+
     return {
-      NavButtons
+      NavButtons,
+      emitNavigate
     };
   }
 });

@@ -20,7 +20,7 @@
   <transition name="drawer">
     <div v-if="refs.drawerOpen" class="header-drawer">
       <div class="header__framework">
-        <HeaderButtons />
+        <HeaderButtons @navigate="toggleDrawer()" />
       </div>
     </div>
   </transition>
