@@ -52,7 +52,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .footer {
   @include mix-shadow-up;
-  background: $background-primary;
+  background: var(--background-primary);
   z-index: 1000;
   padding: $gap-lg;
   display: flex;
@@ -82,7 +82,7 @@ export default defineComponent({
         }
 
         .footer__slogan {
-          color: $color-secondary;
+          color: var(--color-secondary);
           margin-bottom: $gap-md;
         }
 
@@ -90,7 +90,7 @@ export default defineComponent({
           display: flex;
 
           a {
-            color: $color-primary;
+            color: var(--color-primary);
             width: $font-size-xxl;
             height: $font-size-xxl;
 
@@ -99,7 +99,7 @@ export default defineComponent({
             }
 
             &:focus {
-              color: $accent-primary;
+              color: var(--accent-primary);
               background: none;
             }
           }
@@ -117,11 +117,11 @@ export default defineComponent({
 
         a {
           margin-top: $gap-sm;
-          color: $color-secondary;
+          color: var(--color-secondary);
           text-decoration: none;
 
           &:focus {
-            color: $accent-primary;
+            color: var(--accent-primary);
             background: none;
             text-decoration: underline;
           }

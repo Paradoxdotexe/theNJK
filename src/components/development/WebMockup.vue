@@ -36,8 +36,8 @@ $mockup-border-width: 2px;
 .web-mockup {
   border-radius: $mockup-border-radius;
   overflow: hidden;
-  border: $mockup-border-width solid $background-primary;
-  background: $background-primary;
+  border: $mockup-border-width solid var(--background-primary);
+  background: var(--background-primary);
   display: flex;
   flex-direction: column;
 
@@ -59,7 +59,7 @@ $mockup-border-width: 2px;
         height: $gap-sm;
         width: $gap-sm;
         border-radius: $gap-sm;
-        background: $background-tertiary;
+        background: var(--background-tertiary);
 
         &:not(:last-child) {
           margin-right: $gap-sm * 0.5;
@@ -71,7 +71,7 @@ $mockup-border-width: 2px;
       width: 25%;
       height: $gap-sm;
       border-radius: $gap-md;
-      background: $background-tertiary;
+      background: var(--background-tertiary);
     }
   }
 

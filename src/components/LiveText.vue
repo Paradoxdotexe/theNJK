@@ -93,7 +93,7 @@ export default defineComponent({
     right: 0;
     height: 100%;
     width: 2px;
-    background: $color-primary;
+    background: var(--color-primary);
 
     &.flash {
       animation: flash 1.25s ease infinite;

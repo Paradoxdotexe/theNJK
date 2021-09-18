@@ -44,7 +44,7 @@ export default defineComponent({
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: scale-color($background-primary, $alpha: -50%);
+  background: scale-color(var-dark('background-primary'), $alpha: -50%);
   opacity: 1;
   z-index: 500;
 }

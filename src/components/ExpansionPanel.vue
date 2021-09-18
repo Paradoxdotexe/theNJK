@@ -83,14 +83,14 @@ export default defineComponent({
     @include mix-card;
     position: relative;
     overflow: hidden;
-    background: $accent-primary;
+    background: var(--accent-primary);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     &:focus {
-      background: $accent-secondary;
+      background: var(--accent-secondary);
       outline: none !important;
     }
 

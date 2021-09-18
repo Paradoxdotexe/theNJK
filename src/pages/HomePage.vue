@@ -19,9 +19,9 @@
   <!-- CONTENT -->
   <div class="content">
     <div class="content__framework">
-      <!-- README -->
-      <ContentHeader path="C:\Users\Nathan\README.md" title="Hello, I'm Nathan Klingensmith">
-        I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
+      <!-- EXPERIENCE -->
+      <ContentHeader path="C:\Users\Nathan\Experience.zip" title="Experience">
+        My name is Nathan Klingensmith. I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
         idea from <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
         Over my career, I have worked in the following roles, utilizing my skills to create unique
@@ -121,14 +121,14 @@ export default defineComponent({
     width: 100%;
 
     &.primary {
-      @include mix-basic-button--raised($accent-primary);
-      @include mix-focus-background($accent-secondary);
+      @include mix-basic-button--raised(var(--accent-primary));
+      @include mix-focus-background(var(--accent-secondary));
       margin-bottom: $gap-lg;
     }
 
     &.secondary {
-      @include mix-basic-button--stroked($accent-primary);
-      @include mix-focus-background(scale-color($accent-primary, $alpha: -85%));
+      @include mix-basic-button--stroked(var(--accent-primary));
+      @include mix-focus-background(scale-color(var-dark('accent-primary'), $alpha: -85%));
     }
   }
 }

@@ -118,7 +118,7 @@ $shadow-blur: 40px;
 @mixin mix-card {
   @include mix-shadow-down;
   @include mix-card-padding;
-  background: $background-tertiary;
+  background: var(--background-tertiary);
   border-radius: $border-radius;
 }
 
@@ -131,7 +131,7 @@ $shadow-blur: 40px;
   margin-left: auto;
   margin-right: -$gap-sm * 0.5;
   line-height: 80%;
-  background: $accent-primary;
+  background: var(--accent-primary);
   border-radius: $gap-md;
   font-size: $font-size-sm;
   padding: $gap-sm * 0.5 $gap-sm;
@@ -182,7 +182,7 @@ $dot-size: $gap-sm * 1.5;
   justify-content: center;
 
   div {
-    background: $background-primary;
+    background: var(--background-primary);
     width: $dot-size;
     height: $dot-size;
     border-radius: $gap-sm;

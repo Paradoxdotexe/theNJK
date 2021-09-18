@@ -124,7 +124,7 @@ export default defineComponent({
     }
 
     .design-card__description {
-      color: $color-secondary;
+      color: var(--color-secondary);
     }
   }
 }

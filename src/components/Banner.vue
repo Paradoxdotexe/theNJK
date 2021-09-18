@@ -47,7 +47,7 @@ $tile-size: 100px;
 
 .banner {
   @include mix-shadow-down;
-  background: $background-primary;
+  background: var(--background-primary);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -65,7 +65,7 @@ $tile-size: 100px;
 
     svg {
       position: absolute;
-      fill: $color-primary;
+      fill: var(--color-primary);
 
       &:first-child {
         animation: space1 100s linear infinite;
@@ -107,7 +107,7 @@ $tile-size: 100px;
         ::v-deep(span) {
           -webkit-text-stroke-width: 0.5px;
           -webkit-text-stroke-color: white;
-          color: $background-primary;
+          color: var(--background-primary);
         }
       }
 
