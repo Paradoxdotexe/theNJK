@@ -39,7 +39,7 @@ export default defineComponent({
   .web-mockup__header {
     position: relative;
     width: 100%;
-    height: $gap-lg;
+    height: 18px;
     background: var(--background-primary);
     display: flex;
     justify-content: center;
