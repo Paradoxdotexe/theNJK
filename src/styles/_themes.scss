@@ -11,18 +11,18 @@ $font-size-xxl: 1.5rem; // 24px default
 // colors
 $_light: #ffffff;
 $_dark: #0f0f0f;
-$_accent: #45C463;
+$_accent: #45c463;
 
 $dark: (
-        'color-primary': $_light,
-        'color-secondary': scale-color($_light, $lightness: -25%),
-        'color-tertiary': scale-color($_light, $lightness: -50%),
-        'background-primary': $_dark,
-        'background-secondary': scale-color($_dark, $lightness: 5%),
-        'background-tertiary': scale-color($_dark, $lightness: 10%),
-        'accent-primary': $_accent,
-        'accent-secondary': scale-color($_accent, $lightness: -25%),
-        'accent-tertiary': scale-color($_accent, $lightness: -50%)
+  'color-primary': $_light,
+  'color-secondary': scale-color($_light, $lightness: -25%),
+  'color-tertiary': scale-color($_light, $lightness: -50%),
+  'background-primary': $_dark,
+  'background-secondary': scale-color($_dark, $lightness: 5%),
+  'background-tertiary': scale-color($_dark, $lightness: 10%),
+  'accent-primary': $_accent,
+  'accent-secondary': scale-color($_accent, $lightness: -25%),
+  'accent-tertiary': scale-color($_accent, $lightness: -50%)
 );
 
 // used to get non-variable dark theme values

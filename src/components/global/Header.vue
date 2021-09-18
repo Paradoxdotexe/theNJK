@@ -75,7 +75,7 @@ export default defineComponent({
     }
 
     function contact() {
-      window.location.href = "mailto: njklingensmith@wpi.edu";
+      window.location.href = 'mailto: njklingensmith@wpi.edu';
     }
 
     return {

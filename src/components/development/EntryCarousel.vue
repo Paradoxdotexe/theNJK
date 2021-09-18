@@ -59,9 +59,9 @@ import { defineComponent, PropType, onBeforeMount, reactive, computed, onMounted
 import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
 import RequireImage from '@/util/RequireImage';
-import Draggable from "@/components/Draggable.vue";
+import Draggable from '@/components/Draggable.vue';
 import { emitter } from '@/main';
-import { Direction } from "@/types";
+import { Direction } from '@/types';
 
 export default defineComponent({
   name: 'EntryCarousel',
@@ -78,7 +78,7 @@ export default defineComponent({
   setup(props) {
     const refs = reactive({
       index: 0,
-      callbackPrefix: `${Math.random().toString().slice(2)}-carousel-draggable`,
+      callbackPrefix: `${Math.random().toString().slice(2)}-carousel-draggable`
     });
     const computes = reactive({
       offset: computed(() => refs.index * 100 * 2)

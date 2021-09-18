@@ -21,8 +21,9 @@
     <div class="content__framework">
       <!-- EXPERIENCE -->
       <ContentHeader path="C:\Users\Nathan\Experience.json" title="Experience">
-        My name is Nathan Klingensmith. I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
-        idea from <router-link :to="{ name: 'Design' }">design</router-link> to
+        My name is Nathan Klingensmith. I am a UI/UX designer, full stack developer, and team
+        leader. I have the skills to take your idea from
+        <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
         Over my career, I have worked in the following roles, utilizing my skills to create unique
         value for all the teams I have worked on.
@@ -67,7 +68,8 @@
 
       <!-- SKILLS -->
       <ContentHeader path="C:\Users\Nathan\WPI\Skills.json" title="Skills">
-        From my personal, professional, and academic experience, I have accumulated a number of skills in both the design and devlopment space.
+        From my personal, professional, and academic experience, I have accumulated a number of
+        skills in both the design and devlopment space.
       </ContentHeader>
       <div class="content__skills">
         <ContentCard

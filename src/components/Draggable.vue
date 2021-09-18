@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, reactive, ref} from 'vue';
+import { defineComponent, onMounted, reactive, ref } from 'vue';
 import type { PropType } from 'vue';
 import { emitter } from '@/main';
 import { Direction } from '@/types';
@@ -85,7 +85,7 @@ export default defineComponent({
     let forcePoint = 0; // point where draggable is forced to stop at one side, even when dragging in the other direction
 
     onMounted(() => {
-      emitter.on(`${props.callbackPrefix}-set-index`, i => refs.index = i as number);
+      emitter.on(`${props.callbackPrefix}-set-index`, i => (refs.index = i as number));
     });
 
     function onDragStart(event: TouchEvent) {
@@ -136,7 +136,7 @@ export default defineComponent({
     function shiftIndex(n: number) {
       refs.position = 0;
       refs.index += n;
-      emitter.emit(`${props.callbackPrefix}-${ n > 0 ? 'end' : 'start' }`);
+      emitter.emit(`${props.callbackPrefix}-${n > 0 ? 'end' : 'start'}`);
       console.log(refs.index);
     }
 
