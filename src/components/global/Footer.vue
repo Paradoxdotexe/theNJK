@@ -26,7 +26,7 @@
           >
         </div>
       </div>
-      <div class="footer__copyright">© 2021 theNJK. All rights reserved.</div>
+      <div class="footer__copyright">© 2021 Nathan J Klingensmith. All rights reserved.</div>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default defineComponent({
   @include mix-shadow-up;
   background: var(--background-primary);
   z-index: 1000;
-  padding: $gap-lg;
+  padding: $gap-lg 0;
   display: flex;
   justify-content: center;
 
