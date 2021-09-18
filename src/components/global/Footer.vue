@@ -26,7 +26,7 @@
           >
         </div>
       </div>
-      <div class="footer__copyright">© 2021 Nathan J Klingensmith. All rights reserved.</div>
+      <div class="footer__copyright">© 2021 Nathan J Klingensmith.</div>
     </div>
   </div>
 </template>
