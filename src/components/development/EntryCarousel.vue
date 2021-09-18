@@ -145,6 +145,14 @@ export default defineComponent({
   }
 }
 
+@media (max-width: $breakpoint-xs) {
+  .carousel {
+    .carousel__framework {
+      padding: 0 $gap-md;
+    }
+  }
+}
+
 @media (min-width: $breakpoint-lg) {
   .carousel {
     --carousel-padding: #{$gap-xl};
