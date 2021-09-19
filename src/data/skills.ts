@@ -22,7 +22,7 @@ const Skills: Skill[] = [
   },
   {
     technologies: 'Photoshop, Illustrator',
-    type: 'Graphic design design tools',
+    type: 'Graphic design tools',
     years: 3
   },
   {
