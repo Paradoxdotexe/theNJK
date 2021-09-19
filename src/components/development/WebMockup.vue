@@ -6,7 +6,9 @@
       </div>
       <div class="web-mockup__search-bar"></div>
     </div>
-    <img class="web-mockup__image" :src="path" />
+    <div>
+      <img :src="path" />
+    </div>
   </div>
 </template>
 
@@ -68,6 +70,12 @@ export default defineComponent({
       border-radius: $gap-md;
       background: var(--background-tertiary);
     }
+  }
+
+  img {
+    width: 100%;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 }
 
