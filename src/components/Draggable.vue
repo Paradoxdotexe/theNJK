@@ -9,6 +9,7 @@
     @touchstart="onDragStart($event)"
     @touchmove="onDrag($event)"
     @touchend="onDragEnd()"
+    @touchcancel="onDragEnd()"
   >
     <slot />
   </div>
@@ -49,18 +50,6 @@ export default defineComponent({
     },
     dampenEnd: {
       // whether to dampen dragging beyond end point
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    stopStart: {
-      // whether to prohibit dragging beyond start point
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    stopEnd: {
-      // whether to prohibit dragging beyond end point
       type: Boolean,
       required: false,
       default: false
@@ -118,11 +107,6 @@ export default defineComponent({
         } else if (props.dampenStart && refs.position < 0) {
           refs.position = (-dampener * -refs.position) / (-refs.position + dampener);
         }
-        if (props.stopEnd) {
-          refs.position = Math.min(0, refs.position);
-        } else if (props.stopStart) {
-          refs.position = Math.max(0, refs.position);
-        }
       }
     }
 
@@ -155,7 +139,7 @@ export default defineComponent({
     }
 
     function getTouch(event: TouchEvent): number[] {
-      const touch = event.targetTouches[0];
+      const touch = event.changedTouches[0];
       return props.direction === Direction.X ? [touch.clientX * -1, touch.clientY] : [touch.clientY, touch.clientX * -1];
     }
 

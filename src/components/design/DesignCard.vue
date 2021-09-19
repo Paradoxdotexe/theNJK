@@ -1,12 +1,14 @@
 <template>
   <div class="design-card">
     <div
-      class="design-card__image"
+      class="design-card__carousel"
       v-bind:class="{ clickable: paths.length > 1 }"
       :style="{ left: `-${refs.index * 100}%` }"
       @click="goToNextObject()"
     >
-      <img v-for="(path, i) of paths" :key="i" :src="path" alt="" />
+      <div class="design-card__image" v-for="(path, i) of paths" :key="i">
+        <img :src="path" alt="" />
+      </div>
       <div
         class="design-card__dots"
         v-if="paths.length > 1"
@@ -81,7 +83,7 @@ export default defineComponent({
   overflow: hidden;
   transition: all $transition-duration $transition-timing;
 
-  .design-card__image {
+  .design-card__carousel {
     position: relative;
     left: 0;
     width: 100%;
@@ -92,8 +94,13 @@ export default defineComponent({
       cursor: pointer;
     }
 
-    img {
+    .design-card__image {
       min-width: 100%;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
     }
 
     .design-card__dots {

@@ -2,8 +2,8 @@ export enum ContentFormat {
   POSTER = 'Poster',
   WEBSITE = 'Website',
   LOGO = 'Logo',
-  SIGN = 'Outdoor Sign',
-  SPREAD = 'Magazine Spread',
+  SIGN = 'Sign',
+  SPREAD = 'Magazine',
   COVER = 'Book'
 }
 
