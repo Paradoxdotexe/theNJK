@@ -1,22 +1,23 @@
 <template>
   <div
-    ref="draggable"
-    class="draggable"
-    :class="{
-      dragging: refs.dragging
-    }"
-    :style="{ marginLeft: `calc(${-2 * refs.index}00% + ${refs.position}px` }"
     @touchstart="onDragStart($event)"
     @touchmove="onDrag($event)"
     @touchend="onDragEnd()"
     @touchcancel="onDragEnd()"
   >
-    <slot />
+    <div
+      class="draggable"
+      :class="{
+      dragging: refs.dragging
+      }"
+      :style="{ marginLeft: `calc(${-1 * refs.index}00% + ${refs.position}px` }">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from 'vue';
+import { defineComponent, onMounted, reactive } from 'vue';
 import type { PropType } from 'vue';
 import { emitter } from '@/main';
 import { Direction } from '@/types';
@@ -62,7 +63,6 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const draggable = ref<HTMLElement>();
     const refs = reactive({
       dragging: false,
       position: 0,
@@ -145,7 +145,6 @@ export default defineComponent({
 
     return {
       Direction,
-      draggable,
       refs,
       onDragStart,
       onDrag,
@@ -157,6 +156,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .draggable {
+  display: flex;
+  width: 100%;
   transition-duration: $draggable-transition-duration;
   transition-timing-function: $draggable-transition-timing;
   transition-property: margin-left, margin-bottom;

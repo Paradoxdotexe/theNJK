@@ -139,8 +139,6 @@ export default defineComponent({
 
       .carousel__objects {
         width: 100%;
-        display: flex;
-        margin-left: 0;
 
         .carousel__object {
           min-width: 100%;
