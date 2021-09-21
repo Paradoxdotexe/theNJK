@@ -16,6 +16,7 @@ export interface DevelopmentEntryDetails {
   technologies: string[];
   platform: string;
   work: string;
+  demo?: string;
 }
 
 export interface DevelopmentEntry {
@@ -30,7 +31,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
   {
     year: 2021,
     title: 'Pallyt App',
-    subtitle: 'Putting construction materials at the fingertips of homeowners.',
+    subtitle: 'Putting construction materials at the fingertips of consumers.',
     content: {
       key: 'PA',
       count: 5,
@@ -42,8 +43,14 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       role: 'Head of Technology',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
       platform:
-        'The Pallyt app...',
-      work: 'Since Fall 2021...'
+        'Pallyt is an app designed to make the location and delivery of construction materials as efficient as possible. ' +
+        'Through Pallyt, customers will be able to search for project materials at any of their local hardware stores or specialty suppliers. ' +
+        'They will be able to easily compare prices and stock counts, and order the items they need for either pickup or delivery. ' +
+        'Pallyt is built to be the future of material acquisition technology, making construction projects, big and small, easier than ever. ',
+      work:
+        'To build the Pallyt app, I lead a 5-person Agile Scrum team through the iterative research, design, and development stages of the software development lifecycle. ' +
+        'By researching our competitors, creating mockups in Figma, and testing prototypes in the hands of real users, we designed a platform that meets the targeted needs of the construction market. ' +
+        'To bring this platform to life, I lead the creation of a progressive Vue web app and oversaw the creation of an Amazon Web Services cloud infrastructure.'
     }
   },
   {
@@ -61,8 +68,14 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       role: 'Head of Technology',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
       platform:
-        'The Pallyt website...',
-      work: 'To promote Pallyt...'
+        'The Pallyt website is the forward-facing platform for the startup Pallyt Technologies. ' +
+        'The website is used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team\'s progress. ' +
+        'Additionally, the website helps connect Pallyt with interested parties through contact information and a newsletter mailing list.',
+      work:
+        'In just a few weeks, I designed the Pallyt website in Figma and developed it as a Vue web app. ' +
+        'With assistance from two marketing consultants, I created content that would professionally brand Pallyt and make people feel connected with the venture. ' +
+        'By integrating with a simple Amazon Web Services back-end, I added the ability to collect email addresses for the Pallyt mailing list.',
+      demo: 'https://pallyt.com'
     }
   },
   {
@@ -82,7 +95,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       platform:
         'The Bio-CS Bridge curriculum uses the study of ecological systems to teach both biology and computer science in a collection of interdisciplinary lesson plans. The platform provides a way for high school teachers to easily search through these lesson plans and view/download their materials.',
       work: 'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this platform. I used Photoshop to mock up my designs and continuously applied feedback that I received. After we reached a design everyone was happy with, I developed the platform framework in Angular.'
-    }
+    },
   },
   {
     year: 2020,

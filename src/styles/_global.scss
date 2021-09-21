@@ -16,6 +16,7 @@ body {
     color: var(--accent-primary);
     outline: none;
     text-decoration: underline;
+    cursor: pointer;
 
     &:focus,
     &:hover {
