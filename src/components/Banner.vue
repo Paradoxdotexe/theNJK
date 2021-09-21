@@ -7,8 +7,8 @@
     <div class="banner__framework">
       <div class="banner__title">
         <div class="title__text"><slot name="title"></slot></div>
-        <Graphics class="title__graphics" :name="graphics"></Graphics>
-        <GraphicsMobile class="title__graphics mobile" :name="graphics"></GraphicsMobile>
+        <!--<Graphics class="title__graphics" :name="graphics"></Graphics>
+        <GraphicsMobile class="title__graphics mobile" :name="graphics"></GraphicsMobile>-->
       </div>
       <slot name="content"></slot>
     </div>
@@ -23,16 +23,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
-import Graphics from '@/components/graphics/Graphics.vue';
-import GraphicsMobile from '@/components/graphics/GraphicsMobile.vue';
+// import Graphics from '@/components/graphics/Graphics.vue';
+// import GraphicsMobile from '@/components/graphics/GraphicsMobile.vue';
 import Icon from "@/components/icons/Icon.vue";
 
 export default defineComponent({
   name: 'Banner',
   components: {
     Pattern,
-    Graphics,
-    GraphicsMobile,
+    // Graphics,
+    // GraphicsMobile,
     Icon
   },
   props: {
@@ -102,14 +102,14 @@ $tile-size: 100px;
     .banner__title {
       position: relative;
       width: 100%;
-      height: calc(180px * var(--graphics-scale));
+      // height: calc(180px * var(--graphics-scale));
       margin-bottom: $gap-xl * 2;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: -$gap-xl;
       --text-scale: 0.25;
-      --graphics-scale: 1;
+      // --graphics-scale: 1;
 
       .title__text {
         font-size: calc(96px * var(--text-scale));
@@ -204,23 +204,23 @@ $tile-size: 100px;
 @media (min-width: $breakpoint-xs) {
   .banner .banner__framework .banner__title {
     --text-scale: 0.32;
-    --graphics-scale: 0.32 / 0.25;
+    // --graphics-scale: 0.32 / 0.25;
   }
 }
 
 @media (min-width: $breakpoint-sm) {
   .banner .banner__framework .banner__title {
     --text-scale: 0.45;
-    --graphics-scale: 0.45 / 0.25;
+    // --graphics-scale: 0.45 / 0.25;
   }
 }
 
 @media (min-width: $breakpoint-md) {
   .banner .banner__framework .banner__title {
-    height: calc(400px * var(--graphics-scale));
-    margin-bottom: $gap-xl;
+    // height: calc(400px * var(--graphics-scale));
+    margin-bottom: $gap-xl * 2;
     --text-scale: 0.6;
-    --graphics-scale: 0.6;
+    // --graphics-scale: 0.6;
 
     .title__text {
       ::v-deep(span) {
@@ -243,14 +243,14 @@ $tile-size: 100px;
 @media (min-width: $breakpoint-lg) {
   .banner .banner__framework .banner__title {
     --text-scale: 0.8;
-    --graphics-scale: 0.8;
+    // --graphics-scale: 0.8;
   }
 }
 
 @media (min-width: $breakpoint-xl) {
   .banner .banner__framework .banner__title {
     --text-scale: 1;
-    --graphics-scale: 1;
+    // --graphics-scale: 1;
   }
 }
 </style>

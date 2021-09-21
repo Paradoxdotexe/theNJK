@@ -110,7 +110,7 @@ $shadow-blur: 32px;
   max-width: 640px;
   font-size: $font-size-md;
   text-align: center;
-  margin-top: $gap-xl;
+  // margin-top: $gap-xl;
 
   @media (min-width: $breakpoint-md) {
     font-size: $font-size-lg;
