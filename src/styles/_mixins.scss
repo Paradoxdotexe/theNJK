@@ -184,6 +184,10 @@ $dot-size: $gap-sm * 1.5;
   display: flex;
   justify-content: center;
 
+  &.light button {
+    background: var(--color-secondary);
+  }
+
   button {
     @include mix-button;
     background: var(--background-primary);

@@ -11,6 +11,7 @@
       </div>
       <div
         class="design-card__dots"
+        v-bind:class="{ light: entry.dark }"
         v-if="paths.length > 1"
         :style="{ left: `${refs.index * 100}%` }"
       >

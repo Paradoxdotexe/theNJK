@@ -25,18 +25,30 @@ export interface DesignEntry {
   format: ContentFormat;
   width: ContentWidth;
   height: ContentHeight;
+  dark?: boolean;
 }
 
 const DesignEntries: DesignEntry[] = [
   {
-    title: 'Significant Other',
-    key: 'SO',
+    title: 'Pallyt Technologies',
+    key: 'PT',
+    contentCount: 2,
+    description:
+      'For a construction-focused gig-economy delivery service called Pallyt, I designed the logo that would be used for all company branding.',
+    format: ContentFormat.LOGO,
+    width: ContentWidth.SMALL,
+    height: ContentHeight.SHORT,
+    dark: true
+  },
+  {
+    title: 'Bidding Procurement Scope',
+    key: 'BPS',
     contentCount: 1,
     description:
-      'In WR 2310 Visual Rhetoric, I created a poster for the play Significant Other being presented by the WPI Masque theatre club.',
-    format: ContentFormat.POSTER,
-    width: ContentWidth.SMALL,
-    height: ContentHeight.TALL
+      'For a potential startup called BPS, based around the pre-construction industry, I designed a logo that was to be used if the idea had proved viable.',
+    format: ContentFormat.LOGO,
+    width: ContentWidth.LARGE,
+    height: ContentHeight.SHORT
   },
   {
     title: 'Beecology Conservation Habitat',
@@ -49,14 +61,14 @@ const DesignEntries: DesignEntry[] = [
     height: ContentHeight.TALL
   },
   {
-    title: 'theNJK Magazine',
-    key: 'NJK',
+    title: 'Significant Other',
+    key: 'SO',
     contentCount: 1,
     description:
-      'For my final project in AR 2301 Graphic Design, I was tasked with creating a 2-page magazine spread that coincided a website design. As you can see, I designed a magazine version of this very website.',
-    format: ContentFormat.SPREAD,
-    width: ContentWidth.LARGE,
-    height: ContentHeight.SHORT
+      'In WR 2310 Visual Rhetoric, I created a poster for the play Significant Other being presented by the WPI Masque theatre club.',
+    format: ContentFormat.POSTER,
+    width: ContentWidth.SMALL,
+    height: ContentHeight.TALL
   },
   {
     title: 'Return of the King',
@@ -69,14 +81,14 @@ const DesignEntries: DesignEntry[] = [
     height: ContentHeight.SHORT
   },
   {
-    title: 'Battery Day',
-    key: 'BD',
+    title: 'theNJK Magazine',
+    key: 'NJK',
     contentCount: 1,
     description:
-      'In AR 2301 Graphic Design, I was allowed to create a poster for any event I wanted. Being a huge fan of Tesla, I created a posted for their upcoming stockholder meeting dubbed "Battery Day".',
-    format: ContentFormat.POSTER,
-    width: ContentWidth.SMALL,
-    height: ContentHeight.TALL
+      'For my final project in AR 2301 Graphic Design, I was tasked with creating a 2-page magazine spread that coincided a website design. As you can see, I designed a magazine version of this very website.',
+    format: ContentFormat.SPREAD,
+    width: ContentWidth.LARGE,
+    height: ContentHeight.SHORT
   },
   {
     title: 'Online Support Groups',
@@ -89,14 +101,14 @@ const DesignEntries: DesignEntry[] = [
     height: ContentHeight.TALL
   },
   {
-    title: 'Paradoxdotexe',
-    key: 'PRDX',
+    title: 'Battery Day',
+    key: 'BD',
     contentCount: 1,
     description:
-      'Being an avid gamer, I designed myself a logo for my gaming alias "Paradoxdotexe". This was one of the first logos I ever designed.',
-    format: ContentFormat.LOGO,
-    width: ContentWidth.LARGE,
-    height: ContentHeight.SHORT
+      'In AR 2301 Graphic Design, I was allowed to create a poster for any event I wanted. Being a huge fan of Tesla, I created a posted for their upcoming stockholder meeting dubbed "Battery Day".',
+    format: ContentFormat.POSTER,
+    width: ContentWidth.SMALL,
+    height: ContentHeight.TALL
   },
   {
     title: 'Gaming News',
@@ -109,14 +121,15 @@ const DesignEntries: DesignEntry[] = [
     height: ContentHeight.SHORT
   },
   {
-    title: 'Bidding Procurement Scope',
-    key: 'BPS',
+    title: 'Paradoxdotexe',
+    key: 'PRDX',
     contentCount: 1,
     description:
-      'For a potential startup called BPS, based around the pre-construction industry, I designed a logo that was to be used if the idea had proved viable.',
+      'Being an avid gamer, I designed myself a logo for my gaming alias "Paradoxdotexe". This was one of the first logos I ever designed.',
     format: ContentFormat.LOGO,
     width: ContentWidth.LARGE,
-    height: ContentHeight.SHORT
+    height: ContentHeight.SHORT,
+    dark: true
   }
 ];
 
