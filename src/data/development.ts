@@ -48,6 +48,25 @@ const DevelopmentEntries: DevelopmentEntry[] = [
   },
   {
     year: 2021,
+    title: 'Pallyt Website',
+    subtitle: 'Promoting and informing the world about Pallyt.',
+    content: {
+      key: 'PW',
+      count: 4,
+      type: ContentType.WEB,
+      color: ['#f9f9f9', '#ececec']
+    },
+    details: {
+      client: 'Pallyt Technologies',
+      role: 'Head of Technology',
+      technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
+      platform:
+        'The Pallyt website...',
+      work: 'To promote Pallyt...'
+    }
+  },
+  {
+    year: 2021,
     title: 'Bio-CS Bridge Curriculum',
     subtitle: 'Bridging biology and computer science in education through digital ecology.',
     content: {
