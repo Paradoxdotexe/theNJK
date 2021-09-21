@@ -8,9 +8,10 @@
     <div
       class="draggable"
       :class="{
-      dragging: refs.dragging
+        dragging: refs.dragging
       }"
-      :style="{ marginLeft: `calc(${-1 * refs.index}00% + ${refs.position}px` }">
+      :style="{ marginLeft: `calc(${-1 * refs.index}00% + ${refs.position}px` }"
+    >
       <slot />
     </div>
   </div>
@@ -94,7 +95,10 @@ export default defineComponent({
       dragEnd = touch[0];
 
       // if user is not vertically dragging
-      if (Math.abs(dragStartPerpendicular - dragEndPerpendicular) > 10 && Math.abs(dragStart - dragEnd) < 10) {
+      if (
+        Math.abs(dragStartPerpendicular - dragEndPerpendicular) > 10 &&
+        Math.abs(dragStart - dragEnd) < 10
+      ) {
         scrolling = true;
         refs.position = 0;
       } else if (!scrolling && Math.abs(dragStart - dragEnd) > 10) {
@@ -140,7 +144,9 @@ export default defineComponent({
 
     function getTouch(event: TouchEvent): number[] {
       const touch = event.changedTouches[0];
-      return props.direction === Direction.X ? [touch.clientX * -1, touch.clientY] : [touch.clientY, touch.clientX * -1];
+      return props.direction === Direction.X
+        ? [touch.clientX * -1, touch.clientY]
+        : [touch.clientY, touch.clientX * -1];
     }
 
     return {

@@ -90,7 +90,8 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       background: var(--accent-secondary);
       outline: none !important;
     }
