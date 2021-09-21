@@ -34,7 +34,7 @@ const DesignEntries: DesignEntry[] = [
     key: 'PT',
     contentCount: 2,
     description:
-      'For a construction-focused gig-economy delivery service called Pallyt, I designed the logo that would be used for all company branding.',
+      'For a new gig-economy service startup called Pallyt, I designed the logo that would be used for all company branding.',
     format: ContentFormat.LOGO,
     width: ContentWidth.SMALL,
     height: ContentHeight.SHORT,
@@ -75,7 +75,7 @@ const DesignEntries: DesignEntry[] = [
     key: 'ROTK',
     contentCount: 1,
     description:
-      'In AR 2301 Graphic Design, I got to design a book cover for any book of my choosing; as such, I chose Lord of the Rings: Return of the King.',
+      'In AR 2301 Graphic Design, I redesigned the cover of the classic book, Lord of the Rings: Return of the King.',
     format: ContentFormat.COVER,
     width: ContentWidth.SMALL,
     height: ContentHeight.SHORT
@@ -95,7 +95,7 @@ const DesignEntries: DesignEntry[] = [
     key: 'OSG',
     contentCount: 10,
     description:
-      "As part of a 14-week WPI research project, I worked on a team to explore support groups in the US and develop an online platform adapted to China's cultural landscape. For this, I took charge or creating a collection of mockups based on our final recommendations.",
+      "As part of a 14-week WPI research project, I worked on a team to design an online support group platform adapted to China's cultural landscape. For this, I took charge of creating a collection of mockups based on our final recommendations.",
     format: ContentFormat.WEBSITE,
     width: ContentWidth.LARGE,
     height: ContentHeight.TALL
@@ -105,7 +105,7 @@ const DesignEntries: DesignEntry[] = [
     key: 'BD',
     contentCount: 1,
     description:
-      'In AR 2301 Graphic Design, I was allowed to create a poster for any event I wanted. Being a huge fan of Tesla, I created a posted for their upcoming stockholder meeting dubbed "Battery Day".',
+      'In AR 2301 Graphic Design, I created a poster for the Tesla stockholder meeting dubbed "Battery Day".',
     format: ContentFormat.POSTER,
     width: ContentWidth.SMALL,
     height: ContentHeight.TALL
@@ -115,7 +115,7 @@ const DesignEntries: DesignEntry[] = [
     key: 'GN',
     contentCount: 2,
     description:
-      'For an assignment in AR 2301 Graphic Design, I had to create two unique logos for a fictional app; the generic app name I used was "Gaming News".',
+      'For an assignment in AR 2301 Graphic Design, I designed two unique logos for a fictional app called "Gaming News".',
     format: ContentFormat.LOGO,
     width: ContentWidth.SMALL,
     height: ContentHeight.SHORT
