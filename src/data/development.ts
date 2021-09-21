@@ -29,6 +29,25 @@ export interface DevelopmentEntry {
 const DevelopmentEntries: DevelopmentEntry[] = [
   {
     year: 2021,
+    title: 'Pallyt App',
+    subtitle: 'Putting construction materials at the fingertips of homeowners.',
+    content: {
+      key: 'PA',
+      count: 5,
+      type: ContentType.MOBILE,
+      color: ['#f9f9f9', '#ececec']
+    },
+    details: {
+      client: 'Pallyt Technologies',
+      role: 'Head of Technology',
+      technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
+      platform:
+        'The Pallyt app...',
+      work: 'Since Fall 2021...'
+    }
+  },
+  {
+    year: 2021,
     title: 'Bio-CS Bridge Curriculum',
     subtitle: 'Bridging biology and computer science in education through digital ecology.',
     content: {
