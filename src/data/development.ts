@@ -36,7 +36,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       key: 'PA',
       count: 5,
       type: ContentType.MOBILE,
-      color: ['#f9f9f9', '#ececec']
+      color: '#bdb282'
     },
     details: {
       client: 'Pallyt Technologies',
@@ -61,7 +61,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       key: 'PW',
       count: 4,
       type: ContentType.WEB,
-      color: ['#f9f9f9', '#ececec']
+      color: '#bdb282'
     },
     details: {
       client: 'Pallyt Technologies',
