@@ -1,7 +1,7 @@
 // shadows https://shadows.brumm.af/
-$shadow-intensity: 0.2;
-$shadow-offset: 20px;
-$shadow-blur: 40px;
+$shadow-intensity: 0.15;
+$shadow-offset: 12px;
+$shadow-blur: 32px;
 
 @mixin mix-shadow {
   box-shadow: 0 0 $shadow-blur rgb(0, 0, 0, $shadow-intensity);
@@ -74,7 +74,8 @@ $shadow-blur: 40px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 $size $color;
@@ -87,7 +88,8 @@ $shadow-blur: 40px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     background: $color;
   }
 }
@@ -97,7 +99,8 @@ $shadow-blur: 40px;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing;
   &:focus,
-  &.focus {
+  &.focus,
+  &:hover {
     color: $color;
   }
 }
@@ -107,7 +110,7 @@ $shadow-blur: 40px;
   max-width: 640px;
   font-size: $font-size-md;
   text-align: center;
-  margin-top: $gap-xl;
+  // margin-top: $gap-xl;
 
   @media (min-width: $breakpoint-md) {
     font-size: $font-size-lg;
@@ -118,7 +121,7 @@ $shadow-blur: 40px;
 @mixin mix-card {
   @include mix-shadow-down;
   @include mix-card-padding;
-  background: $background-tertiary;
+  background: var(--background-tertiary);
   border-radius: $border-radius;
 }
 
@@ -131,7 +134,7 @@ $shadow-blur: 40px;
   margin-left: auto;
   margin-right: -$gap-sm * 0.5;
   line-height: 80%;
-  background: $accent-primary;
+  background: var(--accent-primary);
   border-radius: $gap-md;
   font-size: $font-size-sm;
   padding: $gap-sm * 0.5 $gap-sm;
@@ -181,8 +184,9 @@ $dot-size: $gap-sm * 1.5;
   display: flex;
   justify-content: center;
 
-  div {
-    background: $background-primary;
+  button {
+    @include mix-button;
+    background: var(--background-primary);
     width: $dot-size;
     height: $dot-size;
     border-radius: $gap-sm;
@@ -192,6 +196,10 @@ $dot-size: $gap-sm * 1.5;
 
     &:not(:last-child) {
       margin-right: $gap-sm;
+    }
+
+    &:focus, &:hover {
+      opacity: 0.5;
     }
 
     &.active {

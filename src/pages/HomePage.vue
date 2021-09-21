@@ -19,17 +19,18 @@
   <!-- CONTENT -->
   <div class="content">
     <div class="content__framework">
-      <!-- README -->
-      <ContentHeader path="C:\Users\Nathan\README.md" title="Hello, I'm Nathan Klingensmith">
-        I am a UI/UX designer, full stack developer, and team leader. I have the skills to take your
-        idea from <router-link :to="{ name: 'Design' }">design</router-link> to
+      <!-- EXPERIENCE -->
+      <ContentHeader path="C:\Users\Nathan\Experience.json" title="Experience">
+        My name is Nathan Klingensmith. I am a UI/UX designer, full stack developer, and team
+        leader. I have the skills to take your idea from
+        <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
         Over my career, I have worked in the following roles, utilizing my skills to create unique
         value for all the teams I have worked on.
       </ContentHeader>
       <div class="content__roles">
         <ContentCard
-          v-for="(role, i) of roles"
+          v-for="(role, i) of Roles"
           :key="i"
           :title="role.title"
           :subtitle="role.company"
@@ -64,6 +65,21 @@
           ></ContentCard>
         </div>
       </ExpansionPanel>
+
+      <!-- SKILLS -->
+      <ContentHeader path="C:\Users\Nathan\WPI\Skills.json" title="Skills">
+        From my personal, professional, and academic experience, I have accumulated a number of
+        skills in both the design and devlopment space.
+      </ContentHeader>
+      <div class="content__skills">
+        <ContentCard
+          v-for="(skill, i) of Skills"
+          :key="i"
+          :title="skill.technologies"
+          :subtitle="skill.type"
+          :tag="`${skill.years} years`"
+        ></ContentCard>
+      </div>
     </div>
   </div>
 </template>
@@ -78,6 +94,7 @@ import ExpansionPanel from '@/components/ExpansionPanel.vue';
 import router from '@/router';
 import Roles from '@/data/roles';
 import Courses, { CourseType } from '@/data/courses';
+import Skills from '@/data/skills';
 
 export default defineComponent({
   name: 'HomePage',
@@ -89,8 +106,6 @@ export default defineComponent({
     ExpansionPanel
   },
   setup() {
-    const roles = Roles;
-
     function goToPortfolio(n: number) {
       router.push({ name: n ? 'Design' : 'Development' });
     }
@@ -100,7 +115,8 @@ export default defineComponent({
     }
 
     return {
-      roles,
+      Roles,
+      Skills,
       goToPortfolio,
       getCourses,
       CourseType
@@ -121,14 +137,14 @@ export default defineComponent({
     width: 100%;
 
     &.primary {
-      @include mix-basic-button--raised($accent-primary);
-      @include mix-focus-background($accent-secondary);
+      @include mix-basic-button--raised(var(--accent-primary));
+      @include mix-focus-background(var(--accent-secondary));
       margin-bottom: $gap-lg;
     }
 
     &.secondary {
-      @include mix-basic-button--stroked($accent-primary);
-      @include mix-focus-background(scale-color($accent-primary, $alpha: -85%));
+      @include mix-basic-button--stroked(var(--accent-primary));
+      @include mix-focus-background(scale-color(var-dark('accent-primary'), $alpha: -85%));
     }
   }
 }
@@ -171,6 +187,12 @@ export default defineComponent({
         grid-template-columns: repeat(auto-fill, minmax(0, $card-width));
         grid-gap: $gap-md;
       }
+    }
+
+    .content__skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(0, $card-width));
+      grid-gap: $gap-md;
     }
   }
 }

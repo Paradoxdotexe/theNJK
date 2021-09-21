@@ -65,12 +65,12 @@ export default defineComponent({
 
       .item__title {
         font-family: $font-family-secondary;
-        color: $color-secondary;
+        color: var(--color-secondary);
         margin-bottom: $gap-sm * 0.5;
       }
 
       .item__list {
-        border-left: 1px solid $color-secondary;
+        border-left: 1px solid var(--color-secondary);
         padding-left: $gap-sm;
         margin: $gap-sm 0 0 $gap-sm;
       }

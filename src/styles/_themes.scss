@@ -1,20 +1,3 @@
-// colors
-$_light: #ffffff;
-$_dark: #0f0f0f;
-$_accent: #33bc15;
-
-$color-primary: $_light;
-$color-secondary: scale-color($_light, $lightness: -25%);
-$color-tertiary: scale-color($_light, $lightness: -50%);
-
-$background-primary: $_dark;
-$background-secondary: scale-color($_dark, $lightness: 5%);
-$background-tertiary: scale-color($_dark, $lightness: 10%);
-
-$accent-primary: $_accent;
-$accent-secondary: scale-color($_accent, $lightness: -25%);
-$accent-tertiary: scale-color($_accent, $lightness: -50%);
-
 // fonts
 $font-family-primary: 'Roboto', sans-serif;
 $font-family-secondary: 'Roboto Mono', sans-serif;
@@ -24,3 +7,35 @@ $font-size-md: 1rem; // 16px default
 $font-size-lg: 1.125rem; // 18px default
 $font-size-xl: 1.25rem; // 20px default
 $font-size-xxl: 1.5rem; // 24px default
+
+// colors
+$_light: #ffffff;
+$_dark: #0f0f0f;
+$_accent: #45c463;
+
+$dark: (
+  'color-primary': $_light,
+  'color-secondary': scale-color($_light, $lightness: -25%),
+  'color-tertiary': scale-color($_light, $lightness: -50%),
+  'background-primary': $_dark,
+  'background-secondary': scale-color($_dark, $lightness: 5%),
+  'background-tertiary': scale-color($_dark, $lightness: 10%),
+  'accent-primary': $_accent,
+  'accent-secondary': scale-color($_accent, $lightness: -25%),
+  'accent-tertiary': scale-color($_accent, $lightness: -50%)
+);
+
+// used to get non-variable dark theme values
+@function var-dark($name) {
+  @return map-get($dark, $name);
+}
+
+@mixin dark-theme() {
+  @each $name, $color in $dark {
+    --#{$name}: #{$color};
+  }
+}
+
+body {
+  @include dark-theme();
+}

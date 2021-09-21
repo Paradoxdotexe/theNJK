@@ -56,7 +56,7 @@ export default defineComponent({
     flex-wrap: wrap;
 
     .content-card__subtitle {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-style: italic;
       margin-right: $gap-md;
     }

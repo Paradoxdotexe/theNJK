@@ -43,7 +43,7 @@ export default defineComponent({
   .content-header__path {
     font-size: $font-size-sm;
     font-family: $font-family-secondary;
-    color: $accent-primary;
+    color: var(--accent-primary);
     margin-bottom: $gap-md;
   }
 
@@ -54,7 +54,7 @@ export default defineComponent({
   }
 
   .content-header__subtitle {
-    color: $color-secondary;
+    color: var(--color-secondary);
     max-width: $framework-width * 0.75;
     line-height: 150%;
   }

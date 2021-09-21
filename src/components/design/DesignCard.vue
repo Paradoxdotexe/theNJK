@@ -1,21 +1,25 @@
 <template>
   <div class="design-card">
     <div
-      class="design-card__image"
+      class="design-card__carousel"
+      v-bind:class="{ clickable: paths.length > 1 }"
       :style="{ left: `-${refs.index * 100}%` }"
       @click="goToNextObject()"
     >
-      <img v-for="(path, i) of paths" :key="i" :src="path" alt="" />
+      <div class="design-card__image" v-for="(path, i) of paths" :key="i">
+        <img :src="path" alt="" />
+      </div>
       <div
         class="design-card__dots"
         v-if="paths.length > 1"
         :style="{ left: `${refs.index * 100}%` }"
       >
-        <div
+        <button
           v-bind:class="{ active: i === refs.index }"
           v-for="i of [...Array(paths.length).keys()]"
           :key="i"
           @click="goToObject(i - 1)"
+          :tabindex="i === refs.index ? -1 : 0"
         />
       </div>
     </div>
@@ -80,21 +84,24 @@ export default defineComponent({
   overflow: hidden;
   transition: all $transition-duration $transition-timing;
 
-  &:hover {
-    box-shadow: 0 $shadow-offset $shadow-blur rgb(0, 0, 0, $shadow-intensity * 3);
-    transform: translateY(-#{$gap-sm});
-  }
-
-  .design-card__image {
+  .design-card__carousel {
     position: relative;
     left: 0;
     width: 100%;
     transition: left $transition-duration $transition-timing;
-    cursor: pointer;
     display: flex;
 
-    img {
+    &.clickable {
+      cursor: pointer;
+    }
+
+    .design-card__image {
       min-width: 100%;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
     }
 
     .design-card__dots {
@@ -124,7 +131,7 @@ export default defineComponent({
     }
 
     .design-card__description {
-      color: $color-secondary;
+      color: var(--color-secondary);
     }
   }
 }

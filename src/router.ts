@@ -18,6 +18,10 @@ const routes = [
     path: '/design',
     name: 'Design',
     component: DesignPage
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
   }
 ];
 

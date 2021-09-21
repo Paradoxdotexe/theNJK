@@ -12,7 +12,13 @@
         class="carousel__objects-container"
         v-bind:class="{ mobile: content.type === ContentType.MOBILE }"
       >
-        <div class="carousel__objects" :style="{ 'margin-left': `-${computes.offset}%` }">
+        <Draggable
+          class="carousel__objects"
+          :direction="Direction.X"
+          :callback-prefix="refs.callbackPrefix"
+          :dampen-end="refs.index === 0"
+          :dampen-start="refs.index === paths.length - 1"
+        >
           <template v-if="content.type === ContentType.WEB">
             <WebMockup
               v-for="(path, i) of paths"
@@ -34,14 +40,15 @@
               @click="goToObject(i)"
             />
           </template>
-        </div>
+        </Draggable>
         <div class="carousel__dots">
-          <div
+          <button
             v-bind:class="{ active: i === refs.index }"
             v-for="i of [...Array(paths.length).keys()]"
             :key="i"
             @click="goToObject(i)"
-          ></div>
+            :tabindex="i === refs.index ? -1 : 0"
+          ></button>
         </div>
       </div>
     </div>
@@ -49,15 +56,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, onBeforeMount, reactive, computed } from 'vue';
+import { defineComponent, PropType, onBeforeMount, reactive, computed, onMounted } from 'vue';
 import { ContentType, DevelopmentEntryContent } from '@/data/development';
 import WebMockup from '@/components/development/WebMockup.vue';
 import RequireImage from '@/util/RequireImage';
+import Draggable from '@/components/Draggable.vue';
+import { emitter } from '@/main';
+import { Direction } from '@/types';
 
 export default defineComponent({
   name: 'EntryCarousel',
   components: {
-    WebMockup
+    WebMockup,
+    Draggable
   },
   props: {
     content: {
@@ -67,7 +78,8 @@ export default defineComponent({
   },
   setup(props) {
     const refs = reactive({
-      index: 0
+      index: 0,
+      callbackPrefix: `${Math.random().toString().slice(2)}-carousel-draggable`
     });
     const computes = reactive({
       offset: computed(() => refs.index * 100 * 2)
@@ -80,8 +92,14 @@ export default defineComponent({
       }
     });
 
+    onMounted(() => {
+      emitter.on(`${refs.callbackPrefix}-end`, () => goToObject(refs.index - 1));
+      emitter.on(`${refs.callbackPrefix}-start`, () => goToObject(refs.index + 1));
+    });
+
     function goToObject(index: number) {
-      refs.index = index;
+      refs.index = Math.max(Math.min(index, paths.length - 1), 0);
+      emitter.emit(`${refs.callbackPrefix}-set-index`, refs.index);
     }
 
     return {
@@ -89,7 +107,8 @@ export default defineComponent({
       computes,
       paths,
       goToObject,
-      ContentType
+      ContentType,
+      Direction
     };
   }
 });
@@ -121,8 +140,6 @@ export default defineComponent({
 
       .carousel__objects {
         width: 100%;
-        display: flex;
-        transition: margin-left $transition-timing $transition-duration;
 
         .carousel__object {
           min-width: 100%;
@@ -141,6 +158,14 @@ export default defineComponent({
         @include mix-dots;
         margin-top: calc(var(--carousel-padding) - #{$dot-size} * 0.5);
       }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .carousel {
+    .carousel__framework {
+      padding: 0 $gap-md;
     }
   }
 }

@@ -81,16 +81,17 @@ export default defineComponent({
 .expansion-panel {
   .expansion-panel__header {
     @include mix-card;
+    max-width: $card-width * 2 + $gap-md;
     position: relative;
     overflow: hidden;
-    background: $accent-primary;
+    background: var(--accent-primary);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    &:focus {
-      background: $accent-secondary;
+    &:focus, &:hover {
+      background: var(--accent-secondary);
       outline: none !important;
     }
 

@@ -26,7 +26,7 @@
           >
         </div>
       </div>
-      <div class="footer__copyright">© 2021 theNJK. All rights reserved.</div>
+      <div class="footer__copyright">© 2021 Nathan J Klingensmith.</div>
     </div>
   </div>
 </template>
@@ -52,9 +52,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .footer {
   @include mix-shadow-up;
-  background: $background-primary;
+  background: var(--background-primary);
   z-index: 1000;
-  padding: $gap-lg;
+  padding: $gap-lg 0;
   display: flex;
   justify-content: center;
 
@@ -82,7 +82,7 @@ export default defineComponent({
         }
 
         .footer__slogan {
-          color: $color-secondary;
+          color: var(--color-secondary);
           margin-bottom: $gap-md;
         }
 
@@ -90,7 +90,7 @@ export default defineComponent({
           display: flex;
 
           a {
-            color: $color-primary;
+            color: var(--color-primary);
             width: $font-size-xxl;
             height: $font-size-xxl;
 
@@ -98,8 +98,8 @@ export default defineComponent({
               margin-right: $gap-sm;
             }
 
-            &:focus {
-              color: $accent-primary;
+            &:focus, &:hover {
+              color: var(--accent-primary);
               background: none;
             }
           }
@@ -117,11 +117,11 @@ export default defineComponent({
 
         a {
           margin-top: $gap-sm;
-          color: $color-secondary;
+          color: var(--color-secondary);
           text-decoration: none;
 
-          &:focus {
-            color: $accent-primary;
+          &:focus, &:hover {
+            color: var(--accent-primary);
             background: none;
             text-decoration: underline;
           }

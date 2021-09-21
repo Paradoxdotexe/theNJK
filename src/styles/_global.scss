@@ -6,27 +6,27 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  background: $background-secondary;
+  background: var(--background-secondary);
 
   font-family: $font-family-primary;
   font-size: $font-size-md;
-  color: $color-primary;
+  color: var(--color-primary);
 
   a {
-    color: $accent-primary;
+    color: var(--accent-primary);
     outline: none;
     text-decoration: underline;
 
-    &:focus {
-      color: $color-primary;
-      background: $accent-secondary;
+    &:focus, &:hover {
+      color: var(--color-primary);
+      background: var(--accent-secondary);
     }
   }
 
   button {
     font-family: inherit;
     font-size: inherit;
-    color: $color-primary;
+    color: var(--color-primary);
   }
 
   * {

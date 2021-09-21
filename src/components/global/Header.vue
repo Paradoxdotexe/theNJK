@@ -9,7 +9,7 @@
         <HeaderButtons />
       </div>
       <div class="header__right">
-        <button class="header__button--contact" v-ripple>Contact</button>
+        <button class="header__button--contact" v-ripple @click="contact()">Contact</button>
         <button class="header__button--menu" v-ripple @click="toggleDrawer">
           <Icon name="Menu" />
         </button>
@@ -20,7 +20,7 @@
   <transition name="drawer">
     <div v-if="refs.drawerOpen" class="header-drawer">
       <div class="header__framework">
-        <HeaderButtons />
+        <HeaderButtons @navigate="toggleDrawer()" />
       </div>
     </div>
   </transition>
@@ -74,10 +74,15 @@ export default defineComponent({
       router.push({ name: 'Home' });
     }
 
+    function contact() {
+      window.location.href = 'mailto: njklingensmith@wpi.edu';
+    }
+
     return {
       refs,
       toggleDrawer,
-      goHome
+      goHome,
+      contact
     };
   }
 });
@@ -99,7 +104,7 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
 
 .header {
   @include mix-bar;
-  background: $accent-primary;
+  background: var(--accent-primary);
   z-index: 1000;
 
   .header__framework {
@@ -133,7 +138,7 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
       align-items: center;
 
       .header__button--contact {
-        @include mix-basic-button--stroked($color-primary);
+        @include mix-basic-button--stroked(var(--color-primary));
         @include mix-focus-background(rgba(0, 0, 0, 0.1));
         width: 100%;
         display: none;
@@ -149,7 +154,7 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
 .header-drawer {
   @include mix-bar;
   top: $header-height;
-  background: $background-tertiary;
+  background: var(--background-tertiary);
   z-index: 999;
   transition: top $transition-duration $transition-timing;
 

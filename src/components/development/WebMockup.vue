@@ -6,7 +6,9 @@
       </div>
       <div class="web-mockup__search-bar"></div>
     </div>
-    <img class="web-mockup__image" :src="path" />
+    <div>
+      <img :src="path" />
+    </div>
   </div>
 </template>
 
@@ -30,25 +32,20 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$mockup-border-radius: $border-radius * 1.5;
-$mockup-border-width: 2px;
-
 .web-mockup {
-  border-radius: $mockup-border-radius;
+  border-radius: $border-radius;
   overflow: hidden;
-  border: $mockup-border-width solid $background-primary;
-  background: $background-primary;
   display: flex;
   flex-direction: column;
 
   .web-mockup__header {
     position: relative;
     width: 100%;
+    height: 18px;
+    background: var(--background-primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: $gap-lg;
-    margin-top: -$mockup-border-width;
 
     .web-mockup__dots {
       position: absolute;
@@ -59,7 +56,7 @@ $mockup-border-width: 2px;
         height: $gap-sm;
         width: $gap-sm;
         border-radius: $gap-sm;
-        background: $background-tertiary;
+        background: var(--background-tertiary);
 
         &:not(:last-child) {
           margin-right: $gap-sm * 0.5;
@@ -71,13 +68,14 @@ $mockup-border-width: 2px;
       width: 25%;
       height: $gap-sm;
       border-radius: $gap-md;
-      background: $background-tertiary;
+      background: var(--background-tertiary);
     }
   }
 
-  .web-mockup__image {
-    border-bottom-left-radius: $mockup-border-radius - 2px;
-    border-bottom-right-radius: $mockup-border-radius - 2px;
+  img {
+    width: 100%;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 }
 
