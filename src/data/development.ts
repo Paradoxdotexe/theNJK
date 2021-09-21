@@ -69,7 +69,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
       platform:
         'The Pallyt website is the forward-facing platform for the startup Pallyt Technologies. ' +
-        'The website is used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team\'s progress. ' +
+        "The website is used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team's progress. " +
         'Additionally, the website helps connect Pallyt with interested parties through contact information and a newsletter mailing list.',
       work:
         'In just a few weeks, I designed the Pallyt website in Figma and developed it as a Vue web app. ' +
@@ -100,8 +100,8 @@ const DevelopmentEntries: DevelopmentEntry[] = [
         'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this new education platform. ' +
         'I used Photoshop to mock up my interface designs that I continuously improved based on feedback from the teachers. ' +
         'After we reached a design everyone was happy with, I developed the platform as a progressive Angular web app that connected with a REST API for retrieving and manipulating curriculum data. ' +
-        'Once the core platform was established, I made continual updates that improved the platform\'s usability and added new, useful features.'
-    },
+        "Once the core platform was established, I made continual updates that improved the platform's usability and added new, useful features."
+    }
   },
   {
     year: 2020,

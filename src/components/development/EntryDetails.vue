@@ -8,7 +8,9 @@
         v-bind:class="`${key}_${side}`"
       >
         <div v-if="details[key]" class="item__title">// {{ key.toUpperCase() }}</div>
-        <a v-if="key === 'demo'" class="item__content" target="_blank" :href="details[key]">{{ details[key] }}</a>
+        <a v-if="key === 'demo'" class="item__content" target="_blank" :href="details[key]">{{
+          details[key]
+        }}</a>
         <div v-else-if="!Array.isArray(details[key])" class="item__content">{{ details[key] }}</div>
         <div v-else class="item__list">
           <div v-for="(li, i) of details[key]" :key="i">{{ li }}</div>
@@ -60,7 +62,8 @@ export default defineComponent({
         margin-bottom: $gap-md;
       }
 
-      &.technologies_left, &.demo_left {
+      &.technologies_left,
+      &.demo_left {
         display: none;
       }
 
@@ -93,11 +96,13 @@ export default defineComponent({
       }
 
       .details__item {
-        &.technologies_left, &.demo_left {
+        &.technologies_left,
+        &.demo_left {
           display: unset;
         }
 
-        &.technologies_right, &.demo_right {
+        &.technologies_right,
+        &.demo_right {
           display: none;
         }
       }
