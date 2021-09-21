@@ -14,11 +14,12 @@
         v-if="paths.length > 1"
         :style="{ left: `${refs.index * 100}%` }"
       >
-        <div
+        <button
           v-bind:class="{ active: i === refs.index }"
           v-for="i of [...Array(paths.length).keys()]"
           :key="i"
           @click="goToObject(i - 1)"
+          :tabindex="i === refs.index ? -1 : 0"
         />
       </div>
     </div>
