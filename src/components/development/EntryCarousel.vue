@@ -42,12 +42,13 @@
           </template>
         </Draggable>
         <div class="carousel__dots">
-          <div
+          <button
             v-bind:class="{ active: i === refs.index }"
             v-for="i of [...Array(paths.length).keys()]"
             :key="i"
             @click="goToObject(i)"
-          ></div>
+            :tabindex="i === refs.index ? -1 : 0"
+          ></button>
         </div>
       </div>
     </div>

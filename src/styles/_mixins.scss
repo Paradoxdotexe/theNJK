@@ -184,7 +184,8 @@ $dot-size: $gap-sm * 1.5;
   display: flex;
   justify-content: center;
 
-  div {
+  button {
+    @include mix-button;
     background: var(--background-primary);
     width: $dot-size;
     height: $dot-size;
@@ -195,6 +196,10 @@ $dot-size: $gap-sm * 1.5;
 
     &:not(:last-child) {
       margin-right: $gap-sm;
+    }
+
+    &:focus, &:hover {
+      opacity: 0.5;
     }
 
     &.active {
