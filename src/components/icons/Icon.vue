@@ -16,6 +16,7 @@ import { defineComponent, computed } from 'vue';
 import IconMenu from '@/components/icons/IconMenu.vue';
 import IconNJK from '@/components/icons/IconNJK.vue';
 import IconArrow from '@/components/icons/IconArrow.vue';
+import IconArrowThin from '@/components/icons/IconArrowThin.vue';
 import IconGitHub from '@/components/icons/IconGitHub.vue';
 import IconLinkedIn from '@/components/icons/IconLinkedIn.vue';
 import IconInstagram from '@/components/icons/IconInstagram.vue';
@@ -26,6 +27,7 @@ export default defineComponent({
     IconMenu,
     IconNJK,
     IconArrow,
+    IconArrowThin,
     IconGitHub,
     IconLinkedIn,
     IconInstagram

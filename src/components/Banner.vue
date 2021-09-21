@@ -12,6 +12,11 @@
       </div>
       <slot name="content"></slot>
     </div>
+    <button class="banner__scroll" @click="autoScroll()" tabindex="0" v-ripple>
+      Scroll down
+      <Icon name="ArrowThin" />
+    </button>
+    <div id="scroll-mark"></div>
   </div>
 </template>
 
@@ -20,13 +25,15 @@ import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
 import Graphics from '@/components/graphics/Graphics.vue';
 import GraphicsMobile from '@/components/graphics/GraphicsMobile.vue';
+import Icon from "@/components/icons/Icon.vue";
 
 export default defineComponent({
   name: 'Banner',
   components: {
     Pattern,
     Graphics,
-    GraphicsMobile
+    GraphicsMobile,
+    Icon
   },
   props: {
     graphics: {
@@ -35,8 +42,13 @@ export default defineComponent({
     }
   },
   setup(props) {
+    function autoScroll() {
+      window.scroll({ top: document.getElementById('scroll-mark')!.offsetTop, behavior: 'smooth' });
+    }
+
     return {
-      props
+      props,
+      autoScroll
     };
   }
 });
@@ -51,6 +63,7 @@ $tile-size: 100px;
   position: relative;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -120,6 +133,53 @@ $tile-size: 100px;
         }
       }
     }
+  }
+
+  .banner__scroll {
+    @include mix-button;
+    position: absolute;
+    bottom: $gap-lg;
+    cursor: pointer;
+    display: flex;
+    border-radius: $border-radius;
+    padding: $gap-sm;
+    flex-direction: column;
+    align-items: center;
+    z-index: 103;
+
+    &:focus, &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-primary);
+      margin-top: $gap-sm;
+      $hover-animation: hover 3s ease-in-out infinite;
+      -webkit-animation: $hover-animation;
+      -o-animation: $hover-animation;
+      animation: $hover-animation;
+    }
+  }
+
+  #scroll-mark {
+    position: absolute;
+    bottom: $header-height;
+  }
+}
+
+@keyframes hover {
+  $hover-distance: 4px;
+  from {
+    transform: rotateZ(90deg) translateX(-$hover-distance);
+  }
+  50% {
+    transform: rotateZ(90deg) translateX($hover-distance);
+  }
+  to {
+    transform: rotateZ(90deg) translateX(-$hover-distance);
   }
 }
 
