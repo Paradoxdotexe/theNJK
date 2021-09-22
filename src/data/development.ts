@@ -16,6 +16,7 @@ export interface DevelopmentEntryDetails {
   technologies: string[];
   platform: string;
   work: string;
+  demo?: string;
 }
 
 export interface DevelopmentEntry {
@@ -27,6 +28,56 @@ export interface DevelopmentEntry {
 }
 
 const DevelopmentEntries: DevelopmentEntry[] = [
+  {
+    year: 2021,
+    title: 'Pallyt App',
+    subtitle: 'Putting construction materials at the fingertips of consumers.',
+    content: {
+      key: 'PA',
+      count: 5,
+      type: ContentType.MOBILE,
+      color: '#bdb282'
+    },
+    details: {
+      client: 'Pallyt Technologies',
+      role: 'Head of Technology',
+      technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
+      platform:
+        'Pallyt is an app designed to make the location and delivery of construction materials as efficient as possible. ' +
+        'Through Pallyt, customers will be able to search for project materials at any of their local hardware stores or specialty suppliers. ' +
+        'They will be able to easily compare prices and stock counts, and order the items they need for either pickup or delivery. ' +
+        'Pallyt is built to be the future of material acquisition technology, making construction projects, big and small, easier than ever. ',
+      work:
+        'To build the Pallyt app, I lead a 5-person Agile Scrum team through the iterative research, design, and development stages of the software development lifecycle. ' +
+        'By researching our competitors, creating mockups in Figma, and testing prototypes in the hands of real users, we designed a platform that meets the targeted needs of the construction market. ' +
+        'To bring this platform to life, I lead the creation of a progressive Vue web app and oversaw the creation of an Amazon Web Services cloud infrastructure.'
+    }
+  },
+  {
+    year: 2021,
+    title: 'Pallyt Website',
+    subtitle: 'Promoting and informing the world about Pallyt.',
+    content: {
+      key: 'PW',
+      count: 4,
+      type: ContentType.WEB,
+      color: '#bdb282'
+    },
+    details: {
+      client: 'Pallyt Technologies',
+      role: 'Head of Technology',
+      technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
+      platform:
+        'The Pallyt website is the forward-facing platform for the startup Pallyt Technologies. ' +
+        "The website is used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team's progress. " +
+        'Additionally, the website helps connect Pallyt with interested parties through contact information and a newsletter mailing list.',
+      work:
+        'In just a few weeks, I designed the Pallyt website in Figma and developed it as a Vue web app. ' +
+        'With assistance from two marketing consultants, I created content that would professionally brand Pallyt and make people feel connected with the venture. ' +
+        'By integrating with a simple Amazon Web Services back-end, I added the ability to collect email addresses for the Pallyt mailing list.',
+      demo: 'https://pallyt.com'
+    }
+  },
   {
     year: 2021,
     title: 'Bio-CS Bridge Curriculum',
@@ -42,8 +93,14 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       role: 'Angular Web Developer',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'GitLab', 'Photoshop', 'Figma'],
       platform:
-        'The Bio-CS Bridge curriculum uses the study of ecological systems to teach both biology and computer science in a collection of interdisciplinary lesson plans. The platform provides a way for high school teachers to easily search through these lesson plans and view/download their materials.',
-      work: 'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this platform. I used Photoshop to mock up my designs and continuously applied feedback that I received. After we reached a design everyone was happy with, I developed the platform framework in Angular.'
+        'The Bio-CS Bridge curriculum uses the study of ecological systems to teach both biology and computer science in a collection of transdisciplinary lesson plans. ' +
+        'The platform provides a way for high school teachers to easily search through these lesson plans and view/download their materials. ' +
+        'In order for teachers to upload and update lesson plans in a centralized way, the platform provides a host of editing tools that can be used to update curriculum data.',
+      work:
+        'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this new education platform. ' +
+        'I used Photoshop to mock up my interface designs that I continuously improved based on feedback from the teachers. ' +
+        'After we reached a design everyone was happy with, I developed the platform as a progressive Angular web app that connected with a REST API for retrieving and manipulating curriculum data. ' +
+        "Once the core platform was established, I made continual updates that improved the platform's usability and added new, useful features."
     }
   },
   {
@@ -61,8 +118,15 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       role: 'Angular Web Developer',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'PouchDB', 'GitLab', 'Photoshop'],
       platform:
-        'The Bio-CS Bridge curriculum uses the study of ecological systems to teach both biology and computer science in a collection of interdisciplinary lesson plans. The platform provides a way for high school teachers to easily search through these lesson plans and view/download their materials.',
-      work: 'Over a 9-week iterative process, I met with the Bio-CS Bridge team and a group of teachers to design the structure and layout of this platform. I used Photoshop to mock up my designs and continuously applied feedback that I received. After we reached a design everyone was happy with, I developed the platform framework in Angular.'
+        'The Beecology Data Analysis platform offers a dynamic environment for interacting with bumblebee observation data collected by Beecology. ' +
+        'The platform offers mechanisms for filtering through 10,000 data points and easily conducting analysis and visualization on selected datasets. ' +
+        'As such, this app is extremely useful in studying bumblebee behavior that can be used to improve the conservation of pollinators.',
+      work:
+        'I worked to improve this Angular platform by overhauling the data selection interface to be more user-friendly and intuitive. ' +
+        'To do this, I created the idea for being able to select data sets and save them for later in a convenient panel. ' +
+        'I was also responsible for beginning the development of analysis tools with the Bar Chart Comparison Tool. ' +
+        'This tool was connected with a back-end server that took care of the analysis calculations for client-side rendering.',
+      demo: 'https://beecology.wpi.edu/analysis'
     }
   },
   {
@@ -89,8 +153,13 @@ const DevelopmentEntries: DevelopmentEntry[] = [
         'GitHub'
       ],
       platform:
-        'This web app shows how hospitals can use mobile technology to efficiently process service requests from anywhere in the building. The platform has the ability to authenticate staff via an employee database, receive live updates on service requests, and send notifications for new assignments.',
-      work: 'I lead the sole development of this web app as the final special feature for a prototype Java application in CS 3733 Software Engineering. Acting as Lead Software Engineer of a 9-person Scrum team, I spent our final week-long sprint developing the Flask-based web app using Material Design Lite components. I also connected the app with our remote MongoDB database and enabled push notifications through the Push API.'
+        'This prototype web app shows how hospitals can utilize mobile technology to efficiently process service requests from anywhere in the building. ' +
+        'The platform has the ability to authenticate staff through an employee database, receive live updates for service requests, and send notifications for new request assignments.',
+      work:
+        'In one short week, I lead the sole development of this web app as the final special feature for a prototype Java application in CS 3733 Software Engineering. ' +
+        'Acting as the Lead Software Engineer of a 9-person Scrum team, I spent our final week-long sprint developing a Flask-based web app using Material Design Lite components. ' +
+        'The app was connected with a remote MongoDB database to authenticate user credentials and manage streams of order request data. ' +
+        'I also integrated a service worker that could send push notifications via the Push API.'
     }
   },
   {
@@ -108,8 +177,13 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       role: 'Lead Software Engineer',
       technologies: ['Java', 'FXML', 'CSS', 'JavaFX', 'Apache Derby', 'GitHub'],
       platform:
-        'This prototype app was built to allow hospital kiosks to carry out on-site food requests and be easily implemented in any JavaFX application via an API. Using Brigham and Women’s Faulkner Hospital as a model, the app allows for orders to the on-site cafeteria and Starbucks. There is also built-in functionality for employees to assign, deny, and complete orders.',
-      work: 'As Lead Software Engineer of a 9-person Scrum team, I lead the design and development of this app and API for a prototype, Java application. During a single week-long sprint, I built the app in Java using JavaFX and connected a local Apache Derby database. I also created an API such that any other JavaFX app could easily integrate it.'
+        'This prototype Java application was built to allow hospital kiosks to track and respond to on-site food requests. ' +
+        'Using Brigham and Women’s Hospital as a model, the app allows for orders to be placed at the on-location cafeteria or Starbucks. ' +
+        'Through an admin panel, employees are given access to assign, deny, and complete orders in real-time.',
+      work:
+        'As the Lead Software Engineer of a 9-person Scrum team, I lead the design and development of this app for a much larger prototype, Java application. ' +
+        'During a single week-long sprint, I built the app in Java using JavaFX and connected it with a local Apache Derby database to retrieve order requests and employee information. ' +
+        'I also established a thoroughly-documented API such that any other JavaFX application could easily integrate with it.'
     }
   },
   {
@@ -125,10 +199,15 @@ const DevelopmentEntries: DevelopmentEntry[] = [
     details: {
       client: 'Bio-CS Bridge Project',
       role: 'Angular Web Developer',
-      technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'Google Maps API', 'GitLab'],
+      technologies: ['HTML', 'SCSS', 'Typescript', 'Angular', 'GitLab'],
       platform:
-        'The Beecology Web App gives everyday people the ability to record bumblebee sightings, save them to their device, and upload them to our database. This process helps Beecology study trends in bumblebee populations to better understand how we can help protect them.',
-      work: 'Joining the Beecology team, my first task was to improve and build upon the existing web app platform. I extensively overhauled the existing design to refine user experience, enhance given functionality, and offer more dynamic features.'
+        'The Beecology Web App gives citizen scientists the ability to record bumblebee sightings, save them to their device, and upload them to our database. ' +
+        'This process helps Beecology study trends in bumblebee populations to better understand how we can protect them.',
+      work:
+        'Joining the Beecology team, my first task was to improve and build upon the existing Angular app. ' +
+        'As such, my work included extensively overhauling the existing design to refine user experience, enhance given functionality, and offer more dynamic features. ' +
+        'Additionally, I helped expand the app to support butterfly observations, so Beecology could grow their pollinator conservation efforts.',
+      demo: 'https://beecology.wpi.edu/webapp'
     }
   },
   {
@@ -144,10 +223,15 @@ const DevelopmentEntries: DevelopmentEntry[] = [
     details: {
       client: 'PUBG Community',
       role: 'Web Developer',
-      technologies: ['HTML', 'SCSS', 'Javascript', 'Python', 'Flask', 'MongoDB', 'PUBG API'],
+      technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask', 'MongoDB', 'PUBG API'],
       platform:
-        'The website PUBG Power produces a live leaderboard of player stats ranked by their “power score.” This score is calculated by my own algorithm and serves to be a more accurate representation of player skill than the game provides itself. The website also allows users to search for players by their in-game name to view more in-depth statistics.',
-      work: 'I developed PUBG Power as a personal side project to flesh out my web development skills. I used Python Flask to easily host the website and interact with both the PUBG API (to fetch player statistics) and a remote MongoDB database (to store peristent player and leaderboard data). For the front-end, I used basic HTML, CSS, and Javascript.'
+        'PUBG Power is a website that produces a live leaderboard that ranks the stats of PUBG players by their “power score.” ' +
+        'This score is calculated by my own algorithm that serves to be a more accurate representation of player skill than the game provides itself. ' +
+        'The website allows users to search for players by their in-game name to add them to the global leaderboard and view their individual statistics.',
+      work:
+        'I developed PUBG Power as a personal side project to flesh out my web development skills. ' +
+        'I used Python Flask to host a simple website made of HTML, CSS, and Javascript. ' +
+        'Through Python scripts, I integrated the PUBG API to fetch player statistics and a remote MongoDB database to store persistent player data.'
     }
   }
 ];

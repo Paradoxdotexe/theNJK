@@ -25,7 +25,7 @@ import { defineComponent } from 'vue';
 import Pattern from '@/components/patterns/Pattern.vue';
 // import Graphics from '@/components/graphics/Graphics.vue';
 // import GraphicsMobile from '@/components/graphics/GraphicsMobile.vue';
-import Icon from "@/components/icons/Icon.vue";
+import Icon from '@/components/icons/Icon.vue';
 
 export default defineComponent({
   name: 'Banner',
@@ -147,7 +147,8 @@ $tile-size: 100px;
     align-items: center;
     z-index: 103;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       background: rgba(255, 255, 255, 0.1);
       outline: none;
     }

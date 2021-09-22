@@ -152,6 +152,10 @@ export default defineComponent({
             transform: scale(0.85);
           }
         }
+
+        img {
+          padding: 0 $gap-xl;
+        }
       }
 
       .carousel__dots {
@@ -173,6 +177,10 @@ export default defineComponent({
 @media (min-width: $breakpoint-lg) {
   .carousel {
     --carousel-padding: #{$gap-xl};
+
+    .carousel__framework .carousel__objects-container .carousel__objects img {
+      padding: 0;
+    }
   }
 }
 </style>

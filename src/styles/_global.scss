@@ -16,8 +16,10 @@ body {
     color: var(--accent-primary);
     outline: none;
     text-decoration: underline;
+    cursor: pointer;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       color: var(--color-primary);
       background: var(--accent-secondary);
     }

@@ -184,6 +184,10 @@ $dot-size: $gap-sm * 1.5;
   display: flex;
   justify-content: center;
 
+  &.light button {
+    background: var(--color-secondary);
+  }
+
   button {
     @include mix-button;
     background: var(--background-primary);
@@ -198,7 +202,8 @@ $dot-size: $gap-sm * 1.5;
       margin-right: $gap-sm;
     }
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       opacity: 0.5;
     }
 
