@@ -86,6 +86,12 @@ const Courses: Course[] = [
     grade: 'A'
   },
   {
+    title: 'Webware: Computational Technology',
+    code: 'CS 4241',
+    type: CourseType.CS,
+    grade: 'A'
+  },
+  {
     title: 'Critical Studies of Interactive Media',
     code: 'IMGD 1000',
     type: CourseType.IMGD,
