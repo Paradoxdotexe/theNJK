@@ -11,7 +11,7 @@ const Skills: Skill[] = [
     years: 4
   },
   {
-    technologies: 'Node, Angular, Vue',
+    technologies: 'Angular, Vue, Node',
     type: 'Javascript/Typescript Frameworks',
     years: 3
   },

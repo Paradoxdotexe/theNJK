@@ -26,7 +26,7 @@
         <router-link :to="{ name: 'Design' }">design</router-link> to
         <router-link :to="{ name: 'Development' }">development</router-link> to finished product.
         Over my career, I have worked in the following roles, utilizing my skills to create unique
-        value for all the teams I have worked on.
+        value for each of the teams I have been a part of.
       </ContentHeader>
       <div class="content__roles">
         <ContentCard
@@ -46,8 +46,8 @@
       <ContentHeader path="C:\Users\Nathan\WPI\Education.zip" title="Education">
         I am pursuing a BS in <strong>Computer Science</strong> and minor in
         <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute
-        (WPI). To date, I have completed the below courses with an esteemed
-        <strong>3.97 GPA</strong> (4.0 major/minor GPA).
+        (WPI). To date, I have completed the courses below in each of my respective fields of study to earn an esteemed
+        <strong>4.0 GPA</strong>.
       </ContentHeader>
       <ExpansionPanel
         v-for="type of ['CS', 'IMGD', 'DESIGN']"
@@ -69,7 +69,7 @@
       <!-- SKILLS -->
       <ContentHeader path="C:\Users\Nathan\WPI\Skills.json" title="Skills">
         From my personal, professional, and academic experience, I have accumulated a number of
-        skills in both the design and devlopment space.
+        skills in both the design and development space.
       </ContentHeader>
       <div class="content__skills">
         <ContentCard
