@@ -35,7 +35,3 @@ $dark: (
     --#{$name}: #{$color};
   }
 }
-
-body {
-  @include dark-theme();
-}

@@ -4,6 +4,7 @@ import router from '@/router';
 import mitt from 'mitt';
 import Ripple from '@/directives/ripple/Ripple';
 import '@/directives/ripple/Ripple.scss';
+import '@/styles/_global.scss';
 
 // app
 const app = createApp(App as any);

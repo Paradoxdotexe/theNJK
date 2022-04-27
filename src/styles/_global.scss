@@ -1,9 +1,6 @@
-@import 'themes';
-@import 'variables';
-@import 'mixins';
-@import 'fonts';
-
 body {
+  @include dark-theme();
+
   margin: 0;
   overflow-x: hidden;
   background: var(--background-secondary);
