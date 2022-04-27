@@ -92,6 +92,18 @@ const Courses: Course[] = [
     grade: 'A'
   },
   {
+    title: 'Object-Oriented Analysis and Design',
+    code: 'CS 4233',
+    type: CourseType.CS,
+    grade: 'A'
+  },
+  {
+    title: 'Analysis of Algorithms',
+    code: 'CS 4120',
+    type: CourseType.CS,
+    grade: 'A'
+  },
+  {
     title: 'Critical Studies of Interactive Media',
     code: 'IMGD 1000',
     type: CourseType.IMGD,
@@ -112,6 +124,18 @@ const Courses: Course[] = [
   {
     title: 'Social Issues in Interactive Media & Games',
     code: 'IMGD 2000',
+    type: CourseType.IMGD,
+    grade: 'A'
+  },
+  {
+    title: 'Writing for Interactive Media & Games',
+    code: 'IMGD 2400',
+    type: CourseType.IMGD,
+    grade: 'A'
+  },
+  {
+    title: 'Technical Game Development II',
+    code: 'IMGD 4000',
     type: CourseType.IMGD,
     grade: 'A'
   },
