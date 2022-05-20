@@ -27,7 +27,12 @@
         </div>
         <div class="footer__links">
           <div class="links__header">Contact</div>
-          <a @click="copy($event)">nathan.klingensmith@pallyt.com<transition name="popup"><div v-if="refs.copied">Copied!</div></transition></a>
+          <a @click="copy($event)">
+            paradoxpyt@gmail.com
+            <transition name="popup">
+              <div v-if="refs.copied">Copied!</div>
+            </transition>
+          </a>
         </div>
       </div>
       <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith. All rights reserved.</div>
@@ -168,8 +173,6 @@ export default defineComponent({
           div {
             position: absolute;
             left: calc(100% + #{$gap-md});
-            //margin-top: -$gap-sm;
-            //margin-left: $gap-md;
             background: var(--accent-primary);
             padding: $gap-sm $gap-md;
             border-radius: $gap-sm;
