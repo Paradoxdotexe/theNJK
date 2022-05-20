@@ -17,22 +17,26 @@
           </div>
         </div>
         <div class="footer__links">
-          <div>Menu</div>
+          <div class="links__header">Menu</div>
           <router-link
             v-for="button of NavButtons"
             :key="button.route"
             :to="{ name: button.route }"
-            >{{ button.label }}</router-link
-          >
+            >{{ button.label }}
+          </router-link>
+        </div>
+        <div class="footer__links">
+          <div class="links__header">Contact</div>
+          <a @click="copy($event)">nathan.klingensmith@pallyt.com<transition name="popup"><div v-if="refs.copied">Copied!</div></transition></a>
         </div>
       </div>
-      <div class="footer__copyright">© 2021 Nathan J Klingensmith.</div>
+      <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith. All rights reserved.</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import Icon from '@/components/icons/Icon.vue';
 import { NavButtons } from '@/components/global/HeaderButtons.vue';
 
@@ -42,7 +46,22 @@ export default defineComponent({
     Icon
   },
   setup() {
+    let refs = reactive({
+      copied: false
+    })
+
+    function copy(event: PointerEvent) {
+      if (!refs.copied) {
+        const text = (event.target as HTMLElement).innerText;
+        navigator.clipboard.writeText(text);
+        refs.copied = true;
+        setTimeout(() => refs.copied = false, 2000);
+      }
+    }
+
     return {
+      copy,
+      refs,
       NavButtons
     };
   }
@@ -67,6 +86,8 @@ export default defineComponent({
       margin-bottom: $gap-xl;
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+      gap: $gap-xl;
 
       .footer__brand {
         display: flex;
@@ -108,24 +129,53 @@ export default defineComponent({
       }
 
       .footer__links {
+        position: relative;
         display: flex;
         flex-direction: column;
 
-        div {
+        .links__header {
           font-size: $font-size-lg;
           font-weight: bold;
         }
 
         a {
+          position: relative;
+          display: flex;
+          align-items: center;
           margin-top: $gap-sm;
           color: var(--color-secondary);
           text-decoration: none;
+          width: fit-content;
 
           &:focus,
           &:hover {
             color: var(--accent-primary);
             background: none;
             text-decoration: underline;
+          }
+
+          .popup-enter-active,
+          .popup-leave-active {
+            transition: all $transition-duration $transition-timing;
+          }
+
+          .popup-enter-from,
+          .popup-leave-to {
+            opacity: 0;
+            left: 100%;
+          }
+
+          div {
+            position: absolute;
+            left: calc(100% + #{$gap-md});
+            //margin-top: -$gap-sm;
+            //margin-left: $gap-md;
+            background: var(--accent-primary);
+            padding: $gap-sm $gap-md;
+            border-radius: $gap-sm;
+            color: var(--color-primary);
+            opacity: 1;
+            pointer-events: none;
           }
         }
       }
@@ -142,10 +192,8 @@ export default defineComponent({
     .footer__top {
       margin-bottom: unset;
       justify-content: flex-start;
-
-      .footer__links {
-        margin-left: $gap-xl * 3;
-      }
+      flex-direction: row;
+      gap: $gap-xl * 3;
     }
 
     .footer__copyright {

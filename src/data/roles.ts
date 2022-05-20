@@ -8,7 +8,7 @@ const Roles: Role[] = [
   {
     title: 'Front-end Engineer',
     company: 'Jellyfish',
-    years: [2022]
+    years: 2022
   },
   {
     title: 'Head of Technology',
