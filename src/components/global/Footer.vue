@@ -35,7 +35,7 @@
           </a>
         </div>
       </div>
-      <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith. All rights reserved.</div>
+      <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith.</div>
     </div>
   </div>
 </template>
@@ -182,10 +182,6 @@ export default defineComponent({
           }
         }
       }
-    }
-
-    .footer__copyright {
-      text-align: center;
     }
   }
 }
