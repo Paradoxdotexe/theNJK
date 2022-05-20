@@ -1,6 +1,6 @@
 <template>
   <!-- BANNER -->
-  <Banner graphics="Design">
+  <Banner graphics="Design" :reduced="true">
     <template v-slot:title> Design<br /><span>Portfolio</span> </template>
     <template v-slot:content>
       <div class="banner__caption">

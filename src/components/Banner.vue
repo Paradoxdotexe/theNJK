@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="banner" :class="props.reduced ? 'reduced' : ''">
     <div class="banner__pattern">
       <Pattern name="Dot" :size="100"></Pattern>
       <Pattern name="Dot" :size="100"></Pattern>
@@ -39,6 +39,10 @@ export default defineComponent({
     graphics: {
       type: String,
       required: true
+    },
+    reduced: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
@@ -69,6 +73,15 @@ $tile-size: 100px;
   height: 100vh;
   padding-top: $header-height;
 
+  &.reduced {
+    height: auto;
+    padding: ($header-height + $gap-xl * 2) 0 $gap-xl * 2;
+
+    .banner__scroll {
+      display: none;
+    }
+  }
+
   .banner__pattern {
     position: absolute;
     width: 400%;
@@ -96,6 +109,7 @@ $tile-size: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: $gap-xl;
     align-items: center;
     z-index: 101;
 
@@ -103,11 +117,10 @@ $tile-size: 100px;
       position: relative;
       width: 100%;
       // height: calc(180px * var(--graphics-scale));
-      margin-bottom: $gap-xl * 2;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: -$gap-xl;
+      margin-top: -$gap-md;
       --text-scale: 0.25;
       // --graphics-scale: 1;
 
@@ -219,7 +232,6 @@ $tile-size: 100px;
 @media (min-width: $breakpoint-md) {
   .banner .banner__framework .banner__title {
     // height: calc(400px * var(--graphics-scale));
-    margin-bottom: $gap-xl * 2;
     --text-scale: 0.6;
     // --graphics-scale: 0.6;
 
@@ -242,9 +254,19 @@ $tile-size: 100px;
 }
 
 @media (min-width: $breakpoint-lg) {
-  .banner .banner__framework .banner__title {
-    --text-scale: 0.8;
-    // --graphics-scale: 0.8;
+  .banner {
+    &.reduced {
+      padding: ($header-height + $gap-xl * 3) 0 $gap-xl * 3;
+    }
+
+    .banner__framework {
+      gap: $gap-xl * 2;
+
+      .banner__title {
+        --text-scale: 0.8;
+        // --graphics-scale: 0.8;
+      }
+    }
   }
 }
 
