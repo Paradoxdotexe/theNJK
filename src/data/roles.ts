@@ -12,7 +12,7 @@ const Roles: Role[] = [
   },
   {
     title: 'Co-Founder & CTO',
-    company: 'Pallyt',
+    company: 'Pallyt Technologies Inc.',
     years: [2021, 2022]
   },
   {

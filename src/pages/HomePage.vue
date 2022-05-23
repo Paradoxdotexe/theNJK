@@ -76,7 +76,7 @@
           :key="i"
           :title="skill.technologies"
           :subtitle="skill.type"
-          :tag="`${skill.years} years`"
+          :tag="`${skill.years} year${skill.years > 1 ? 's' : ''}`"
         ></ContentCard>
       </div>
     </div>

@@ -48,7 +48,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       work:
           'During my final 7-week term at WPI, I carried out a complete overhaul of the Pallyt website, improving its aesthetic, bringing it up-to-date, and converting the previous Vue web app to React. ' +
           'I created new content that would specifically target the intended audiences of the website, creating a space to inform users, partners, and possible investors. ' +
-          'For implemention, I built a new React web app from the ground up using Next.js and deployed it as a static website using Amazon Web Services.',
+          'For implementation, I built a new React web app from the ground up using Next.js and deployed it as a static website using Amazon Web Services.',
       demo: 'https://pallyt.com'
     }
   },
