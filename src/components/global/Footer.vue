@@ -11,9 +11,9 @@
             Designer by necessity.
           </div>
           <div class="footer__media">
-            <a href="https://github.com/IamParadoxdotexe"><Icon name="GitHub" /></a>
-            <a href="https://www.linkedin.com/in/thenjk/"><Icon name="LinkedIn" /></a>
-            <a href="https://www.instagram.com/nathan_paradox/"><Icon name="Instagram" /></a>
+            <a href="https://github.com/IamParadoxdotexe" target="_blank"><Icon name="GitHub" /></a>
+            <a href="https://www.linkedin.com/in/thenjk/" target="_blank"><Icon name="LinkedIn" /></a>
+            <a href="https://www.instagram.com/nathan_paradox/" target="_blank"><Icon name="Instagram" /></a>
           </div>
         </div>
         <div class="footer__links">
@@ -27,12 +27,7 @@
         </div>
         <div class="footer__links">
           <div class="links__header">Contact</div>
-          <a @click="copy($event)">
-            paradoxpyt@gmail.com
-            <transition name="popup">
-              <div v-if="refs.copied">Copied!</div>
-            </transition>
-          </a>
+          <CopyLink>paradoxpyt@gmail.com</CopyLink>
         </div>
       </div>
       <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith.</div>
@@ -41,32 +36,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent } from 'vue';
 import Icon from '@/components/icons/Icon.vue';
 import { NavButtons } from '@/components/global/HeaderButtons.vue';
+import CopyLink from "@/components/CopyLink.vue";
 
 export default defineComponent({
   name: 'Footer',
   components: {
-    Icon
+    Icon,
+    CopyLink
   },
   setup() {
-    let refs = reactive({
-      copied: false
-    })
-
-    function copy(event: PointerEvent) {
-      if (!refs.copied) {
-        const text = (event.target as HTMLElement).innerText;
-        navigator.clipboard.writeText(text);
-        refs.copied = true;
-        setTimeout(() => refs.copied = false, 2000);
-      }
-    }
-
     return {
-      copy,
-      refs,
       NavButtons
     };
   }
@@ -144,41 +126,15 @@ export default defineComponent({
         }
 
         a {
-          position: relative;
-          display: flex;
-          align-items: center;
           margin-top: $gap-sm;
           color: var(--color-secondary);
           text-decoration: none;
-          width: fit-content;
 
           &:focus,
           &:hover {
             color: var(--accent-primary);
             background: none;
             text-decoration: underline;
-          }
-
-          .popup-enter-active,
-          .popup-leave-active {
-            transition: all $transition-duration $transition-timing;
-          }
-
-          .popup-enter-from,
-          .popup-leave-to {
-            opacity: 0;
-            left: 100%;
-          }
-
-          div {
-            position: absolute;
-            left: calc(100% + #{$gap-md});
-            background: var(--accent-primary);
-            padding: $gap-sm $gap-md;
-            border-radius: $gap-sm;
-            color: var(--color-primary);
-            opacity: 1;
-            pointer-events: none;
           }
         }
       }
