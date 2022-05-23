@@ -30,7 +30,7 @@
 import { defineComponent, reactive, watch, onMounted } from 'vue';
 import Icon from '@/components/icons/Icon.vue';
 import HeaderButtons from '@/components/global/HeaderButtons.vue';
-import { NavCoverService } from '@/services/CoverService';
+import CoverService from '@/services/CoverService';
 import { useRoute } from 'vue-router';
 import router from '@/router';
 
@@ -42,7 +42,8 @@ export default defineComponent({
   },
   setup() {
     const refs = reactive({
-      drawerOpen: false
+      drawerOpen: false,
+      connectMenuShow: false
     });
 
     watch(useRoute(), () => {
@@ -64,9 +65,9 @@ export default defineComponent({
     function toggleDrawer() {
       refs.drawerOpen = !refs.drawerOpen;
       if (refs.drawerOpen) {
-        NavCoverService.addCover().then(() => (refs.drawerOpen = false));
+        CoverService.addCover().then(() => (refs.drawerOpen = false));
       } else {
-        NavCoverService.removeCover();
+        CoverService.removeCover();
       }
     }
 
@@ -75,7 +76,12 @@ export default defineComponent({
     }
 
     function contact() {
-      window.location.href = 'mailto: njklingensmith@wpi.edu';
+      refs.connectMenuShow = !refs.connectMenuShow;
+      if (refs.connectMenuShow) {
+        CoverService.addCover('#45c463').then(() => (refs.connectMenuShow = false));
+      } else {
+        CoverService.removeCover();
+      }
     }
 
     return {

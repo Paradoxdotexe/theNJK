@@ -1,28 +1,23 @@
 <template>
   <transition name="cover">
-    <div v-if="refs.visible" class="cover" @click="onClick()"></div>
+    <div v-if="refs.visible" class="cover" @click="onClick()" :style="{ background: refs.color }"></div>
   </transition>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, PropType } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import CoverService from '@/services/CoverService';
 
 export default defineComponent({
   name: 'CoverController',
-  props: {
-    coverService: {
-      type: Object as PropType<CoverService>,
-      required: true
-    }
-  },
-  setup(props) {
+  setup() {
     const refs = reactive({
-      visible: props.coverService.getVisibleRef()
+      visible: CoverService.getVisibleRef(),
+      color: CoverService.getColorRef()
     });
 
     function onClick() {
-      props.coverService.removeCover();
+      CoverService.removeCover();
     }
 
     return {
@@ -50,8 +45,7 @@ export default defineComponent({
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: scale-color(var-dark('background-primary'), $alpha: -50%);
-  opacity: 1;
+  opacity: 0.75;
   z-index: 500;
 }
 </style>

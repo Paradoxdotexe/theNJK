@@ -1,13 +1,15 @@
 import { reactive, toRef } from 'vue';
 import PromiseCallback from '@/util/PromiseCallback';
 
-export default class CoverService {
+export default new (class CoverService {
   private refs = reactive({
     visible: false,
-    callback: undefined as PromiseCallback<null> | undefined
+    callback: undefined as PromiseCallback<null> | undefined,
+    color: '#000'
   });
 
-  public addCover(): Promise<null> {
+  public addCover(color: string | null = null): Promise<null> {
+    this.refs.color = color ?? '#000';
     this.refs.visible = true;
     document.body.classList.add('no-scrolling');
     this.refs.callback = new PromiseCallback();
@@ -25,7 +27,8 @@ export default class CoverService {
   public getVisibleRef() {
     return toRef(this.refs, 'visible');
   }
-}
 
-export const NavCoverService = new CoverService();
-export const ConnectCoverService = new CoverService();
+  public getColorRef() {
+    return toRef(this.refs, 'color');
+  }
+})();
