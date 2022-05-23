@@ -109,17 +109,17 @@ export default defineComponent({
     function connect() {
       refs.connectMenuShown = !refs.connectMenuShown;
       if (refs.connectMenuShown) {
-        CoverService.addCover('#45c463').then(() => (refs.connectMenuShown = false));
+        CoverService.addCover('#45c463', focusListener).then(() => (refs.connectMenuShown = false));
       } else {
         CoverService.removeCover();
       }
+    }
 
-      // close menu if user focuses out of it
-      document.addEventListener('focusin', e => {
-        if (!(e.target as HTMLElement).classList[0].startsWith('connect-menu')) {
-          CoverService.removeCover();
-        }
-      });
+    const focusListener = (e: Event) => {
+      const className = (e.target as HTMLElement).classList[0];
+      if (!className || !className.startsWith('connect-menu')) {
+        CoverService.removeCover();
+      }
     }
 
     return {
