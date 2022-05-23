@@ -36,5 +36,28 @@ body {
   &.no-scrolling {
     height: 100vh;
     overflow-y: hidden;
+    padding-right: 20px;
+
+    .header, .connect-menu {
+      padding-right: 20px;
+    }
   }
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 6px solid var(--background-tertiary);
+  background: scale-color(var-dark('background-tertiary'), $lightness: 30%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: scale-color(var-dark('background-tertiary'), $lightness: 45%);
 }

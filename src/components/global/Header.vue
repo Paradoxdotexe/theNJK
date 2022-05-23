@@ -235,12 +235,12 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
     position: relative;
     padding: ($gap-xl * 1.25) $gap-xl;
     border-radius: $gap-md;
-    background: var-dark('background-primary');
+    background: var(--background-primary);
     pointer-events: all;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 400px;
+    width: 380px;
 
     .connect-menu__title {
       display: flex;
@@ -258,7 +258,7 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
         border-radius: $gap-sm;
 
         &:focus, &:hover {
-          background: var-dark('background-tertiary');
+          background: var(--background-tertiary);
         }
 
         svg {
