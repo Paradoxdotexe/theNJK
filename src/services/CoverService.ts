@@ -1,7 +1,7 @@
 import { reactive, toRef } from 'vue';
 import PromiseCallback from '@/util/PromiseCallback';
 
-export default new (class CoverService {
+export default class CoverService {
   private refs = reactive({
     visible: false,
     callback: undefined as PromiseCallback<null> | undefined
@@ -13,6 +13,7 @@ export default new (class CoverService {
     this.refs.callback = new PromiseCallback();
     return this.refs.callback.promise;
   }
+
   public removeCover(): void {
     this.refs.visible = false;
     document.body.classList.remove('no-scrolling');
@@ -24,4 +25,7 @@ export default new (class CoverService {
   public getVisibleRef() {
     return toRef(this.refs, 'visible');
   }
-})();
+}
+
+export const NavCoverService = new CoverService();
+export const ConnectCoverService = new CoverService();

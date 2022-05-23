@@ -5,18 +5,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, PropType } from 'vue';
 import CoverService from '@/services/CoverService';
 
 export default defineComponent({
   name: 'CoverController',
-  setup() {
+  props: {
+    coverService: {
+      type: Object as PropType<CoverService>,
+      required: true
+    }
+  },
+  setup(props) {
     const refs = reactive({
-      visible: CoverService.getVisibleRef()
+      visible: props.coverService.getVisibleRef()
     });
 
     function onClick() {
-      CoverService.removeCover();
+      props.coverService.removeCover();
     }
 
     return {

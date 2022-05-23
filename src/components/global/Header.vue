@@ -30,7 +30,7 @@
 import { defineComponent, reactive, watch, onMounted } from 'vue';
 import Icon from '@/components/icons/Icon.vue';
 import HeaderButtons from '@/components/global/HeaderButtons.vue';
-import CoverService from '@/services/CoverService';
+import { NavCoverService } from '@/services/CoverService';
 import { useRoute } from 'vue-router';
 import router from '@/router';
 
@@ -64,9 +64,9 @@ export default defineComponent({
     function toggleDrawer() {
       refs.drawerOpen = !refs.drawerOpen;
       if (refs.drawerOpen) {
-        CoverService.addCover().then(() => (refs.drawerOpen = false));
+        NavCoverService.addCover().then(() => (refs.drawerOpen = false));
       } else {
-        CoverService.removeCover();
+        NavCoverService.removeCover();
       }
     }
 
