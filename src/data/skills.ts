@@ -12,12 +12,12 @@ const Skills: Skill[] = [
   },
   {
     technologies: 'HTML, CSS, Sass',
-    type: 'Web languages',
+    type: 'Web technologies',
     years: 4
   },
   {
     technologies: 'Angular, Vue, React, Node',
-    type: 'Javascript/Typescript Frameworks',
+    type: 'Javascript/Typescript frameworks',
     years: 3
   },
   {
