@@ -1,6 +1,6 @@
 <template>
   <transition name="cover">
-    <div v-if="refs.visible" class="cover" @click="onClick()"></div>
+    <div v-if="refs.visible" class="cover" @click="onClick()" :style="{ background: refs.color }"></div>
   </transition>
 </template>
 
@@ -12,7 +12,8 @@ export default defineComponent({
   name: 'CoverController',
   setup() {
     const refs = reactive({
-      visible: CoverService.getVisibleRef()
+      visible: CoverService.getVisibleRef(),
+      color: CoverService.getColorRef()
     });
 
     function onClick() {
@@ -44,8 +45,7 @@ export default defineComponent({
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: scale-color(var-dark('background-primary'), $alpha: -50%);
-  opacity: 1;
+  opacity: 0.75;
   z-index: 500;
 }
 </style>

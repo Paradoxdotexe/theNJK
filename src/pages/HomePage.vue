@@ -44,10 +44,9 @@
 
       <!-- EDUCATION -->
       <ContentHeader path="C:\Users\Nathan\WPI\Education.zip" title="Education">
-        I am pursuing a BS in <strong>Computer Science</strong> and minor in
-        <strong>Interactive Media & Game Development</strong> from Worcester Polytechnic Institute
-        (WPI). To date, I have completed the courses below in each of my respective fields of study to earn an esteemed
-        <strong>4.0 GPA</strong>.
+        I graduated from Worcester Polytechnic Institute with a B.S. in <strong>Computer Science</strong> and minor in
+        <strong>Interactive Media & Game Development</strong>. Over the course of my studies, I completed the following courses to earn the accolades of High Distinction,
+        an esteemed <strong>4.0 GPA</strong>, and recognition for Outstanding Senior in Computer Science.
       </ContentHeader>
       <ExpansionPanel
         v-for="type of ['CS', 'IMGD', 'DESIGN']"
@@ -77,7 +76,7 @@
           :key="i"
           :title="skill.technologies"
           :subtitle="skill.type"
-          :tag="`${skill.years} years`"
+          :tag="`${skill.years} year${skill.years > 1 ? 's' : ''}`"
         ></ContentCard>
       </div>
     </div>

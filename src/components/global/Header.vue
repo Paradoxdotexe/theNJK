@@ -9,7 +9,7 @@
         <HeaderButtons />
       </div>
       <div class="header__right">
-        <button class="header__button--contact" v-ripple @click="contact()">Contact</button>
+        <button class="header__button--contact" v-ripple @click="connect">Connect</button>
         <button class="header__button--menu" v-ripple @click="toggleDrawer">
           <Icon name="Menu" />
         </button>
@@ -24,6 +24,35 @@
       </div>
     </div>
   </transition>
+  <!-- CONNECT MENU -->
+  <transition name="menu">
+    <div v-if="refs.connectMenuShown" class="connect-menu">
+      <div class="connect-menu__framework">
+        <div class="connect-menu__title">
+          Let's stay connected!
+          <button @click="connect" class="connect-menu__exit" v-ripple>
+            <Icon name="Cancel" />
+          </button>
+        </div>
+        <CopyLink class="connect-menu__link">
+          <Icon name="Email" />
+          paradoxpyt@gmail.com
+        </CopyLink>
+        <a class="connect-menu__link" href="https://www.linkedin.com/in/thenjk/" target="_blank">
+          <Icon name="LinkedIn" />
+          linkedin.com/in/theNJK
+        </a>
+        <a class="connect-menu__link" href="https://github.com/IamParadoxdotexe" target="_blank">
+          <Icon name="GitHub" />
+          github.com/IamParadoxdotexe
+        </a>
+        <a class="connect-menu__link" href="https://www.instagram.com/nathan_paradox/" target="_blank">
+          <Icon name="Instagram" />
+          instagram.com/nathan_paradox
+        </a>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -33,16 +62,19 @@ import HeaderButtons from '@/components/global/HeaderButtons.vue';
 import CoverService from '@/services/CoverService';
 import { useRoute } from 'vue-router';
 import router from '@/router';
+import CopyLink from "@/components/CopyLink.vue";
 
 export default defineComponent({
   name: 'Header',
   components: {
     Icon,
-    HeaderButtons
+    HeaderButtons,
+    CopyLink
   },
   setup() {
     const refs = reactive({
-      drawerOpen: false
+      drawerOpen: false,
+      connectMenuShown: false
     });
 
     watch(useRoute(), () => {
@@ -74,15 +106,27 @@ export default defineComponent({
       router.push({ name: 'Home' });
     }
 
-    function contact() {
-      window.location.href = 'mailto: njklingensmith@wpi.edu';
+    function connect() {
+      refs.connectMenuShown = !refs.connectMenuShown;
+      if (refs.connectMenuShown) {
+        CoverService.addCover('#45c463', focusListener).then(() => (refs.connectMenuShown = false));
+      } else {
+        CoverService.removeCover();
+      }
+    }
+
+    const focusListener = (e: Event) => {
+      const className = (e.target as HTMLElement).classList[0];
+      if (!className || !className.startsWith('connect-menu')) {
+        CoverService.removeCover();
+      }
     }
 
     return {
       refs,
       toggleDrawer,
       goHome,
-      contact
+      connect
     };
   }
 });
@@ -167,6 +211,82 @@ $edge-item-width: $gap-xl * 3; // edge items must be same width to properly cent
     @include mix-framework;
     display: flex;
     justify-content: center;
+  }
+}
+
+.connect-menu {
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity $transition-duration $transition-timing;
+
+  &.menu-enter-from,
+  &.menu-leave-to {
+    opacity: 0 !important;
+  }
+
+  .connect-menu__framework {
+    position: relative;
+    padding: ($gap-xl * 1.25) $gap-xl;
+    border-radius: $gap-md;
+    background: var(--background-primary);
+    pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 380px;
+
+    .connect-menu__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $font-size-xxl;
+      font-weight: 500;
+      margin-bottom: $gap-sm;
+      margin-top: -$gap-sm;
+
+      .connect-menu__exit {
+        @include mix-button;
+        margin-right: -$gap-sm;
+        padding: $gap-sm;
+        border-radius: $gap-sm;
+
+        &:focus, &:hover {
+          background: var(--background-tertiary);
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .connect-menu__link {
+      display: flex;
+      align-items: center;
+      gap: $gap-sm;
+      color: var(--color-primary);
+      text-decoration: none;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      &:focus,
+      &:hover {
+        color: var(--accent-primary);
+        background: none;
+        text-decoration: underline;
+      }
+    }
   }
 }
 

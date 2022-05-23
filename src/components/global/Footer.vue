@@ -11,22 +11,26 @@
             Designer by necessity.
           </div>
           <div class="footer__media">
-            <a href="https://github.com/IamParadoxdotexe"><Icon name="GitHub" /></a>
-            <a href="https://www.linkedin.com/in/thenjk/"><Icon name="LinkedIn" /></a>
-            <a href="https://www.instagram.com/nathan_paradox/"><Icon name="Instagram" /></a>
+            <a href="https://github.com/IamParadoxdotexe" target="_blank"><Icon name="GitHub" /></a>
+            <a href="https://www.linkedin.com/in/thenjk/" target="_blank"><Icon name="LinkedIn" /></a>
+            <a href="https://www.instagram.com/nathan_paradox/" target="_blank"><Icon name="Instagram" /></a>
           </div>
         </div>
         <div class="footer__links">
-          <div>Menu</div>
+          <div class="links__header">Menu</div>
           <router-link
             v-for="button of NavButtons"
             :key="button.route"
             :to="{ name: button.route }"
-            >{{ button.label }}</router-link
-          >
+            >{{ button.label }}
+          </router-link>
+        </div>
+        <div class="footer__links">
+          <div class="links__header">Contact</div>
+          <CopyLink>paradoxpyt@gmail.com</CopyLink>
         </div>
       </div>
-      <div class="footer__copyright">© 2021 Nathan J Klingensmith.</div>
+      <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith.</div>
     </div>
   </div>
 </template>
@@ -35,11 +39,13 @@
 import { defineComponent } from 'vue';
 import Icon from '@/components/icons/Icon.vue';
 import { NavButtons } from '@/components/global/HeaderButtons.vue';
+import CopyLink from "@/components/CopyLink.vue";
 
 export default defineComponent({
   name: 'Footer',
   components: {
-    Icon
+    Icon,
+    CopyLink
   },
   setup() {
     return {
@@ -67,6 +73,8 @@ export default defineComponent({
       margin-bottom: $gap-xl;
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+      gap: $gap-xl;
 
       .footer__brand {
         display: flex;
@@ -108,10 +116,11 @@ export default defineComponent({
       }
 
       .footer__links {
+        position: relative;
         display: flex;
         flex-direction: column;
 
-        div {
+        .links__header {
           font-size: $font-size-lg;
           font-weight: bold;
         }
@@ -130,10 +139,6 @@ export default defineComponent({
         }
       }
     }
-
-    .footer__copyright {
-      text-align: center;
-    }
   }
 }
 
@@ -142,10 +147,8 @@ export default defineComponent({
     .footer__top {
       margin-bottom: unset;
       justify-content: flex-start;
-
-      .footer__links {
-        margin-left: $gap-xl * 3;
-      }
+      flex-direction: row;
+      gap: $gap-xl * 3;
     }
 
     .footer__copyright {

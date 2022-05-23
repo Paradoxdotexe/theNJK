@@ -6,23 +6,23 @@ interface Skill {
 
 const Skills: Skill[] = [
   {
-    technologies: 'HTML, CSS, Sass',
-    type: 'Web languages',
+    technologies: 'Photoshop, Illustrator',
+    type: 'Graphic design tools',
     years: 4
   },
   {
-    technologies: 'Angular, Vue, Node',
-    type: 'Javascript/Typescript Frameworks',
+    technologies: 'HTML, CSS, Sass',
+    type: 'Web technologies',
+    years: 4
+  },
+  {
+    technologies: 'Angular, Vue, React, Node',
+    type: 'Javascript/Typescript frameworks',
     years: 3
   },
   {
     technologies: 'Github, Gitlab',
     type: 'Git version control',
-    years: 3
-  },
-  {
-    technologies: 'Photoshop, Illustrator',
-    type: 'Graphic design tools',
     years: 3
   },
   {

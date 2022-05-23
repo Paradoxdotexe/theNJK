@@ -20,6 +20,8 @@ import IconArrowThin from '@/components/icons/IconArrowThin.vue';
 import IconGitHub from '@/components/icons/IconGitHub.vue';
 import IconLinkedIn from '@/components/icons/IconLinkedIn.vue';
 import IconInstagram from '@/components/icons/IconInstagram.vue';
+import IconEmail from '@/components/icons/IconEmail.vue';
+import IconCancel from '@/components/icons/IconCancel.vue';
 
 export default defineComponent({
   name: 'Icon',
@@ -30,7 +32,9 @@ export default defineComponent({
     IconArrowThin,
     IconGitHub,
     IconLinkedIn,
-    IconInstagram
+    IconInstagram,
+    IconEmail,
+    IconCancel
   },
   props: {
     name: {

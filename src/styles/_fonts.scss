@@ -36,6 +36,7 @@ $font-families: (
     'italics': true
   )
 );
+
 @each $family-name, $family in $font-families {
   $fonts: map-get($family, 'fonts');
   $italics: map-get($family, 'italics');

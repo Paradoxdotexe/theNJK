@@ -31,6 +31,7 @@ export const NavButtons = [
 
 export default defineComponent({
   name: 'HeaderButtons',
+  emits: ['navigate'],
   setup(_props, ctx) {
     function emitNavigate() {
       ctx.emit('navigate');

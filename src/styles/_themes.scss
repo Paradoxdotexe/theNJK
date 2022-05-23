@@ -21,8 +21,8 @@ $dark: (
   'background-secondary': scale-color($_dark, $lightness: 5%),
   'background-tertiary': scale-color($_dark, $lightness: 10%),
   'accent-primary': $_accent,
-  'accent-secondary': scale-color($_accent, $lightness: -25%),
-  'accent-tertiary': scale-color($_accent, $lightness: -50%)
+  'accent-secondary': scale-color($_accent, $lightness: -20%),
+  'accent-tertiary': scale-color($_accent, $lightness: -35%)
 );
 
 // used to get non-variable dark theme values
@@ -34,8 +34,4 @@ $dark: (
   @each $name, $color in $dark {
     --#{$name}: #{$color};
   }
-}
-
-body {
-  @include dark-theme();
 }

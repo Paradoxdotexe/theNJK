@@ -29,18 +29,42 @@ export interface DevelopmentEntry {
 
 const DevelopmentEntries: DevelopmentEntry[] = [
   {
+    year: 2022,
+    title: 'Pallyt Website V2',
+    subtitle: 'Introducing Pallyt to contractors, suppliers, and investors.',
+    content: {
+      key: 'PW2',
+      count: 8,
+      type: ContentType.WEB,
+      color: '#bdb282'
+    },
+    details: {
+      client: 'Pallyt Technologies Inc.',
+      role: 'Co-Founder & CTO',
+      technologies: ['HTML', 'SCSS', 'Typescript', 'React', 'Github', 'Figma', 'Amazon Web Services'],
+      platform:
+          'The second version of the Pallyt website is the new, publicly-facing website for Pallyt, designed to promote the startup, build local interest, and find new partners. ' +
+          'This website provides information for three target audiences: construction contractors as the primary user for the Pallyt App, construction suppliers as prospective partners of Pallyt, and angel investors as potential early-stage investors for Pallyt.',
+      work:
+          'During my final 7-week term at WPI, I carried out a complete overhaul of the Pallyt website, improving its aesthetic, bringing it up-to-date, and converting the previous Vue web app to React. ' +
+          'I created new content that would specifically target the intended audiences of the website, creating a space to inform users, partners, and possible investors. ' +
+          'For implementation, I built a new React web app from the ground up using Next.js and deployed it as a static website using Amazon Web Services.',
+      demo: 'https://pallyt.com'
+    }
+  },
+  {
     year: 2021,
     title: 'Pallyt App',
     subtitle: 'Putting construction materials at the fingertips of consumers.',
     content: {
       key: 'PA',
-      count: 5,
+      count: 7,
       type: ContentType.MOBILE,
       color: '#bdb282'
     },
     details: {
-      client: 'Pallyt Technologies',
-      role: 'Head of Technology',
+      client: 'Pallyt Technologies Inc.',
+      role: 'Co-Founder & CTO',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
       platform:
         'Pallyt is an app designed to make the location and delivery of construction materials as efficient as possible. ' +
@@ -55,7 +79,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
   },
   {
     year: 2021,
-    title: 'Pallyt Website',
+    title: 'Pallyt Website V1',
     subtitle: 'Promoting and informing the world about Pallyt.',
     content: {
       key: 'PW',
@@ -64,18 +88,17 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       color: '#bdb282'
     },
     details: {
-      client: 'Pallyt Technologies',
-      role: 'Head of Technology',
+      client: 'Pallyt Technologies Inc.',
+      role: 'Co-Founder & CTO',
       technologies: ['HTML', 'SCSS', 'Typescript', 'Vue', 'Github', 'Figma', 'Amazon Web Services'],
       platform:
-        'The Pallyt website is the forward-facing platform for the startup Pallyt Technologies. ' +
-        "The website is used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team's progress. " +
-        'Additionally, the website helps connect Pallyt with interested parties through contact information and a newsletter mailing list.',
+        'The first version of the Pallyt website was the forward-facing platform for Pallyt, an emerging startup. ' +
+        "The website was used to explain what the Pallyt app is, show the team involved in making Pallyt a reality, and keep people informed on the team's progress. " +
+        'Additionally, the website helped connect Pallyt with interested parties through contact information and a newsletter mailing list.',
       work:
         'In just a few weeks, I designed the Pallyt website in Figma and developed it as a Vue web app. ' +
         'With assistance from two marketing consultants, I created content that would professionally brand Pallyt and make people feel connected with the venture. ' +
-        'By integrating with a simple Amazon Web Services back-end, I added the ability to collect email addresses for the Pallyt mailing list.',
-      demo: 'https://pallyt.com'
+        'By integrating with a simple Amazon Web Services back-end, I added the ability to collect email addresses for the Pallyt mailing list.'
     }
   },
   {

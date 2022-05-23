@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomePage from '@/pages/HomePage.vue';
 import DevelopmentPage from '@/pages/DevelopmentPage.vue';
 import DesignPage from '@/pages/DesignPage.vue';
+import CoverService from "@/services/CoverService";
 
 const routes = [
   {
@@ -36,6 +37,7 @@ router.beforeEach((to, _from, next) => {
     to.name !== 'Home'
       ? `theNJK - ${String(to.name)}`
       : 'theNJK - Portfolio of Nathan J Klingensmith'; // dynamically set website title
+  CoverService.removeCover();
   next();
 });
 

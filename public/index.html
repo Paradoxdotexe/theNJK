@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="/favicon.png" />
+    <link id="favicon" rel="icon" href="/favicon.png" />
     <title>theNJK - Portfolio of Nathan J Klingensmith</title>
     <meta name="author" content="Nathan J Klingensmith" />
     <meta name="keywords" content="nathan, klingensmith, web developer, portfolio, website, resume, wpi" />
@@ -18,6 +18,20 @@
         it to continue.</strong
       >
     </noscript>
+    <script>
+        const favicon = document.getElementById("favicon");
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+        const updateFavicon = () => {
+            if (isDark.matches) favicon.href = "/favicon-dark.png";
+            else favicon.href = "/favicon.png";
+        }
+
+        isDark.addEventListener("change", () => {
+            updateFavicon();
+        });
+        updateFavicon();
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
