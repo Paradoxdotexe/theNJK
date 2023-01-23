@@ -76,7 +76,7 @@
           :key="i"
           :title="skill.technologies"
           :subtitle="skill.type"
-          :tag="`${skill.years} year${skill.years > 1 ? 's' : ''}`"
+          :tag="`${currentYear - skill.startYear} year${(currentYear - skill.startYear) > 1 ? 's' : ''}`"
         ></ContentCard>
       </div>
     </div>
@@ -94,6 +94,7 @@ import router from '@/router';
 import Roles from '@/data/roles';
 import Courses, { CourseType } from '@/data/courses';
 import Skills from '@/data/skills';
+import { DateTime } from 'luxon';
 
 export default defineComponent({
   name: 'HomePage',
@@ -105,6 +106,8 @@ export default defineComponent({
     ExpansionPanel
   },
   setup() {
+    const currentYear = DateTime.now().year;
+
     function goToPortfolio(n: number) {
       router.push({ name: n ? 'Design' : 'Development' });
     }
@@ -118,7 +121,8 @@ export default defineComponent({
       Skills,
       goToPortfolio,
       getCourses,
-      CourseType
+      CourseType,
+      currentYear
     };
   }
 });

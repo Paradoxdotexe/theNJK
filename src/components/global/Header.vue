@@ -36,7 +36,7 @@
         </div>
         <CopyLink class="connect-menu__link">
           <Icon name="Email" />
-          paradoxpyt@gmail.com
+          nathan@thenjk.com
         </CopyLink>
         <a class="connect-menu__link" href="https://www.linkedin.com/in/thenjk/" target="_blank">
           <Icon name="LinkedIn" />
