@@ -76,6 +76,7 @@ export default defineComponent({
     width: 100%;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+    user-select: none;
   }
 }
 
