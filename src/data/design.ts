@@ -30,6 +30,24 @@ export interface DesignEntry {
 
 const DesignEntries: DesignEntry[] = [
   {
+    title: 'The Rummage Room',
+    key: 'RR',
+    contentCount: 1,
+    description: 'For an eBay store that sells a wide variety of items, I created a logo, a store banner, and business cards to improve their brand presence.',
+    format: ContentFormat.LOGO,
+    width: ContentWidth.LARGE,
+    height: ContentHeight.SHORT
+  },
+  {
+    title: 'HMD Customs',
+    key: 'HMD',
+    contentCount: 2,
+    description: 'I created a social media logo for a CNC and wood-burning business.',
+    format: ContentFormat.LOGO,
+    width: ContentWidth.SMALL,
+    height: ContentHeight.SHORT,
+  },
+  {
     title: 'Pallyt Technologies',
     key: 'PT',
     contentCount: 2,
