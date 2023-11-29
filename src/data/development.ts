@@ -46,8 +46,8 @@ const DevelopmentEntries: DevelopmentEntry[] = [
         'The Tunic website was built to facilitate a product-led growth motion towards onboarding new users onto the Tunic app. ' +
         'Emphasis was placed on encouraging prospects to try the freemium service so we could gauge market interest and initiate beta testing.',
       work:
-        'I led the complete build up of this forward-facing website using Figma for design and React for the frontend. ' +
-        'The content was designed to engage prospective developers, including low fidelity examples of real features, an animated timeline sequence, and a teaser trailer demoing the app.'
+        'I led the design and development of this forward-facing website in the weeks leading up to our beta launch. ' +
+        'The content was designed to engage prospective developers, including low fidelity examples of features, an animated timeline sequence, and a teaser trailer demo of the app.'
     }
   },
   {
