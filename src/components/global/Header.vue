@@ -42,9 +42,9 @@
           <Icon name="LinkedIn" />
           linkedin.com/in/theNJK
         </a>
-        <a class="connect-menu__link" href="https://github.com/IamParadoxdotexe" target="_blank">
+        <a class="connect-menu__link" href="https://github.com/Paradoxdotexe" target="_blank">
           <Icon name="GitHub" />
-          github.com/IamParadoxdotexe
+          github.com/Paradoxdotexe
         </a>
         <a class="connect-menu__link" href="https://www.instagram.com/nathan_paradox/" target="_blank">
           <Icon name="Instagram" />
