@@ -29,6 +29,31 @@ export interface DevelopmentEntry {
 
 const DevelopmentEntries: DevelopmentEntry[] = [
   {
+    year: 2024,
+    title: 'DevEx',
+    subtitle:
+      'Uncovering actionable opportunities to improve the developer experience of engineers.',
+    content: {
+      key: 'DX',
+      count: 7,
+      type: ContentType.WEB,
+      color: '#6700ea'
+    },
+    details: {
+      client: 'Jellyfish',
+      role: 'Lead Frontend Engineer',
+      technologies: ['HTML', 'CSS', 'Typescript', 'React', 'Figma', 'Django'],
+      platform:
+        'DevEx helps engineering organizations measure and improve the developer experience of their engineers. ' +
+        "Through research-backed surveys, DevEx helps diagnose engineers' needs, identify actionable opportunities, and track progress towards improvement. " +
+        'The product includes interfaces for users to build, take, and analyze fully-customizable surveys.',
+      work:
+        'I supported the evolution of DevEx in both strategy and technology, starting out as a scrappy alpha, undergoing a full rebuild for beta, and then finally reaching MVP status for release. ' +
+        'With one other engineer, I helped architect the foundational Django backend and React frontend that would support this product, making improvements on prior infrastructure and building for extensibility. ' +
+        "Over the course of 14 months, DevEx transitioned from a two-person initiative to a full product team, where I helped onboard new engineers and continued to spearhead the product's growth."
+    }
+  },
+  {
     year: 2023,
     title: 'Tunic Website',
     subtitle: 'Marketing Tunic to prospective developers.',
@@ -66,12 +91,12 @@ const DevelopmentEntries: DevelopmentEntry[] = [
       technologies: ['HTML', 'CSS', 'Typescript', 'React', 'Django', 'GraphQL', 'Figma'],
       platform:
         'Tunic is a platform designed to help dev teams measure and improve the quality of their development processes through the analysis of quantitative metrics. ' +
-        'Using a realtime stream of GitHub events, Tunic provides insights about what a dev team is working on, where they\'re stuck, and how they can get back on track. ' +
+        "Using a realtime stream of GitHub events, Tunic provides insights about what a dev team is working on, where they're stuck, and how they can get back on track. " +
         'Tunic targeted a product-led growth approach where any prospect with a GitHub repository could setup and configure the app by themselves.',
       work:
         'Over the span of 8 months, I worked with two other collaborators to build up Tunic from scratch and release it to the public in pursuit of evaluating its potential as a competitive threat vector. ' +
         'I spearheaded the design work in Figma, led the frontend development of a Next.js React app, and supported backend development of a Django server. ' +
-        'Using webhooks from GitHub and websockets on the client, we created a realtime experience that would visually and audibly inform the user of their team\'s git-based activity with data-backed insights.'
+        "Using webhooks from GitHub and websockets on the client, we created a realtime experience that would visually and audibly inform the user of their team's git-based activity with data-backed insights."
     }
   },
   {
@@ -87,14 +112,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
     details: {
       client: 'Pallyt Technologies Inc.',
       role: 'Co-Founder & CTO',
-      technologies: [
-        'HTML',
-        'SCSS',
-        'Typescript',
-        'React',
-        'Figma',
-        'Amazon Web Services'
-      ],
+      technologies: ['HTML', 'SCSS', 'Typescript', 'React', 'Figma', 'Amazon Web Services'],
       platform:
         'The second version of the Pallyt website is the new, publicly-facing website for Pallyt, designed to promote the startup, build local interest, and find new partners. ' +
         'This website provides information for three target audiences: construction contractors as the primary user for the Pallyt App, construction suppliers as prospective partners of Pallyt, and angel investors as potential early-stage investors for Pallyt.',
@@ -217,15 +235,7 @@ const DevelopmentEntries: DevelopmentEntry[] = [
     details: {
       client: "Brigham & Women's Hospital",
       role: 'Lead Software Engineer',
-      technologies: [
-        'HTML',
-        'CSS',
-        'Javascript',
-        'Python',
-        'Flask',
-        'MongoDB',
-        'Push API',
-      ],
+      technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask', 'MongoDB', 'Push API'],
       platform:
         'This prototype web app shows how hospitals can utilize mobile technology to efficiently process service requests from anywhere in the building. ' +
         'The platform has the ability to authenticate staff through an employee database, receive live updates for service requests, and send notifications for new request assignments.',
