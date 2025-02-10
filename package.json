@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
     "fix": "vue-cli-service lint & npx prettier --write ."
   },
   "dependencies": {
+    "@types/luxon": "^3.2.0",
     "core-js": "^3.6.5",
+    "luxon": "^3.2.1",
     "mitt": "^3.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"

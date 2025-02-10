@@ -11,7 +11,7 @@
             Designer by necessity.
           </div>
           <div class="footer__media">
-            <a href="https://github.com/IamParadoxdotexe" target="_blank"><Icon name="GitHub" /></a>
+            <a href="https://github.com/Paradoxdotexe" target="_blank"><Icon name="GitHub" /></a>
             <a href="https://www.linkedin.com/in/thenjk/" target="_blank"><Icon name="LinkedIn" /></a>
             <a href="https://www.instagram.com/nathan_paradox/" target="_blank"><Icon name="Instagram" /></a>
           </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="footer__links">
           <div class="links__header">Contact</div>
-          <CopyLink>paradoxpyt@gmail.com</CopyLink>
+          <CopyLink>nathan@thenjk.com</CopyLink>
         </div>
       </div>
       <div class="footer__copyright">Copyright © 2022 Nathan J Klingensmith.</div>

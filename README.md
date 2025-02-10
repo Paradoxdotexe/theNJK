@@ -11,7 +11,7 @@ To run the website, install the required dependencies and serve it to a local po
 
 ```
 npm install
-npm run serve
+npm run dev
 ```
 
 ## Cleaning

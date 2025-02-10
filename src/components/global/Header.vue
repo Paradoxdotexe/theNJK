@@ -36,15 +36,15 @@
         </div>
         <CopyLink class="connect-menu__link">
           <Icon name="Email" />
-          paradoxpyt@gmail.com
+          nathan@thenjk.com
         </CopyLink>
         <a class="connect-menu__link" href="https://www.linkedin.com/in/thenjk/" target="_blank">
           <Icon name="LinkedIn" />
           linkedin.com/in/theNJK
         </a>
-        <a class="connect-menu__link" href="https://github.com/IamParadoxdotexe" target="_blank">
+        <a class="connect-menu__link" href="https://github.com/Paradoxdotexe" target="_blank">
           <Icon name="GitHub" />
-          github.com/IamParadoxdotexe
+          github.com/Paradoxdotexe
         </a>
         <a class="connect-menu__link" href="https://www.instagram.com/nathan_paradox/" target="_blank">
           <Icon name="Instagram" />

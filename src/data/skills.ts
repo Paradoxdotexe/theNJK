@@ -1,39 +1,39 @@
 interface Skill {
   technologies: string;
   type: string;
-  years: number;
+  startYear: number;
 }
 
 const Skills: Skill[] = [
   {
     technologies: 'Photoshop, Illustrator',
     type: 'Graphic design tools',
-    years: 4
+    startYear: 2018
   },
   {
-    technologies: 'HTML, CSS, Sass',
+    technologies: 'HTML, CSS, JS, Sass',
     type: 'Web technologies',
-    years: 4
+    startYear: 2018
   },
   {
     technologies: 'Angular, Vue, React, Node',
     type: 'Javascript/Typescript frameworks',
-    years: 3
+    startYear: 2019
   },
   {
     technologies: 'Github, Gitlab',
     type: 'Git version control',
-    years: 3
+    startYear: 2019
   },
   {
     technologies: 'Figma, AdobeXD',
     type: 'Interface design tools',
-    years: 1
+    startYear: 2021
   },
   {
     technologies: 'Amazon Web Services',
     type: 'Cloud infrastructure',
-    years: 1
+    startYear: 2021
   }
 ];
 
