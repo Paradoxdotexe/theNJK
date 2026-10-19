@@ -1,5 +1,5 @@
 <template>
-  <div class="content-card">
+  <div class="content-card" :class="{ wide }">
     <div class="content-card__title">{{ title }}</div>
     <div class="content-card__bottom">
       <div class="content-card__subtitle">{{ subtitle }}</div>
@@ -25,6 +25,10 @@ export default defineComponent({
     tag: {
       type: String,
       required: true
+    },
+    wide: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
@@ -41,6 +45,10 @@ export default defineComponent({
   position: relative;
   max-width: $card-width;
   height: min-content;
+
+  &.wide {
+    max-width: $card-width * 1.2;
+  }
   line-height: 100%;
 
   .content-card__title {

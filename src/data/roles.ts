@@ -1,29 +1,46 @@
 interface Role {
   title: string;
   company: string;
-  years: number | number[];
+  // ISO year-month (YYYY-MM); omit end for a current role
+  start: string;
+  end?: string;
 }
 
 const Roles: Role[] = [
   {
-    title: 'Front-end Engineer',
+    title: 'Senior Software Engineer',
     company: 'Jellyfish',
-    years: [2022, 2023]
+    start: '2024-07'
+  },
+  {
+    title: 'Software Engineer II',
+    company: 'Jellyfish',
+    start: '2023-06',
+    end: '2024-06'
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Jellyfish',
+    start: '2022-06',
+    end: '2023-05'
   },
   {
     title: 'Co-Founder & CTO',
     company: 'Pallyt Technologies',
-    years: [2021, 2022]
+    start: '2021-02',
+    end: '2022-07'
   },
   {
     title: 'Angular Web Developer',
     company: 'Bio-CS Bridge Project',
-    years: [2019, 2020, 2021]
+    start: '2019-08',
+    end: '2022-05'
   },
   {
     title: 'Network Automation Intern',
     company: 'State Street Corporation',
-    years: 2019
+    start: '2019-06',
+    end: '2019-08'
   }
 ];
 

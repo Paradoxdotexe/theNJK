@@ -6,28 +6,23 @@ interface Skill {
 
 const Skills: Skill[] = [
   {
-    technologies: 'Photoshop, Illustrator',
-    type: 'Graphic design tools',
+    technologies: 'TypeScript, Javascript, HTML, CSS',
+    type: 'Web languages',
     startYear: 2018
   },
   {
-    technologies: 'HTML, CSS, JS, Sass',
-    type: 'Web technologies',
-    startYear: 2018
-  },
-  {
-    technologies: 'Angular, Vue, React, Node',
-    type: 'Javascript/Typescript frameworks',
+    technologies: 'React, Vue, Angular',
+    type: 'Web frameworks',
     startYear: 2019
   },
   {
-    technologies: 'Github, Gitlab',
-    type: 'Git version control',
-    startYear: 2019
+    technologies: 'Figma, Adobe XD, Photoshop',
+    type: 'Product design',
+    startYear: 2020
   },
   {
-    technologies: 'Figma, AdobeXD',
-    type: 'Interface design tools',
+    technologies: 'Python, Django, Flask',
+    type: 'Backend development',
     startYear: 2021
   },
   {

@@ -34,11 +34,8 @@
           :key="i"
           :title="role.title"
           :subtitle="role.company"
-          :tag="
-            Array.isArray(role.years)
-              ? `${Math.min(...role.years)} - ${Math.max(...role.years)}`
-              : `${role.years}`
-          "
+          :tag="`${formatMonth(role.start)} - ${role.end ? formatMonth(role.end) : 'present'}`"
+          wide
         ></ContentCard>
       </div>
 
@@ -46,7 +43,7 @@
       <ContentHeader path="C:\Users\Nathan\WPI\Education.zip" title="Education">
         I graduated from Worcester Polytechnic Institute with a B.S. in <strong>Computer Science</strong> and minor in
         <strong>Interactive Media & Game Development</strong>. Over the course of my studies, I completed the following courses to earn the accolades of High Distinction,
-        an esteemed <strong>4.0 GPA</strong>, and recognition for Outstanding Senior in Computer Science.
+        an esteemed <strong>4.0 GPA</strong>, membership in Upsilon Pi Epsilon, and recognition for Outstanding Senior in Computer Science.
       </ContentHeader>
       <ExpansionPanel
         v-for="type of ['CS', 'IMGD', 'DESIGN']"
@@ -116,11 +113,16 @@ export default defineComponent({
       return Courses.filter(c => c.type === courseType);
     }
 
+    function formatMonth(month: string) {
+      return DateTime.fromISO(month).toFormat('LLL yyyy');
+    }
+
     return {
       Roles,
       Skills,
       goToPortfolio,
       getCourses,
+      formatMonth,
       CourseType,
       currentYear
     };
@@ -176,7 +178,7 @@ export default defineComponent({
 
     .content__roles {
       display: grid;
-      grid-template-columns: minmax(0, $card-width);
+      grid-template-columns: minmax(0, $card-width * 1.2);
       grid-gap: $gap-md;
     }
 
