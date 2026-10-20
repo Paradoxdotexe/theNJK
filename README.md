@@ -19,14 +19,17 @@ npm run dev
 This command will lint and format the codebase using [Prettier](https://prettier.io/docs/en/index.html).
 
 ```
-npm run clean
+npm run fix
 ```
 
 ## Deployment
 
-After building, build artifacts will be located in the `/dist` folder.
-These artifacts should be uploaded to an S3 bucket on AWS for deployment.
+The deploy scripts build the site, sync `/dist` to its S3 bucket, and invalidate the CloudFront cache.
+They require the [AWS CLI](https://aws.amazon.com/cli/) to be installed and authenticated.
 
 ```
-npm run build
+npm run deploy          # https://thenjk.com
+npm run deploy:staging  # https://staging.thenjk.com
 ```
+
+To build without deploying, run `npm run build`; the artifacts will be located in the `/dist` folder.

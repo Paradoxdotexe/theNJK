@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "deploy": "node scripts/deploy-client.mjs",
+    "deploy:staging": "node scripts/deploy-client.mjs staging",
     "fix": "vue-cli-service lint & npx prettier --write ."
   },
   "dependencies": {
